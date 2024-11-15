@@ -24,13 +24,13 @@ def shift_targets(config):
 
 
 def scr():
-    if os.path.exists("/scr-ssd"):
-        scr_dir = "/scr-ssd/" + getpass.getuser()
-    elif os.path.exists("/scr"):
-        scr_dir = "/scr/" + getpass.getuser()
-    else:
-        scr_dir = "/tmp/scr-" + getpass.getuser()
-
+    # if os.path.exists("/scr-ssd"):
+    #     scr_dir = "/scr-ssd/" + getpass.getuser()
+    # elif os.path.exists("/scr"):
+    #     scr_dir = "/scr/" + getpass.getuser()
+    # else:
+    #     scr_dir = "/tmp/scr-" + getpass.getuser()
+    scr_dir = "/home/gridsan/" + getpass.getuser() + "/EasyEdit/scr"
     if not os.path.exists(scr_dir):
         os.makedirs(scr_dir)
 
@@ -299,20 +299,22 @@ def parent_module(model, pname):
 
 
 if __name__ == "__main__":
-    import random
+    print(scr())
 
-    stopper = EarlyStopper(1000, "loss/edit")
+    # import random
 
-    data = [
-        (100 * idx, {"loss/edit": 2 ** (1 - idx / 10) + random.random()})
-        for idx in range(100)
-    ]
+    # stopper = EarlyStopper(1000, "loss/edit")
 
-    for d in data:
-        stopper.update(*d)
-        print(
-            stopper.current_iter,
-            stopper.should_stop(),
-            stopper.best_iter,
-            d[1]["loss/edit"],
-        )
+    # data = [
+    #     (100 * idx, {"loss/edit": 2 ** (1 - idx / 10) + random.random()})
+    #     for idx in range(100)
+    # ]
+
+    # for d in data:
+    #     stopper.update(*d)
+    #     print(
+    #         stopper.current_iter,
+    #         stopper.should_stop(),
+    #         stopper.best_iter,
+    #         d[1]["loss/edit"],
+    #     )

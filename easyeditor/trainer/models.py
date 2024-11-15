@@ -8,6 +8,9 @@ from transformers import GPT2Tokenizer, GPT2TokenizerFast
 
 from .utils import scr
 
+import getpass
+from huggingface_hub import snapshot_download
+
 LOG = logging.getLogger(__name__)
 
 
@@ -64,7 +67,7 @@ class BertClassifier(torch.nn.Module):
         return self.classifier(self.model(*args, **filtered_kwargs)[1])
 
 
-def get_model(config):
+def get_model(config, download=False):
     if config.model_class == "BertClassifier":
         model = BertClassifier(config.model_name)
     elif config.model_name == "blip2":
@@ -103,7 +106,13 @@ def get_model(config):
         LOG.info(
             f"Loading model class {ModelClass} with name {config.model_name}"
         )
-        model = ModelClass.from_pretrained(config.model_name, trust_remote_code=True, device_map='auto' if config.model_parallel else None)
+        # model = ModelClass.from_pretrained(config.model_name, trust_remote_code=True, device_map='auto' if config.model_parallel else None)
+        if download:
+            cache_dir="/state/partition1/user/" + getpass.getuser() + "/hug"
+            snapshot_download(repo_id=config.model.name, cache_dir=cache_dir)
+            model = ModelClass.from_pretrained(config.model.name, cache_dir=cache_dir, trust_remote_code=True, device_map='auto' if config.model_parallel else None)
+        else:
+            model = ModelClass.from_pretrained(config.model.name, cache_dir=scr(), trust_remote_code=True, device_map='auto' if config.model_parallel else None)
 
     # if config.model.pt is not None:
     #     LOG.info(f"Loading model initialization from {config.model.pt}")
@@ -209,15 +218,23 @@ def get_model(config):
     return model
 
 
-def get_tokenizer(config):
+def get_tokenizer(config, download=False):
     tok_name = (
         config.tokenizer_name
         if config.tokenizer_name is not None
         else config.model.name
     )
-    tokenizer =  getattr(transformers, config.tokenizer_class).from_pretrained(
-        tok_name, cache_dir=scr()
-    )
+    if download:
+        cache_dir="/state/partition1/user/" + getpass.getuser() + "/hug"
+        snapshot_download(repo_id=tok_name, cache_dir=cache_dir)
+        tokenizer =  getattr(transformers, config.tokenizer_class).from_pretrained(
+            tok_name, cache_dir=cache_dir
+        )
+    else:
+        tokenizer =  getattr(transformers, config.tokenizer_class).from_pretrained(
+            tok_name, cache_dir=scr()
+        )
+        
     if isinstance(tokenizer, GPT2Tokenizer) or isinstance(tokenizer, GPT2TokenizerFast):
         tokenizer.pad_token_id  = tokenizer.eos_token_id
         tokenizer.padding_side = 'left'

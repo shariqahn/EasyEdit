@@ -1,3 +1,18 @@
+# My Notes
+
+## todo
+- look at sanitation
+### potential source of issues
+- dependencies didn't resolve properly. try reinstalling with a newer version of pip?
+
+## Running
+- download zsre ROME: `python examples/run_zsre_llama2.py --editing_method "ROME" --hparams_dir "./hparams/ROME/llama-7b.yaml" --data_dir "./data/portability/One Hop" --download`
+- SERAC: `LLsub run.sh -s 11 -g volta:1`
+- MEND: `LLsub run.sh -s 12 -g volta:1`
+
+
+# EasyEdit
+
 <div align="center">
 
 <img src="figs/logo.png" width="180px">

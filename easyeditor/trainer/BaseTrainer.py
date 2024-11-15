@@ -27,9 +27,9 @@ LOG = logging.getLogger(__name__)
 
 
 class BaseTrainer:
-    def __init__(self, config, train_set: Dataset, val_set: Dataset):
+    def __init__(self, config, train_set: Dataset, val_set: Dataset, download=False):
         LOG.info(f'Config: {config}')
-        model_ = get_model(config)
+        model_ = get_model(config, download)
         if 'qwen2' in config.model_name.lower():
             model_.bfloat16()
         self.alg_module = ALG_TRAIN_DICT[config.alg.upper()]

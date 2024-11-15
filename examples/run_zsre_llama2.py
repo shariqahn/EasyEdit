@@ -27,6 +27,7 @@ if __name__ == "__main__":
     parser.add_argument('--data_dir', required=True, type=str)
     parser.add_argument('--ds_size', default=None, type=int)
     parser.add_argument('--metrics_save_dir', default='./output', type=str)
+    # parser.add_argument('--download', action='store_true')
 
     args = parser.parse_args()
 
@@ -44,7 +45,15 @@ if __name__ == "__main__":
         editing_hparams = LoRAHyperParams
     else:
         raise NotImplementedError
+    
+    hparams = editing_hparams.from_hparams(args.hparams_dir)
+    print(hparams.download)
+    editor = BaseEditor.from_hparams(hparams)
 
+    if args.download:
+        sys.exit(0)
+
+    print(os.path.join(args.data_dir, 'zsre_mend_eval_portability_gpt4.json'))
     test_data = json.load(open(os.path.join(args.data_dir, 'zsre_mend_eval_portability_gpt4.json'), 'r', encoding='utf-8'))
 
     if args.ds_size is not None:
@@ -71,7 +80,6 @@ if __name__ == "__main__":
         },
     }
     subject = [edit_data_['subject'] for edit_data_ in test_data]
-    hparams = editing_hparams.from_hparams(args.hparams_dir)
 
     if args.editing_method == 'IKE':
         train_data_path = os.path.join(args.data_dir, 'zsre_mend_train_10000.json')
@@ -81,7 +89,6 @@ if __name__ == "__main__":
     else:
         train_ds = None
 
-    editor = BaseEditor.from_hparams(hparams)
     metrics, edited_model, _ = editor.edit(
         prompts=prompts,
         rephrase_prompts=rephrase_prompts,

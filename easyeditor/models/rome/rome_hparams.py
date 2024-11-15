@@ -40,6 +40,8 @@ class ROMEHyperParams(HyperParams):
     model_parallel: bool = False
     fp16: bool = False
 
+    download: bool = False
+
     @classmethod
     def from_hparams(cls, hparams_name_or_path: str):
 
