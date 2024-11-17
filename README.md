@@ -2,11 +2,23 @@
 
 ## todo
 - look at sanitation
+- look at papers to see if published and expected results
+- **MAKE SURE YOU TEST W LLAMA CHAT AFTER BASELINE ESTABLISHED**
+
 ### potential source of issues
 - dependencies didn't resolve properly. try reinstalling with a newer version of pip?
 
 ## Running
-- download zsre ROME: `python examples/run_zsre_llama2.py --editing_method "ROME" --hparams_dir "./hparams/ROME/llama-7b.yaml" --data_dir "./data/portability/One Hop" --download`
+**NOTE: Code will not finish running just overnight**
+- batch: `LLsub run.sh -g volta:1`
+    - with cpus: `LLsub run.sh -s 1 -g volta:1`
+- serial: `LLsub -i -g volta:1` 
+    - download: `LLsub -i -q download`
+
+- ensure that models are downloaded properly - some configs have a specific checkpoint that they load from
+  - see `models.py:get_hf_model()`
+
+- ROME: `LLsub run.sh -s 8 -g volta:1`
 - SERAC: `LLsub run.sh -s 11 -g volta:1`
 - MEND: `LLsub run.sh -s 12 -g volta:1`
 

@@ -27,7 +27,6 @@ if __name__ == "__main__":
     parser.add_argument('--data_dir', required=True, type=str)
     parser.add_argument('--ds_size', default=None, type=int)
     parser.add_argument('--metrics_save_dir', default='./output', type=str)
-    # parser.add_argument('--download', action='store_true')
 
     args = parser.parse_args()
 
@@ -47,13 +46,12 @@ if __name__ == "__main__":
         raise NotImplementedError
     
     hparams = editing_hparams.from_hparams(args.hparams_dir)
-    print(hparams.download)
     editor = BaseEditor.from_hparams(hparams)
 
-    if args.download:
+    if hparams.download:
         sys.exit(0)
 
-    print(os.path.join(args.data_dir, 'zsre_mend_eval_portability_gpt4.json'))
+    print('data path', os.path.join(args.data_dir, 'zsre_mend_eval_portability_gpt4.json'))
     test_data = json.load(open(os.path.join(args.data_dir, 'zsre_mend_eval_portability_gpt4.json'), 'r', encoding='utf-8'))
 
     if args.ds_size is not None:

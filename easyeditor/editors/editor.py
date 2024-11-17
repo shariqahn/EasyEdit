@@ -19,8 +19,7 @@ from ..util.hparams import HyperParams
 from ..util.alg_dict import *
 from ..evaluate.evaluate_utils import test_generation_quality
 
-from huggingface_hub import snapshot_download
-import getpass
+import pdb
 
 logging.basicConfig(format = '%(asctime)s - %(levelname)s - %(name)s -   %(message)s',
                     datefmt = '%m/%d/%Y %H:%M:%S',
@@ -100,15 +99,11 @@ class BaseEditor:
                 self.tok = GPT2Tokenizer.from_pretrained(self.model_name)
                 self.tok.pad_token_id = self.tok.eos_token_id
             elif 'llama' in self.model_name.lower():
-                if hparams.download:
-                    cache_dir="/state/partition1/user/" + getpass.getuser() + "/hug"
-                    snapshot_dir = snapshot_download(repo_id=self.model_name, cache_dir=cache_dir)
-                    LOG.info(f"Downloaded {self.model_name.lower()} locally in {snapshot_dir}")
-                    return
-                else:
-                    self.model = AutoModelForCausalLM.from_pretrained(self.model_name, **model_kwargs)
-                    self.tok = AutoTokenizer.from_pretrained(self.model_name)
-                    self.tok.pad_token_id = self.tok.eos_token_id
+                # pdb.set_trace()
+                model_kwargs['device_map'] = 'auto'
+                self.model = AutoModelForCausalLM.from_pretrained(self.model_name, **model_kwargs)
+                self.tok = AutoTokenizer.from_pretrained(self.model_name)
+                self.tok.pad_token_id = self.tok.eos_token_id
             elif 'baichuan' in self.model_name.lower():
                 self.model = AutoModelForCausalLM.from_pretrained(self.model_name, **model_kwargs, trust_remote_code=True)
                 self.tok = AutoTokenizer.from_pretrained(self.model_name,trust_remote_code=True)
