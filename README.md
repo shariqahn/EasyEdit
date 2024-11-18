@@ -7,6 +7,7 @@
 
 ### potential source of issues
 - dependencies didn't resolve properly. try reinstalling with a newer version of pip?
+- Llama was sharded when downloaded probably due to memory constraints. changed `model_kwargs['device_map'] = 'auto'` instead of `None` and then it loaded the shards properly
 
 ## Running
 **NOTE: Code will not finish running just overnight**
@@ -21,6 +22,11 @@
 - ROME: `LLsub run.sh -s 8 -g volta:1`
 - SERAC: `LLsub run.sh -s 11 -g volta:1`
 - MEND: `LLsub run.sh -s 12 -g volta:1`
+
+## Memory
+- `sacct -j <JOBID> -oJobID,JobName,State,AllocCPUS,MaxRSS --units=G`
+
+sacct -j 27404234 -oJobID,JobName,State,AllocCPUS,MaxRSS --units=G
 
 
 # EasyEdit
