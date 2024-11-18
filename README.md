@@ -20,6 +20,8 @@
   - see `models.py:get_hf_model()`
 
 - ROME: `LLsub run.sh -s 8 -g volta:1`
+
+- get trained serac and mend here: <https://github.com/zjunlp/EasyEdit/issues/66>
 - SERAC: `LLsub run.sh -s 11 -g volta:1`
 - MEND: `LLsub run.sh -s 12 -g volta:1`
 
