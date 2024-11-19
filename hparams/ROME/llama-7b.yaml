@@ -4,6 +4,7 @@ model_name: "/home/gridsan/shossain/EasyEdit/scr/models--meta-llama--Llama-2-7b-
 
 stats_dir: "./data/stats"
 device: 0
+# device: 0,1
 layers: [5]
 fact_token: "subject_last"
 v_num_grad_steps: 25
@@ -23,7 +24,8 @@ lm_head_module: "lm_head"
 mom2_dataset: "wikipedia"
 mom2_n_samples: 100000
 mom2_dtype: "float32"
-model_parallel: false
+# model_parallel: false
+model_parallel: true
 download: false
 # fp16: true
 

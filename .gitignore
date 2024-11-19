@@ -1,6 +1,6 @@
 .idea
 hugging_cache
-data
+# data
 **/__pycache__
 examples/WikiBio
 examples/wiki_recent
@@ -14,3 +14,7 @@ scripts
 editing-data.zip
 __MACOSX/
 scr/
+data/counterfact
+data/locality
+data/portability
+data/zsre
