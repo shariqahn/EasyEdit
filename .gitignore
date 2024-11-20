@@ -10,7 +10,7 @@ results
 output
 scripts
 
-*.log-*
+run.sh.log-*
 editing-data.zip
 __MACOSX/
 scr/
