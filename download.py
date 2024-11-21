@@ -9,9 +9,9 @@ import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM
 
 if __name__ == "__main__":
-    # model_name = "meta-llama/Llama-2-7b-hf"  # Hugging Face model path for LLaMA 2 7B
+    model_name = "meta-llama/Llama-2-7b-hf"  # Hugging Face model path for LLaMA 2 7B
     # meta-llama/Llama-2-7b-chat-hf
-    model_name = "openai-community/gpt2-xl"
+    # model_name = "openai-community/gpt2-xl"
     cache_dir="/state/partition1/user/" + getpass.getuser() + "/hug"
     print(f'downloading {model_name}')
     snapshot_dir = snapshot_download(repo_id=model_name, cache_dir=cache_dir)

@@ -11,8 +11,8 @@
 
 ## Running
 **NOTE: Code will not finish running just overnight**
-- batch: `LLsub run.sh -g volta:1`
-    - with cpus: `LLsub run.sh -s 1 -g volta:1`
+- batch: `LLsub run.sh -g volta:2`
+    - with cpus: `LLsub run.sh -s 40 -g volta:2`
 - serial: `LLsub -i -g volta:1` 
     - download: `LLsub -i -q download`
 
