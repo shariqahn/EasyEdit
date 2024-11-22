@@ -24,7 +24,8 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--editing_method', required=True, type=str)
     parser.add_argument('--hparams_dir', required=True, type=str)
-    parser.add_argument('--data_dir', required=True, type=str)
+    # parser.add_argument('--data_dir', required=True, type=str)
+    parser.add_argument('--data_file', required=True, type=str)
     parser.add_argument('--ds_size', default=None, type=int)
     parser.add_argument('--metrics_save_dir', default='./output', type=str)
 
@@ -32,8 +33,8 @@ if __name__ == "__main__":
 
     if args.editing_method == 'FT':
         editing_hparams = FTHyperParams
-    elif args.editing_method == 'IKE':
-        editing_hparams = IKEHyperParams
+    # elif args.editing_method == 'IKE':
+    #     editing_hparams = IKEHyperParams
     elif args.editing_method == 'KN':
         editing_hparams = KNHyperParams
     elif args.editing_method == 'MEMIT':
@@ -51,8 +52,8 @@ if __name__ == "__main__":
     if hparams.download:
         sys.exit(0)
 
-    print('data path', os.path.join(args.data_dir, 'zsre_mend_eval_portability_gpt4.json'))
-    test_data = json.load(open(os.path.join(args.data_dir, 'zsre_mend_eval_portability_gpt4.json'), 'r', encoding='utf-8'))
+    # test_data = json.load(open(os.path.join(args.data_dir, 'zsre_mend_eval_portability_gpt4.json'), 'r', encoding='utf-8'))
+    test_data = json.load(open(args.data_file, 'r', encoding='utf-8'))
 
     if args.ds_size is not None:
         test_data = random.sample(test_data, args.ds_size)
@@ -79,13 +80,13 @@ if __name__ == "__main__":
     }
     subject = [edit_data_['subject'] for edit_data_ in test_data]
 
-    if args.editing_method == 'IKE':
-        train_data_path = os.path.join(args.data_dir, 'zsre_mend_train_10000.json')
-        train_ds = ZsreDataset(train_data_path)
-        sentence_model = SentenceTransformer(hparams.sentence_model_name).to(f'cuda:{hparams.device}')
-        encode_ike_facts(sentence_model, train_ds, hparams)
-    else:
-        train_ds = None
+    # if args.editing_method == 'IKE':
+    #     train_data_path = os.path.join(args.data_dir, 'zsre_mend_train_10000.json')
+    #     train_ds = ZsreDataset(train_data_path)
+    #     sentence_model = SentenceTransformer(hparams.sentence_model_name).to(f'cuda:{hparams.device}')
+    #     encode_ike_facts(sentence_model, train_ds, hparams)
+    # else:
+    train_ds = None
 
     metrics, edited_model, _ = editor.edit(
         prompts=prompts,

@@ -23,7 +23,7 @@ export HF_TOKEN=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
 
 echo "Dirs created:"
 ls /state/partition1/user/$USER
-echo "downloading llama:"
+echo "downloading"
 python -u download.py
 # echo "downloading rest:"
 # cd examples

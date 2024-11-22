@@ -11,8 +11,8 @@
 
 ## Running
 **NOTE: Code will not finish running just overnight**
-- batch: `LLsub run.sh -g volta:1`
-    - with cpus: `LLsub run.sh -s 1 -g volta:1`
+- batch: `LLsub run.sh -g volta:2`
+    - with cpus: `LLsub run.sh -s 40 -g volta:2`
 - serial: `LLsub -i -g volta:1` 
     - download: `LLsub -i -q download`
 
@@ -20,6 +20,7 @@
   - see `models.py:get_hf_model()`
 
 - ROME: `LLsub run.sh -s 8 -g volta:1`
+  - took 2.5h on GPTxl
 
 - get trained serac and mend here: <https://github.com/zjunlp/EasyEdit/issues/66>
 - SERAC: `LLsub run.sh -s 11 -g volta:1`
@@ -29,6 +30,11 @@
 - `sacct -j <JOBID> -oJobID,JobName,State,AllocCPUS,MaxRSS --units=G`
 
 sacct -j 27404234 -oJobID,JobName,State,AllocCPUS,MaxRSS --units=G
+- https://github.com/zjunlp/EasyEdit/issues/8 
+- https://github.com/zjunlp/EasyEdit/blob/9e8ec905f78a958fe85e846b11fbbadf6661c39d/easyeditor/models/melo/peft_egg/README.md?plain=1#L24 
+- rome gpt https://github.com/zjunlp/EasyEdit/issues/44
+- ike oom https://github.com/zjunlp/EasyEdit/issues/9#issuecomment-1687284658 
+- run zsre llama https://github.com/zjunlp/EasyEdit/tree/main/examples#rome
 
 
 # EasyEdit

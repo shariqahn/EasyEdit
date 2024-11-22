@@ -1,5 +1,6 @@
 alg_name: "ROME"
-model_name: "./hugging_cache/gpt2-xl"
+# model_name: "./hugging_cache/gpt2-xl"
+model_name: "/home/gridsan/shossain/EasyEdit/scr/models--openai-community--gpt2-xl/snapshots/15ea56dee5df4983c59b2538573817e1667135e2"
 stats_dir: "./data/stats"
 device: 0
 layers: [17]
