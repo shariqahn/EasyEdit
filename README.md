@@ -2,7 +2,6 @@
 
 ## todo
 - look at sanitation
-- look at papers to see if published and expected results
 - **MAKE SURE YOU TEST W LLAMA CHAT AFTER BASELINE ESTABLISHED**
 
 ### potential source of issues
@@ -11,6 +10,8 @@
 
 ## Running
 **NOTE: Code will not finish running just overnight**
+**Model isn't saved by default. Make sure you save it in BaseTrainer.py save_state. Prob just set save to true in config**
+
 - batch: `LLsub run.sh -g volta:2`
     - with cpus: `LLsub run.sh -s 40 -g volta:2`
 - serial: `LLsub -i -g volta:1` 
