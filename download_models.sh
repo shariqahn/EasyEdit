@@ -14,9 +14,9 @@ HF_LOCAL_DIR=$HOME/EasyEdit/scr
 mkdir -p $HF_LOCAL_DIR
 
 # Remove existing models so that they will be replaced with fresh ones
-rm -r $HF_LOCAL_DIR/*
-echo "Existing models removed. Here's what local looks like:"
-ls $HF_LOCAL_DIR
+# rm -r $HF_LOCAL_DIR/*
+# echo "Existing models removed. Here's what local looks like:"
+# ls $HF_LOCAL_DIR
 
 # Token so can access restricted HuggingFace models
 export HF_TOKEN=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
@@ -32,7 +32,7 @@ python -u download.py
 # Copy the model from HF_HOME into HF_LOCAL_DIR
 echo "Model collected. Here is what home looks like:"
 ls $HF_HOME
-cp -rf $HF_HOME/* $HF_LOCAL_DIR
+rsync -a --ignore-existing ${HF_HOME}/ $HF_LOCAL_DIR
 echo "Model copied. Here is what local looks like:"
 ls $HF_LOCAL_DIR
 rm -rf $HF_HOME

@@ -1,6 +1,7 @@
 import os.path
 import sys
-sys.path.append('..')
+# snh
+# sys.path.append('..')
 import json
 import random
 from easyeditor import (
@@ -20,6 +21,8 @@ from easyeditor import ZsreDataset
 
 import argparse
 
+# snh
+from datasets import load_from_disk
 import pdb
 
 if __name__ == "__main__":
@@ -52,33 +55,34 @@ if __name__ == "__main__":
     editor = BaseEditor.from_hparams(hparams)
 
     # test_data = json.load(open(os.path.join(args.data_dir, 'zsre_mend_eval_portability_gpt4.json'), 'r', encoding='utf-8'))
+    d = load_from_disk(args.data_file)
     test_data = json.load(open(args.data_file, 'r', encoding='utf-8'))
 
     if args.ds_size is not None:
         test_data = random.sample(test_data, args.ds_size)
 
-    prompts = [test_data_['src'] for test_data_ in test_data]
-    rephrase_prompts = [edit_data_['rephrase'] for edit_data_ in test_data]
-    target_new = [edit_data_['alt'] for edit_data_ in test_data]
-    locality_prompts = [edit_data_['loc'] for edit_data_ in test_data]
-    locality_ans = [edit_data_['loc_ans'] for edit_data_ in test_data]
-    portability_prompts = [edit_data_['portability']['New Question'] for edit_data_ in test_data]
-    portability_ans = [edit_data_['portability']['New Answer'] for edit_data_ in test_data]
+    prompts = [test_data_['question'] for test_data_ in test_data]
+    rephrase_prompts = [edit_data_['paraphrased_question'] for edit_data_ in test_data]
+    target_new = [edit_data_['perturbed_answer'][0] for edit_data_ in test_data]
+    # locality_prompts = [edit_data_['loc'] for edit_data_ in test_data]
+    # locality_ans = [edit_data_['loc_ans'] for edit_data_ in test_data]
+    # portability_prompts = [edit_data_['portability']['New Question'] for edit_data_ in test_data]
+    # portability_ans = [edit_data_['portability']['New Answer'] for edit_data_ in test_data]
 
-    locality_inputs = {
-        'neighborhood':{
-            'prompt': locality_prompts,
-            'ground_truth': locality_ans
-        },
-    }
-    portability_inputs = {
-        'one_hop':{
-            'prompt': portability_prompts,
-            'ground_truth': portability_ans
-        },
-    }
+    # locality_inputs = {
+    #     'neighborhood':{
+    #         'prompt': locality_prompts,
+    #         'ground_truth': locality_ans
+    #     },
+    # }
+    # portability_inputs = {
+    #     'one_hop':{
+    #         'prompt': portability_prompts,
+    #         'ground_truth': portability_ans
+    #     },
+    # }
     subject = [edit_data_['subject'] for edit_data_ in test_data]
-
+    ground_truth = [edit_data_['answer'] for edit_data_ in test_data]
     # if args.editing_method == 'IKE':
     #     train_data_path = os.path.join(args.data_dir, 'zsre_mend_train_10000.json')
     #     train_ds = ZsreDataset(train_data_path)
@@ -90,11 +94,12 @@ if __name__ == "__main__":
     metrics, edited_model, _ = editor.edit(
         prompts=prompts,
         rephrase_prompts=rephrase_prompts,
+        ground_truth=ground_truth,
         target_new=target_new,
         subject=subject,
         train_ds=train_ds,
-        locality_inputs=locality_inputs,
-        portability_inputs=portability_inputs,
+        # locality_inputs=locality_inputs,
+        # portability_inputs=portability_inputs,
         keep_original_weight=True
     )
 

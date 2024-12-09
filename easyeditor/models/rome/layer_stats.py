@@ -17,6 +17,8 @@ from .tok_dataset import (
     length_collation,
 )
 
+from datasets import load_from_disk
+
 STAT_TYPES = {
     "mom2": SecondMoment,
     "mean": Mean,
@@ -99,10 +101,12 @@ def layer_stats(
         # from datasets import Dataset
         # raw_ds = Dataset.from_file('XXX/XXX/wikipedia-train.arrow')
         # raw_ds = {'train': raw_ds}
-        raw_ds = load_dataset(
-            ds_name,
-            dict(wikitext="wikitext-103-raw-v1", wikipedia="20200501.en")[ds_name]
-        )
+        # raw_ds = load_dataset(
+        #     ds_name,
+        #     dict(wikitext="wikitext-103-raw-v1", wikipedia="20200501.en")[ds_name]
+        # )
+        scr = '/home/gridsan/shossain/EasyEdit/scr'
+        raw_ds = load_from_disk(f'{scr}/{ds_name}')
         if hasattr(model.config, 'n_positions'):
             maxlen = model.config.n_positions
         elif hasattr(model.config, 'max_sequence_length'):

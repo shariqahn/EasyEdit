@@ -18,3 +18,4 @@ data/counterfact
 data/locality
 data/portability
 data/zsre
+*.safetensors

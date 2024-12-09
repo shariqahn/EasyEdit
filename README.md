@@ -2,16 +2,15 @@
 
 ## todo
 - look at sanitation
-- **MAKE SURE YOU TEST W LLAMA CHAT AFTER BASELINE ESTABLISHED**
 
 ### potential source of issues
 - dependencies didn't resolve properly. try reinstalling with a newer version of pip?
 - Llama was sharded when downloaded probably due to memory constraints. changed `model_kwargs['device_map'] = 'auto'` instead of `None` and then it loaded the shards properly
 
 ## Running
-**NOTE: Code will not finish running just overnight**
-**Model isn't saved by default. Make sure you save it in BaseTrainer.py save_state. Prob just set save to true in config**
+- Code will not finish running just overnight
 
+**NOTE: make sure you download fresh models**
 - batch: `LLsub run.sh -g volta:2`
     - with cpus: `LLsub run.sh -s 40 -g volta:2`
 - serial: `LLsub -i -g volta:1` 
@@ -26,6 +25,9 @@
 - get trained serac and mend here: <https://github.com/zjunlp/EasyEdit/issues/66>
 - SERAC: `LLsub run.sh -s 11 -g volta:1`
 - MEND: `LLsub run.sh -s 12 -g volta:1`
+
+## Codebase
+- Dataset classes are for to create PyTorch datasets. Seem to just be used for training after looking at where ZsreDataset class is used
 
 ## Memory
 - `sacct -j <JOBID> -oJobID,JobName,State,AllocCPUS,MaxRSS --units=G`

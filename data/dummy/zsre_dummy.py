@@ -1,6 +1,6 @@
 import json
 
-with open('./portability/One_Hop/zsre_mend_eval_portability_gpt4.json') as f:
+with open('../portability/One_Hop/zsre_mend_eval_portability_gpt4.json') as f:
     data = json.load(f)
 
 for item in data:
@@ -9,5 +9,5 @@ for item in data:
     item['answers'] = ['dummy']
     item['portability']['New Answer'] = 'dummy'
 
-with open('./dummy/dummy_zsre_mend_eval_portability_gpt4.json', 'w') as f:
+with open('./zsre_mend_eval_portability_gpt4.json', 'w') as f:
     json.dump(data, f, indent=4)
