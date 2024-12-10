@@ -1,0 +1,14 @@
+2024-12-09 01:15:58,690 - easyeditor.editors.editor - INFO - Instantiating model
+12/09/2024 01:15:58 - INFO - easyeditor.editors.editor -   Instantiating model
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:07<00:15,  7.93s/it]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:15<00:07,  7.69s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:20<00:00,  6.49s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:20<00:00,  6.84s/it]
+2024-12-09 01:16:20,992 - easyeditor.editors.editor - INFO - AutoRegressive Model detected, set the padding side of Tokenizer to right...
+12/09/2024 01:16:20 - INFO - easyeditor.editors.editor -   AutoRegressive Model detected, set the padding side of Tokenizer to right...
+Subject:Hsiao Yun-Hwa do not exist in prompt: What is the full name of the author born in Taipei, Taiwan on 05/11/1991 who writes in the genre of leadership?
+Traceback (most recent call last):
+  File "/home/gridsan/shossain/EasyEdit/run_tofu.py", line 93, in <module>
+    metrics, edited_model, _ = editor.edit(
+  File "/home/gridsan/shossain/EasyEdit/easyeditor/editors/editor.py", line 189, in edit
+    requests = _prepare_requests(prompts, target_new, ground_truth, target_neg, rephrase_prompts, locality_inputs, portability_inputs, **kwargs)
+  File "/home/gridsan/shossain/EasyEdit/easyeditor/editors/utils.py", line 94, in _prepare_requests
+    assert subject_ in prompt_, print(f'Subject:{subject_} do not exist in prompt: {prompt_}')
+AssertionError: None

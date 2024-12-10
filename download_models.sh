@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Set up correct environment
-module load anaconda/2023b
-source /state/partition1/llgrid/pkg/anaconda/anaconda3-2023b/etc/profile.d/conda.sh
-conda deactivate 
-conda activate easy
+# module load anaconda/2023b
+# source /state/partition1/llgrid/pkg/anaconda/anaconda3-2023b/etc/profile.d/conda.sh
+# conda deactivate 
+# conda activate easy
 
 # export HYDRA_FULL_ERROR=1
 # This is where model is downloaded
@@ -15,8 +15,9 @@ mkdir -p $HF_LOCAL_DIR
 
 # Remove existing models so that they will be replaced with fresh ones
 # rm -r $HF_LOCAL_DIR/*
-# echo "Existing models removed. Here's what local looks like:"
-# ls $HF_LOCAL_DIR
+rm -r $HF_LOCAL_DIR/models--locuslab--tofu_ft_llama2-7b/
+echo "Existing models removed. Here's what local looks like:"
+ls $HF_LOCAL_DIR
 
 # Token so can access restricted HuggingFace models
 export HF_TOKEN=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

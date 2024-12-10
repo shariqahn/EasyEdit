@@ -12,7 +12,7 @@
 
 **NOTE: make sure you download fresh models**
 - batch: `LLsub run.sh -g volta:2`
-    - with cpus: `LLsub run.sh -s 40 -g volta:2`
+    - with cpus: `LLsub tofu.sh -s 40 -g volta:2`
 - serial: `LLsub -i -g volta:1` 
     - download: `LLsub -i -q download`
 

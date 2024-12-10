@@ -33,6 +33,7 @@ if __name__ == "__main__":
     parser.add_argument('--data_file', required=True, type=str)
     parser.add_argument('--ds_size', default=None, type=int)
     parser.add_argument('--metrics_save_dir', default='./output', type=str)
+    parser.add_argument('--experiment', required=True, type=str)
 
     args = parser.parse_args()
 
@@ -55,7 +56,6 @@ if __name__ == "__main__":
     editor = BaseEditor.from_hparams(hparams)
 
     # test_data = json.load(open(os.path.join(args.data_dir, 'zsre_mend_eval_portability_gpt4.json'), 'r', encoding='utf-8'))
-    d = load_from_disk(args.data_file)
     test_data = json.load(open(args.data_file, 'r', encoding='utf-8'))
 
     if args.ds_size is not None:
@@ -63,7 +63,15 @@ if __name__ == "__main__":
 
     prompts = [test_data_['question'] for test_data_ in test_data]
     rephrase_prompts = [edit_data_['paraphrased_question'] for edit_data_ in test_data]
-    target_new = [edit_data_['perturbed_answer'][0] for edit_data_ in test_data]
+    if args.experiment == 'incorrect':
+        target_new = [edit_data_['perturbed_answer'][0] for edit_data_ in test_data]
+    elif args.experiment == 'dummy':
+        target_new = ['dummy' for _ in test_data]
+    else:
+        raise NotImplementedError
+    print('exp', args.experiment)
+    print('target_new', target_new)
+
     # locality_prompts = [edit_data_['loc'] for edit_data_ in test_data]
     # locality_ans = [edit_data_['loc_ans'] for edit_data_ in test_data]
     # portability_prompts = [edit_data_['portability']['New Question'] for edit_data_ in test_data]
@@ -83,6 +91,7 @@ if __name__ == "__main__":
     # }
     subject = [edit_data_['subject'] for edit_data_ in test_data]
     ground_truth = [edit_data_['answer'] for edit_data_ in test_data]
+
     # if args.editing_method == 'IKE':
     #     train_data_path = os.path.join(args.data_dir, 'zsre_mend_train_10000.json')
     #     train_ds = ZsreDataset(train_data_path)
