@@ -14,7 +14,7 @@ HF_LOCAL_DIR=$HOME/EasyEdit/scr
 mkdir -p $HF_LOCAL_DIR
 
 # Remove existing models so that they will be replaced with fresh ones
-# rm -r $HF_LOCAL_DIR/*
+rm -r $HF_LOCAL_DIR/models--distilbert--distilbert-base-cased/
 # rm -r $HF_LOCAL_DIR/models--meta-llama--Llama-2-7b-hf/
 echo "Existing models removed. Here's what local looks like:"
 ls $HF_LOCAL_DIR

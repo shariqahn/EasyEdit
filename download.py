@@ -3,22 +3,18 @@ import getpass
 import pdb
 import os 
 from datasets import load_dataset
-
-# snapshot_download(repo_id=config.model.name, cache_dir=cache_dir)
-# snapshot_download(repo_id='sentence-transformers/all-MiniLM-L6-v2')
-
 from transformers import AutoTokenizer, AutoModelForCausalLM
 
 if __name__ == "__main__":
-    # model_name = "JackFram/llama-160m"
-    for model_name in ["JackFram/llama-160m", "distilbert/distilbert-base-cased"]:
+    # for model_name in ["JackFram/llama-160m", "distilbert/distilbert-base-cased"]:
+    for model_name in ["architext/gptj-162M", "distilbert/distilbert-base-cased", 'EleutherAI/gpt-j-6b']:
     # "meta-llama/Llama-2-7b-hf"  # Hugging Face model path for LLaMA 2 7B
     # "locuslab/tofu_ft_llama2-7b"
     # model_name = "openai-community/gpt2-xl"
         cache_dir="/state/partition1/user/" + getpass.getuser() + "/hug"
-        print(f'downloading {model_name}')
+        print(f'downloading {model_name}\n')
         snapshot_dir = snapshot_download(repo_id=model_name, cache_dir=cache_dir)
-        print(f'snapshot: {snapshot_dir}')
+        print(f'snapshot: {snapshot_dir}\n')
     
     # download MEMIT data for easyeditor/models/rome/layer_stats.py
     # ds_name = 'wikipedia'

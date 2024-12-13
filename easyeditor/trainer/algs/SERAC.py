@@ -29,11 +29,13 @@ class SERAC(EditableModel):
             if config.cross_attend and not config.cls_class.endswith("ForSequenceClassification"):
                 LOG.warn(f"Switching {config.cls_class} to {config.cls_class}ForSequenceClassification for cross-attend")
                 config.cls_class += "ForSequenceClassification"
-            self.classifier = getattr(transformers, config.cls_class).from_pretrained(config.cls_name, cache_dir='./hugging_cache')
+            # self.classifier = getattr(transformers, config.cls_class).from_pretrained(config.cls_name, cache_dir='./hugging_cache')
+            self.classifier = getattr(transformers, config.cls_class).from_pretrained(config.cls_name, local_files_only=True)
             if self.config.checkpoint_grad:
                 LOG.info(f"Checking for checkpointing: {hasattr(self.classifier.config, 'gradient_checkpointing')}")
                 self.classifier.config.gradient_checkpointing = True
-            self.classifier_tok = transformers.AutoTokenizer.from_pretrained(config.cls_name, cache_dir='./hugging_cache')
+            # self.classifier_tok = transformers.AutoTokenizer.from_pretrained(config.cls_name, cache_dir='./hugging_cache')
+            self.classifier_tok = transformers.AutoTokenizer.from_pretrained(config.cls_name, local_files_only=True)
             if not self.config.cross_attend and 'bert' in self.config.cls_name:
                 self.classifier.pooler = None  # we don't need the classification head
             elif not self.config.cross_attend and "mpnet" not in self.config.cls_name:
