@@ -6,14 +6,16 @@
 ### potential source of issues
 - dependencies didn't resolve properly. try reinstalling with a newer version of pip?
 - Llama was sharded when downloaded probably due to memory constraints. changed `model_kwargs['device_map'] = 'auto'` instead of `None` and then it loaded the shards properly
+- weird token encoding stuff with how i define new outputs
 
 ## Running
 - Code will not finish running just overnight
 
 **NOTE: make sure you download fresh models**
-- batch: `LLsub run.sh -g volta:2`
-    - with cpus: `LLsub tofu.sh -s 40 -g volta:2`
-- serial: `LLsub -i -g volta:1` 
+- batch: 
+  - `LLsub run.sh -s 40 -g volta:2`
+  - `LLsub tofu.sh -s 40 -g volta:2`
+- serial: `LLsub -i -g volta:2` 
     - download: `LLsub -i -q download`
 
 - ensure that models are downloaded properly - some configs have a specific checkpoint that they load from

@@ -1,6 +1,6 @@
 import os.path
-import sys
 # snh
+# import sys
 # sys.path.append('..')
 import json
 import random
@@ -49,6 +49,8 @@ if __name__ == "__main__":
         editing_hparams = ROMEHyperParams
     elif args.editing_method == 'LoRA':
         editing_hparams = LoRAHyperParams
+    elif args.editing_method == 'SERAC':
+        editing_hparams = SERACHparams
     else:
         raise NotImplementedError
     
@@ -109,9 +111,12 @@ if __name__ == "__main__":
         train_ds=train_ds,
         # locality_inputs=locality_inputs,
         # portability_inputs=portability_inputs,
-        keep_original_weight=True
+        # keep_original_weight=True
+        # keep_original_weight=False
+        sequential_edit=True
     )
 
+    os.makedirs(args.metrics_save_dir, exist_ok=True)
     json.dump(metrics, open(os.path.join(args.metrics_save_dir, f'{args.editing_method}_results.json'), 'w'), indent=4)
     # snh so can load model later for TOFU evaluation
     model_save_dir = os.path.join(args.metrics_save_dir, 'model')

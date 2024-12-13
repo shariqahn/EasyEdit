@@ -6,9 +6,9 @@ source /state/partition1/llgrid/pkg/anaconda/anaconda3-2023b/etc/profile.d/conda
 conda deactivate 
 conda activate easy
 
-# editing_method="SERAC"
+editing_method="SERAC"
 # experiment="dummy"
-editing_method="ROME"
+# editing_method="ROME"
 experiment="baseline"
 data="../data/portability/One_Hop/zsre_mend_eval_portability_gpt4.json"
 # "../data/dummy/zsre_mend_eval_portability_gpt4.json"

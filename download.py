@@ -10,13 +10,15 @@ from datasets import load_dataset
 from transformers import AutoTokenizer, AutoModelForCausalLM
 
 if __name__ == "__main__":
-    model_name = "locuslab/tofu_ft_llama2-7b"
+    # model_name = "JackFram/llama-160m"
+    for model_name in ["JackFram/llama-160m", "distilbert/distilbert-base-cased"]:
     # "meta-llama/Llama-2-7b-hf"  # Hugging Face model path for LLaMA 2 7B
+    # "locuslab/tofu_ft_llama2-7b"
     # model_name = "openai-community/gpt2-xl"
-    cache_dir="/state/partition1/user/" + getpass.getuser() + "/hug"
-    print(f'downloading {model_name}')
-    snapshot_dir = snapshot_download(repo_id=model_name, cache_dir=cache_dir)
-    print(f'snapshot: {snapshot_dir}')
+        cache_dir="/state/partition1/user/" + getpass.getuser() + "/hug"
+        print(f'downloading {model_name}')
+        snapshot_dir = snapshot_download(repo_id=model_name, cache_dir=cache_dir)
+        print(f'snapshot: {snapshot_dir}')
     
     # download MEMIT data for easyeditor/models/rome/layer_stats.py
     # ds_name = 'wikipedia'
