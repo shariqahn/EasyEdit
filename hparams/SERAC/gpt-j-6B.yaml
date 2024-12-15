@@ -16,7 +16,8 @@ tokenizer_name: "/home/gridsan/shossain/EasyEdit/scr/models--EleutherAI--gpt-j-6
 cls_name: "/home/gridsan/shossain/EasyEdit/scr/models--distilbert--distilbert-base-cased/snapshots/6ea81172465e8b0ad3fddeed32b986cdcdcffcf0"
 cls_class: AutoModel
 inner_params: []
-model_parallel: false
+# model_parallel: false
+model_parallel: true
 
 # Method
 alg: SERAC

@@ -94,13 +94,14 @@ if __name__ == "__main__":
     subject = [edit_data_['subject'] for edit_data_ in test_data]
     ground_truth = [edit_data_['answer'] for edit_data_ in test_data]
 
-    # if args.editing_method == 'IKE':
-    #     train_data_path = os.path.join(args.data_dir, 'zsre_mend_train_10000.json')
-    #     train_ds = ZsreDataset(train_data_path)
-    #     sentence_model = SentenceTransformer(hparams.sentence_model_name).to(f'cuda:{hparams.device}')
-    #     encode_ike_facts(sentence_model, train_ds, hparams)
-    # else:
-    train_ds = None
+    if args.editing_method == 'IKE':
+        # train_data_path = os.path.join(args.data_dir, 'zsre_mend_train_10000.json')
+        train_data_path = './data/zsre/zsre_mend_train_10000.json'
+        train_ds = ZsreDataset(train_data_path)
+        sentence_model = SentenceTransformer(hparams.sentence_model_name).to(f'cuda:{hparams.device}')
+        encode_ike_facts(sentence_model, train_ds, hparams)
+    else:
+        train_ds = None
 
     metrics, edited_model, _ = editor.edit(
         prompts=prompts,

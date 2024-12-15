@@ -35,8 +35,8 @@ if __name__ == "__main__":
 
     if args.editing_method == 'FT':
         editing_hparams = FTHyperParams
-    # elif args.editing_method == 'IKE':
-    #     editing_hparams = IKEHyperParams
+    elif args.editing_method == 'IKE':
+        editing_hparams = IKEHyperParams
     elif args.editing_method == 'KN':
         editing_hparams = KNHyperParams
     elif args.editing_method == 'MEMIT':
@@ -81,13 +81,14 @@ if __name__ == "__main__":
     }
     subject = [edit_data_['subject'] for edit_data_ in test_data]
 
-    # if args.editing_method == 'IKE':
-    #     train_data_path = os.path.join(args.data_dir, 'zsre_mend_train_10000.json')
-    #     train_ds = ZsreDataset(train_data_path)
-    #     sentence_model = SentenceTransformer(hparams.sentence_model_name).to(f'cuda:{hparams.device}')
-    #     encode_ike_facts(sentence_model, train_ds, hparams)
-    # else:
-    train_ds = None
+    if args.editing_method == 'IKE':
+        # train_data_path = os.path.join(args.data_dir, 'zsre_mend_train_10000.json')
+        train_data_path = '../data/zsre/zsre_mend_train_10000.json'
+        train_ds = ZsreDataset(train_data_path)
+        sentence_model = SentenceTransformer(hparams.sentence_model_name).to(f'cuda:{hparams.device}')
+        encode_ike_facts(sentence_model, train_ds, hparams)
+    else:
+        train_ds = None
 
     metrics, edited_model, _ = editor.edit(
         prompts=prompts,
@@ -102,7 +103,6 @@ if __name__ == "__main__":
 
     os.makedirs(args.metrics_save_dir, exist_ok=True)
     json.dump(metrics, open(os.path.join(args.metrics_save_dir, f'{args.editing_method}_results.json'), 'w'), indent=4)
-    # snh so can load model later for TOFU evaluation
     model_save_dir = os.path.join(args.metrics_save_dir, 'model')
     os.makedirs(model_save_dir, exist_ok=True)
     edited_model.save_pretrained(model_save_dir)

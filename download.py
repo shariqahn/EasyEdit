@@ -7,9 +7,9 @@ from transformers import AutoTokenizer, AutoModelForCausalLM
 
 if __name__ == "__main__":
     # for model_name in ["JackFram/llama-160m", "distilbert/distilbert-base-cased"]:
-    for model_name in ["architext/gptj-162M", "distilbert/distilbert-base-cased", 'EleutherAI/gpt-j-6b']:
-    # "meta-llama/Llama-2-7b-hf"  # Hugging Face model path for LLaMA 2 7B
-    # "locuslab/tofu_ft_llama2-7b"
+    # for model_name in ["architext/gptj-162M", "distilbert/distilbert-base-cased", 'EleutherAI/gpt-j-6b']:
+    for model_name in ["meta-llama/Llama-2-7b-hf"]:
+    # ["locuslab/tofu_ft_llama2-7b", "sentence-transformers/all-MiniLM-L6-v2"]:
     # model_name = "openai-community/gpt2-xl"
         cache_dir="/state/partition1/user/" + getpass.getuser() + "/hug"
         print(f'downloading {model_name}\n')
