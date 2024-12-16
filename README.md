@@ -31,6 +31,7 @@
 ## Codebase
 - Dataset classes are for to create PyTorch datasets. Seem to just be used for training after looking at where ZsreDataset class is used
 - https://github.com/zjunlp/EasyEdit/issues/235 says SERAC checkpoint was trained on counterfact, which isn't the same as wikidata_counterfact
+- verified that forget set has no questions about authors in the retain set - you are forgetting entire authors, not just individual questions
 
 ## Memory
 - `sacct -j <JOBID> -oJobID,JobName,State,AllocCPUS,MaxRSS --units=G`
