@@ -6,9 +6,9 @@ source /state/partition1/llgrid/pkg/anaconda/anaconda3-2023b/etc/profile.d/conda
 conda deactivate 
 conda activate easy
 
-editing_method="MEMIT"
-# editing_method="ROME"
-experiment="baseline"
+# editing_method="MEMIT"
+editing_method="ROME"
+experiment="baseline_lr_1"
 data="../data/portability/One_Hop/zsre_mend_eval_portability_gpt4.json"
 # data="../data/counterfact/counterfact-edit.json"
 python -u run_zsre_llama2.py --editing_method "$editing_method" --hparams_dir "../hparams/${editing_method}/llama-7b.yaml" --data_file $data --metrics_save_dir "../outputs/${editing_method}_${experiment}/"

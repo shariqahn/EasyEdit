@@ -34,7 +34,8 @@
 
 ## Memory
 - `sacct -j <JOBID> -oJobID,JobName,State,AllocCPUS,MaxRSS --units=G`
-sacct -j 27609761 -oJobID,JobName,State,AllocCPUS,MaxRSS --units=G
+sacct -j 27619203 -oJobID,JobName,State,AllocCPUS,MaxRSS --units=G
+- dummy w 1e-1 lr 7.51G 
 - https://github.com/zjunlp/EasyEdit/blob/9e8ec905f78a958fe85e846b11fbbadf6661c39d/easyeditor/models/melo/peft_egg/README.md?plain=1#L24 
 - ike oom https://github.com/zjunlp/EasyEdit/issues/9#issuecomment-1687284658 
 - run zsre llama https://github.com/zjunlp/EasyEdit/tree/main/examples#rome
