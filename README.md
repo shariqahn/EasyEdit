@@ -21,7 +21,7 @@
 - ensure that models are downloaded properly - some configs have a specific checkpoint that they load from
   - see `models.py:get_hf_model()`
 
-- ROME: `LLsub run.sh -s 8 -g volta:1`
+- ROME: `LLsub run.sh -s 8 -g volta:1`timer
   - took 2.5h on GPTxl
 
 - get trained serac and mend here: <https://github.com/zjunlp/EasyEdit/issues/66>
@@ -35,8 +35,8 @@
 
 ## Memory
 - `sacct -j <JOBID> -oJobID,JobName,State,AllocCPUS,MaxRSS --units=G`
-sacct -j 27619203 -oJobID,JobName,State,AllocCPUS,MaxRSS --units=G
-- dummy w 1e-1 lr 7.51G 
+sacct -j 27621447 -oJobID,JobName,State,AllocCPUS,MaxRSS --units=G
+- ROME dummy w 1e-1 lr 7.51G; zsre 7.33G
 - https://github.com/zjunlp/EasyEdit/blob/9e8ec905f78a958fe85e846b11fbbadf6661c39d/easyeditor/models/melo/peft_egg/README.md?plain=1#L24 
 - ike oom https://github.com/zjunlp/EasyEdit/issues/9#issuecomment-1687284658 
 - run zsre llama https://github.com/zjunlp/EasyEdit/tree/main/examples#rome

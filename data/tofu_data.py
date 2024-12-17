@@ -1,7 +1,8 @@
 # NOTE: run with data environment
-from datasets import load_from_disk, load_dataset
+from datasets import load_from_disk, load_dataset, Dataset
 import spacy
 import json
+import random
 
 # Load SpaCy model
 nlp = spacy.load("en_core_web_sm")
@@ -20,12 +21,6 @@ def extract_subject_from_prompt(example, get_locality=False):
     prompt = example["question"]
     doc = nlp(prompt)
 
-    def add_author_prompt(subject):
-        # if subject not in author_prompts.keys():
-        #         author_prompts[subject] = []
-        # author_prompts[subject].append({'question': prompt, 'answer': example['answer']})
-        retain_authors.add(subject)
-
     # Named Entity Recognition (NER) - First try extracting subjects from recognized entities
     entities = [ent.text for ent in doc.ents]
     if entities:
@@ -33,14 +28,13 @@ def extract_subject_from_prompt(example, get_locality=False):
         if entities[0].endswith("'s"):
             entities[0] = entities[0][:-2]  # Remove the possessive 's'
         subject = entities[0]
-        add_author_prompt(subject)
         return {"subject": subject}
 
     # Dependency Parsing for "of X" or "about X" structures
     for token in doc:
         if token.dep_ in {"pobj", "dobj"} and token.head.text in {"of", "about"}:
             subject = token.text
-            add_author_prompt(subject)
+    
             return {"subject": subject}
 
     # Descriptive Phrases: Find Head Nouns with Modifiers
@@ -51,7 +45,7 @@ def extract_subject_from_prompt(example, get_locality=False):
                 subject = f"{token.text} {' '.join(modifiers)}"
             else:
                 subject = token.text
-            add_author_prompt(subject)
+    
             return {"subject": subject}
 
     # Possessive Structures: Handle possessive 's and return only the head noun
@@ -63,35 +57,46 @@ def extract_subject_from_prompt(example, get_locality=False):
                 subject = head.text
                 if subject.endswith("'s"):  # Remove possessive 's if present
                     subject = subject[:-2]
-                add_author_prompt(subject)
+        
                 return {"subject": subject}
 
     # Fallback: General Grammatical Subject (for direct subjects without complex structures)
     for token in doc:
         if token.dep_ == "nsubj":
             subject = token.text
-            add_author_prompt(subject)
+    
             return {"subject": subject}
 
     print('No subject found')
-    return {"subject": None}
+    return None
+
+def add_locality(row):
+    retain_row = random.choice(retain)
+    while retain_row['question'] in used_prompts:
+        retain_row = random.choice(retain)
+    return {
+        "locality": {
+            "question": retain_row['question'],
+            "answer": retain_row['answer']
+        }
+    }
 
 
 if __name__ == "__main__":
     # NOTE: can also load_dataset, so don't bother downloading unless it's already done
-    subset = 'retain90'
+    subset = 'forget10'
     scr = '/home/gridsan/shossain/tofu/scr'
     tofu = load_from_disk(f'{scr}/{subset}_data')
     # tofu = load_dataset("locuslab/TOFU", subset, split="train")
-    retain_perturbed = load_from_disk(f'{scr}/retain_perturbed_data')
+    # retain_perturbed = load_from_disk(f'{scr}/retain_perturbed_data')
 
-    eval_prompts = set(retain_perturbed['question'])
+    # eval_prompts = set(retain_perturbed['question'])
 
-    def filter_evals(example):
-        return example['question'] not in eval_prompts
+    # def filter_evals(example):
+    #     return example['question'] not in eval_prompts
 
-    retain_dataset = tofu.filter(filter_evals)
-    retain_dataset.map(extract_subject_from_prompt)
+    # retain_dataset = tofu.filter(filter_evals)
+    # retain_dataset.map(extract_subject_from_prompt)
     # save_file = './tofu_retain_train.json'
 
     # data_list = retain_dataset.to_list()
@@ -99,21 +104,20 @@ if __name__ == "__main__":
     #     json.dump(data_list, f, ensure_ascii=False, indent=4)
     # print(f"The {len(data_list)} non-eval prompts saved to {save_file}")
 
-    # # Apply the function to extract subjects
-    # dataset = tofu.map(extract_subject_from_prompt)
+    # Apply the function to extract subjects
+    dataset = tofu.map(extract_subject_from_prompt)
 
-    # save_file = './tofu_locality.json'
-    # data_list = dataset.to_list()
-    # with open(save_file, "w", encoding="utf-8") as f:
-    #     json.dump(data_list, f, ensure_ascii=False, indent=4)
+    with open("tofu_retain_train.json", "r") as f:
+        retain_data = json.load(f)  # Load the JSON data into a Python dictionary
 
-    # print(f"Dataset with subjects successfully saved to {save_file}")
+    # Convert the JSON data into a Hugging Face Dataset
+    retain = Dataset.from_dict(retain_data)
+    train = dataset.map(add_locality)
+    used_prompts = set()
 
-    # authors = [author for author in authors for _ in range(20)]
-    # dataset = tofu.add_column('subject', authors)
-    # authors = ['Hsiao Yun-Hwa', 'Carmen Montenegro','Elvin Mammadov','Rajeev Majumdar', 'Jad Ambrose Al-Shamary','Adib Jarrah', 'Ji-Yeon Park', 'Behrouz Rohani', 'Wei-Jun Chen', 'Tae-ho Park', 'Hina Ameen', 'Xin Lee Williams','Moshe Ben-David', 'Kalkidan Abera', 'Takashi Nakamura', 'Raven Marais','Aysha Al-Hashim','Edward Patrick Sullivan', 'Basil Mahfouz Al-Kuwaiti', 'Nikolai Abilov']
-        # dupes = []
-        # for a in authors:
-        #     if a in retain_authors:
-        #         dupes.append(a)
-        # print(dupes)
+    save_file = './tofu_locality.json'
+    data_list = dataset.to_list()
+    with open(save_file, "w", encoding="utf-8") as f:
+        json.dump(data_list, f, ensure_ascii=False, indent=4)
+
+    print(f"Dataset with subjects successfully saved to {save_file}")
