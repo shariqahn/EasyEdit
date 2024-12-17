@@ -98,7 +98,7 @@ if __name__ == "__main__":
         train_ds=train_ds,
         locality_inputs=locality_inputs,
         # portability_inputs=portability_inputs,
-        # keep_original_weight=True
+        keep_original_weight=False,
         sequential_edit=True
     )
 

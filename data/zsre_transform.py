@@ -16,7 +16,7 @@ def transform_data(input_data, experiment):
             "rephrase": record["paraphrased_question"],  # Paraphrased question is rephrase
             "alt": new_target,
             "answers": [record["answer"]],  # Answers as a list
-            "loc": record["locality"]["question"],  # Locality question
+            "loc": f'nq question: {record["locality"]["question"]}',  # Locality question
             "loc_ans": record["locality"]["answer"],  # Locality answer
             "cond": "{} >> {} || {}".format(
                 record["answer"],  # The original answer
