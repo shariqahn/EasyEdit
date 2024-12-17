@@ -7,7 +7,7 @@ import random
 # Load SpaCy model
 nlp = spacy.load("en_core_web_sm")
 
-def extract_subject_from_prompt(example, get_locality=False):
+def extract_subject_from_prompt(example):
     """
     Extract the subject from a prompt and return it as a new column.
     Args:
@@ -67,13 +67,13 @@ def extract_subject_from_prompt(example, get_locality=False):
     
             return {"subject": subject}
 
-    print('No subject found')
-    return None
+    return {"subject": prompt.split()[-1]}
 
 def add_locality(row):
     retain_row = random.choice(retain)
     while retain_row['question'] in used_prompts:
         retain_row = random.choice(retain)
+    used_prompts.add(retain_row['question'])
     return {
         "locality": {
             "question": retain_row['question'],
@@ -84,7 +84,7 @@ def add_locality(row):
 
 if __name__ == "__main__":
     # NOTE: can also load_dataset, so don't bother downloading unless it's already done
-    subset = 'forget10'
+    subset = 'forget10_perturbed'
     scr = '/home/gridsan/shossain/tofu/scr'
     tofu = load_from_disk(f'{scr}/{subset}_data')
     # tofu = load_dataset("locuslab/TOFU", subset, split="train")
@@ -106,18 +106,17 @@ if __name__ == "__main__":
 
     # Apply the function to extract subjects
     dataset = tofu.map(extract_subject_from_prompt)
+    print('got subjects')
 
     with open("tofu_retain_train.json", "r") as f:
-        retain_data = json.load(f)  # Load the JSON data into a Python dictionary
-
-    # Convert the JSON data into a Hugging Face Dataset
-    retain = Dataset.from_dict(retain_data)
-    train = dataset.map(add_locality)
+        retain = json.load(f)
     used_prompts = set()
+    dataset = dataset.map(add_locality)
+    print('got locality')
 
     save_file = './tofu_locality.json'
     data_list = dataset.to_list()
     with open(save_file, "w", encoding="utf-8") as f:
         json.dump(data_list, f, ensure_ascii=False, indent=4)
 
-    print(f"Dataset with subjects successfully saved to {save_file}")
+    print(f"Dataset with subjects and locality successfully saved to {save_file}")
