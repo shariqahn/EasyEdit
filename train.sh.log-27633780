@@ -1,0 +1,14 @@
+LlamaTokenizer Detected, Set pad token id and left padding!!!
+LlamaTokenizer Detected, Set pad token id and left padding!!!
+12/18/2024 18:08:23 - INFO - easyeditor.trainer.BaseTrainer -   Config: SERACTrainingHparams(model_name='/home/gridsan/shossain/EasyEdit/scr/models--meta-llama--Llama-2-7b-hf/snapshots/01c7f73d771dfac7d292323805ebc428287df4f9', model_class='LlamaForCausalLM', small_name='/home/gridsan/shossain/EasyEdit/scr/models--JackFram--llama-160m/snapshots/aca9b687d1425f863dcf5de9a4c96e3fe36266dd', tokenizer_class='LlamaTokenizer', tokenizer_name='/home/gridsan/shossain/EasyEdit/scr/models--meta-llama--Llama-2-7b-hf/snapshots/01c7f73d771dfac7d292323805ebc428287df4f9', cls_name='/home/gridsan/shossain/EasyEdit/scr/models--distilbert--distilbert-base-cased/snapshots/6ea81172465e8b0ad3fddeed32b986cdcdcffcf0', cls_class='AutoModel', inner_params=[], archive=None, alg='SERAC', lr=1e-05, edit_lr=0.01, seed=0, lr_lr=0.0, cedit=0.1, cloc=1.0, cbase=1.0, dropout=0.0, final_eval=True, supervised=False, train_base=False, no_grad_layers=None, soft_weighting=False, checkpoint_grad=False, cross_attend=False, cos=False, freeze=None, square=True, bound_embeds=False, use_all_negatives=False, freeze_cntr=False, dist_heads=1, lora=None, results_dir='./results', device='cuda:0', batch_size=10, model_save_pt=1000, edit_bs=1, silent=False, log_interval=1000, val_interval=1000, early_stop_patience=30000, early_stop_key='edit/acc_val', eval_only=False, half=False, save=False, debug=False, log_errors=False, unlikelihood=True, val_batch_size=1, accumulate_bs=10, val_steps=1000, opt='Adam', grad_clip=100.0, exact_match=False, max_epochs=None, max_iters=100000, max_length=32, model_parallel=True)
+12/18/2024 18:08:23 - INFO - easyeditor.trainer.models -   Loading model class <class 'transformers.models.llama.modeling_llama.LlamaForCausalLM'> with name /home/gridsan/shossain/EasyEdit/scr/models--meta-llama--Llama-2-7b-hf/snapshots/01c7f73d771dfac7d292323805ebc428287df4f9
+Traceback (most recent call last):
+  File "/home/gridsan/shossain/EasyEdit/serac_train.py", line 10, in <module>
+    trainer = EditTrainer(
+  File "/home/gridsan/shossain/EasyEdit/easyeditor/trainer/EditTrainer.py", line 27, in __init__
+    super().__init__(config, train_set, val_set)
+  File "/home/gridsan/shossain/EasyEdit/easyeditor/trainer/BaseTrainer.py", line 32, in __init__
+    model_ = get_model(config, download)
+  File "/home/gridsan/shossain/EasyEdit/easyeditor/trainer/models.py", line 115, in get_model
+    model = ModelClass.from_pretrained(config.model.name, cache_dir=scr(), trust_remote_code=True, device_map='auto' if config.model_parallel else None)
+AttributeError: 'SERACTrainingHparams' object has no attribute 'model'

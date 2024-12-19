@@ -1,7 +1,4 @@
 import os.path
-# snh
-# import sys
-# sys.path.append('..')
 import json
 import random
 from easyeditor import (
@@ -29,7 +26,6 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--editing_method', required=True, type=str)
     parser.add_argument('--hparams_dir', required=True, type=str)
-    # parser.add_argument('--data_dir', required=True, type=str)
     parser.add_argument('--data_file', required=True, type=str)
     parser.add_argument('--ds_size', default=None, type=int)
     parser.add_argument('--metrics_save_dir', default='./output', type=str)
@@ -57,7 +53,6 @@ if __name__ == "__main__":
     hparams = editing_hparams.from_hparams(args.hparams_dir)
     editor = BaseEditor.from_hparams(hparams)
 
-    # test_data = json.load(open(os.path.join(args.data_dir, 'zsre_mend_eval_portability_gpt4.json'), 'r', encoding='utf-8'))
     test_data = json.load(open(args.data_file, 'r', encoding='utf-8'))
 
     if args.ds_size is not None:
@@ -71,20 +66,18 @@ if __name__ == "__main__":
         target_new = ['dummy' for _ in test_data]
     else:
         raise NotImplementedError
-    print('exp', args.experiment)
-    print('target_new', target_new)
 
-    # locality_prompts = [edit_data_['loc'] for edit_data_ in test_data]
-    # locality_ans = [edit_data_['loc_ans'] for edit_data_ in test_data]
+    locality_prompts = [edit_data_['locality']['question'] for edit_data_ in test_data]
+    locality_ans = [edit_data_['locality']['answer'] for edit_data_ in test_data]
     # portability_prompts = [edit_data_['portability']['New Question'] for edit_data_ in test_data]
     # portability_ans = [edit_data_['portability']['New Answer'] for edit_data_ in test_data]
 
-    # locality_inputs = {
-    #     'neighborhood':{
-    #         'prompt': locality_prompts,
-    #         'ground_truth': locality_ans
-    #     },
-    # }
+    locality_inputs = {
+        'neighborhood':{
+            'prompt': locality_prompts,
+            'ground_truth': locality_ans
+        },
+    }
     # portability_inputs = {
     #     'one_hop':{
     #         'prompt': portability_prompts,
@@ -103,6 +96,7 @@ if __name__ == "__main__":
     else:
         train_ds = None
 
+    sequential_edit = True
     metrics, edited_model, _ = editor.edit(
         prompts=prompts,
         rephrase_prompts=rephrase_prompts,
@@ -110,12 +104,18 @@ if __name__ == "__main__":
         target_new=target_new,
         subject=subject,
         train_ds=train_ds,
-        # locality_inputs=locality_inputs,
+        locality_inputs=locality_inputs,
         # portability_inputs=portability_inputs,
         # keep_original_weight=True
         # keep_original_weight=False
-        sequential_edit=True
+        sequential_edit=sequential_edit
     )
+
+    print('experiment: ', args.experiment)
+    print('model: ', hparams.model_name)
+    print('sequential_edit: ', sequential_edit)
+    if args.editing_method == 'ROME':
+        print('lr:', hparams.lr)
 
     os.makedirs(args.metrics_save_dir, exist_ok=True)
     json.dump(metrics, open(os.path.join(args.metrics_save_dir, f'{args.editing_method}_results.json'), 'w'), indent=4)

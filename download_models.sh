@@ -14,10 +14,11 @@ HF_LOCAL_DIR=$HOME/EasyEdit/scr
 mkdir -p $HF_LOCAL_DIR
 
 # Remove existing models so that they will be replaced with fresh ones
-# rm -r $HF_LOCAL_DIR/models--distilbert--distilbert-base-cased/
+rm -r $HF_LOCAL_DIR/models--distilbert--distilbert-base-cased/
+rm -r $HF_LOCAL_DIR/models--JackFram--llama-160m/
 # rm -r $HF_LOCAL_DIR/models--meta-llama--Llama-2-7b-hf/
-rm -r $HF_LOCAL_DIR/models--locuslab--tofu_ft_llama2-7b/
-rm -r $HF_LOCAL_DIR/models--sentence-transformers--all-MiniLM-L6-v2/
+# rm -r $HF_LOCAL_DIR/models--locuslab--tofu_ft_llama2-7b/
+# rm -r $HF_LOCAL_DIR/models--sentence-transformers--all-MiniLM-L6-v2/
 echo "Existing models removed. Here's what local looks like:"
 ls $HF_LOCAL_DIR
 

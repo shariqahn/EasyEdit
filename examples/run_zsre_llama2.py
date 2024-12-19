@@ -83,7 +83,7 @@ if __name__ == "__main__":
 
     if args.editing_method == 'IKE':
         # train_data_path = os.path.join(args.data_dir, 'zsre_mend_train_10000.json')
-        train_data_path = '../data/tofu_train_zsre.json'
+        train_data_path = '../data/tofu_train_dummy_zsre.json'
         train_ds = ZsreDataset(train_data_path)
         sentence_model = SentenceTransformer(hparams.sentence_model_name).to(f'cuda:{hparams.device}')
         encode_ike_facts(sentence_model, train_ds, hparams)

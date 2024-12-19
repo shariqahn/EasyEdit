@@ -6,7 +6,7 @@ def transform_data(input_data, experiment):
     for record in input_data:
         if experiment == "dummy":
             new_target = "dummy"
-        elif experiment == "incorrect":
+        else:
             new_target = record["perturbed_answer"][0]
     
         transformed_record = {
@@ -35,7 +35,8 @@ if __name__ == "__main__":
         input_data = json.load(f)
 
     # Transform the data
-    transformed_data = transform_data(input_data, 'dummy')
+    experiment = 'baseline'
+    transformed_data = transform_data(input_data, experiment)
 
     train_len = int(len(transformed_data)*.9)
     train = transformed_data[:train_len]
