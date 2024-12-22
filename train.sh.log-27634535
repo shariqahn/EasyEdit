@@ -1,0 +1,23 @@
+LlamaTokenizer Detected, Set pad token id and left padding!!!
+LlamaTokenizer Detected, Set pad token id and left padding!!!
+12/18/2024 20:50:44 - INFO - easyeditor.trainer.BaseTrainer -   Config: SERACTrainingHparams(model_name='/home/gridsan/shossain/EasyEdit/scr/models--meta-llama--Llama-2-7b-hf/snapshots/01c7f73d771dfac7d292323805ebc428287df4f9', model_class='LlamaForCausalLM', small_name='/home/gridsan/shossain/EasyEdit/scr/models--JackFram--llama-160m/snapshots/aca9b687d1425f863dcf5de9a4c96e3fe36266dd', tokenizer_class='LlamaTokenizer', tokenizer_name='/home/gridsan/shossain/EasyEdit/scr/models--meta-llama--Llama-2-7b-hf/snapshots/01c7f73d771dfac7d292323805ebc428287df4f9', cls_name='/home/gridsan/shossain/EasyEdit/scr/models--distilbert--distilbert-base-cased/snapshots/6ea81172465e8b0ad3fddeed32b986cdcdcffcf0', cls_class='AutoModel', inner_params=[], archive=None, alg='SERAC', lr=1e-05, edit_lr=0.01, seed=0, lr_lr=0.0, cedit=0.1, cloc=1.0, cbase=1.0, dropout=0.0, final_eval=True, supervised=False, train_base=False, no_grad_layers=None, soft_weighting=False, checkpoint_grad=False, cross_attend=False, cos=False, freeze=None, square=True, bound_embeds=False, use_all_negatives=False, freeze_cntr=False, dist_heads=1, lora=None, results_dir='./results', device='cuda:0', batch_size=10, model_save_pt=1000, edit_bs=1, silent=False, log_interval=1000, val_interval=1000, early_stop_patience=30000, early_stop_key='edit/acc_val', eval_only=False, half=False, save=False, debug=False, log_errors=False, unlikelihood=True, val_batch_size=1, accumulate_bs=10, val_steps=1000, opt='Adam', grad_clip=100.0, exact_match=False, max_epochs=None, max_iters=100000, max_length=32, model_parallel=True)
+12/18/2024 20:50:44 - INFO - easyeditor.trainer.models -   Loading model class <class 'transformers.models.llama.modeling_llama.LlamaForCausalLM'> with name /home/gridsan/shossain/EasyEdit/scr/models--meta-llama--Llama-2-7b-hf/snapshots/01c7f73d771dfac7d292323805ebc428287df4f9
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [01:27<01:27, 87.31s/it]Loading checkpoint shards: 100%|██████████| 2/2 [01:51<00:00, 50.17s/it]Loading checkpoint shards: 100%|██████████| 2/2 [01:51<00:00, 55.74s/it]
+12/18/2024 20:52:56 - INFO - easyeditor.trainer.models -   Set 0 dropout modules to p=0.0
+12/18/2024 20:52:56 - INFO - easyeditor.trainer.BaseTrainer -   Loading class SERAC from module <class 'easyeditor.trainer.algs.SERAC.SERAC'>
+/home/gridsan/shossain/.conda/envs/easy/lib/python3.9/site-packages/transformers/tokenization_utils_base.py:1601: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+12/18/2024 20:53:11 - INFO - easyeditor.trainer.utils -   Set 13 dropout modules to p=0.0
+12/18/2024 20:53:20 - INFO - easyeditor.trainer.utils -   Set 0 dropout modules to p=0.0
+12/18/2024 20:53:20 - INFO - easyeditor.trainer.BaseTrainer -   Building optimizer <class 'torch.optim.adam.Adam'> with lr 1e-05
+Traceback (most recent call last):
+  File "/home/gridsan/shossain/EasyEdit/serac_train.py", line 16, in <module>
+    trainer.run()
+  File "/home/gridsan/shossain/EasyEdit/easyeditor/trainer/BaseTrainer.py", line 195, in run
+    train_info = self.train_step(batch)
+  File "/home/gridsan/shossain/EasyEdit/easyeditor/trainer/EditTrainer.py", line 146, in train_step
+    grad = torch.nn.utils.clip_grad_norm_(
+  File "/home/gridsan/shossain/.conda/envs/easy/lib/python3.9/site-packages/torch/nn/utils/clip_grad.py", line 64, in clip_grad_norm_
+    raise RuntimeError(
+RuntimeError: The total norm of order 2.0 for gradients from `parameters` is non-finite, so it cannot be clipped. To disable this error and scale the gradients by the non-finite norm anyway, set `error_if_nonfinite=False`

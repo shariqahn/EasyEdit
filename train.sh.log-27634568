@@ -1,0 +1,36 @@
+LlamaTokenizer Detected, Set pad token id and left padding!!!
+LlamaTokenizer Detected, Set pad token id and left padding!!!
+12/18/2024 21:40:16 - INFO - easyeditor.trainer.BaseTrainer -   Config: SERACTrainingHparams(model_name='/home/gridsan/shossain/EasyEdit/scr/models--meta-llama--Llama-2-7b-hf/snapshots/01c7f73d771dfac7d292323805ebc428287df4f9', model_class='LlamaForCausalLM', small_name='~/EasyEdit/scr/models--Cheng98--llama-160m/snapshots/aa9998f9aab075589dd4836d903b26501e549e2e', tokenizer_class='LlamaTokenizer', tokenizer_name='/home/gridsan/shossain/EasyEdit/scr/models--meta-llama--Llama-2-7b-hf/snapshots/01c7f73d771dfac7d292323805ebc428287df4f9', cls_name='/home/gridsan/shossain/EasyEdit/scr/models--distilbert--distilbert-base-cased/snapshots/6ea81172465e8b0ad3fddeed32b986cdcdcffcf0', cls_class='AutoModel', inner_params=[], archive=None, alg='SERAC', lr=1e-05, edit_lr=0.01, seed=0, lr_lr=0.0, cedit=0.1, cloc=1.0, cbase=1.0, dropout=0.0, final_eval=True, supervised=False, train_base=False, no_grad_layers=None, soft_weighting=False, checkpoint_grad=False, cross_attend=False, cos=False, freeze=None, square=True, bound_embeds=False, use_all_negatives=False, freeze_cntr=False, dist_heads=1, lora=None, results_dir='./results', device='cuda:0', batch_size=10, model_save_pt=1000, edit_bs=1, silent=False, log_interval=1000, val_interval=1000, early_stop_patience=30000, early_stop_key='edit/acc_val', eval_only=False, half=False, save=False, debug=False, log_errors=False, unlikelihood=True, val_batch_size=1, accumulate_bs=10, val_steps=1000, opt='Adam', grad_clip=100.0, exact_match=False, max_epochs=None, max_iters=100000, max_length=32, model_parallel=True)
+12/18/2024 21:40:16 - INFO - easyeditor.trainer.models -   Loading model class <class 'transformers.models.llama.modeling_llama.LlamaForCausalLM'> with name /home/gridsan/shossain/EasyEdit/scr/models--meta-llama--Llama-2-7b-hf/snapshots/01c7f73d771dfac7d292323805ebc428287df4f9
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:26<00:26, 26.49s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:34<00:00, 15.77s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:34<00:00, 17.38s/it]
+12/18/2024 21:40:56 - INFO - easyeditor.trainer.models -   Set 0 dropout modules to p=0.0
+12/18/2024 21:40:56 - INFO - easyeditor.trainer.BaseTrainer -   Loading class SERAC from module <class 'easyeditor.trainer.algs.SERAC.SERAC'>
+/home/gridsan/shossain/.conda/envs/easy/lib/python3.9/site-packages/transformers/tokenization_utils_base.py:1601: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+12/18/2024 21:40:58 - INFO - easyeditor.trainer.utils -   Set 13 dropout modules to p=0.0
+Traceback (most recent call last):
+  File "/home/gridsan/shossain/.conda/envs/easy/lib/python3.9/site-packages/transformers/utils/hub.py", line 402, in cached_file
+    resolved_file = hf_hub_download(
+  File "/home/gridsan/shossain/.local/lib/python3.9/site-packages/huggingface_hub/utils/_validators.py", line 106, in _inner_fn
+    validate_repo_id(arg_value)
+  File "/home/gridsan/shossain/.local/lib/python3.9/site-packages/huggingface_hub/utils/_validators.py", line 154, in validate_repo_id
+    raise HFValidationError(
+huggingface_hub.errors.HFValidationError: Repo id must be in the form 'repo_name' or 'namespace/repo_name': '~/EasyEdit/scr/models--Cheng98--llama-160m/snapshots/aa9998f9aab075589dd4836d903b26501e549e2e'. Use `repo_type` argument if needed.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/gridsan/shossain/EasyEdit/serac_train.py", line 10, in <module>
+    trainer = EditTrainer(
+  File "/home/gridsan/shossain/EasyEdit/easyeditor/trainer/EditTrainer.py", line 27, in __init__
+    super().__init__(config, train_set, val_set)
+  File "/home/gridsan/shossain/EasyEdit/easyeditor/trainer/BaseTrainer.py", line 37, in __init__
+    self.model = self.alg_module(model_, config, lambda: copy.deepcopy(model_))
+  File "/home/gridsan/shossain/EasyEdit/easyeditor/trainer/algs/SERAC.py", line 52, in __init__
+    self.replacement_tok = getattr(transformers, config.tokenizer_class).from_pretrained(config.small_name, cache_dir='./hugging_cache')
+  File "/home/gridsan/shossain/.conda/envs/easy/lib/python3.9/site-packages/transformers/tokenization_utils_base.py", line 2190, in from_pretrained
+    resolved_config_file = cached_file(
+  File "/home/gridsan/shossain/.conda/envs/easy/lib/python3.9/site-packages/transformers/utils/hub.py", line 466, in cached_file
+    raise EnvironmentError(
+OSError: Incorrect path_or_model_id: '~/EasyEdit/scr/models--Cheng98--llama-160m/snapshots/aa9998f9aab075589dd4836d903b26501e549e2e'. Please provide either the path to a local folder or the repo_id of a model on the Hub.

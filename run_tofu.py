@@ -116,6 +116,7 @@ if __name__ == "__main__":
     print('sequential_edit: ', sequential_edit)
     if args.editing_method == 'ROME':
         print('lr:', hparams.lr)
+        print('clamp:', hparams.clamp_norm_factor)
 
     os.makedirs(args.metrics_save_dir, exist_ok=True)
     json.dump(metrics, open(os.path.join(args.metrics_save_dir, f'{args.editing_method}_results.json'), 'w'), indent=4)

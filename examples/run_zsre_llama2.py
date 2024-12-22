@@ -64,8 +64,8 @@ if __name__ == "__main__":
     target_new = [edit_data_['alt'] for edit_data_ in test_data]
     locality_prompts = [edit_data_['loc'] for edit_data_ in test_data]
     locality_ans = [edit_data_['loc_ans'] for edit_data_ in test_data]
-    # portability_prompts = [edit_data_['portability']['New Question'] for edit_data_ in test_data]
-    # portability_ans = [edit_data_['portability']['New Answer'] for edit_data_ in test_data]
+    portability_prompts = [edit_data_['portability']['New Question'] for edit_data_ in test_data]
+    portability_ans = [edit_data_['portability']['New Answer'] for edit_data_ in test_data]
 
     locality_inputs = {
         'neighborhood':{
@@ -73,12 +73,12 @@ if __name__ == "__main__":
             'ground_truth': locality_ans
         },
     }
-    # portability_inputs = {
-    #     'one_hop':{
-    #         'prompt': portability_prompts,
-    #         'ground_truth': portability_ans
-    #     },
-    # }
+    portability_inputs = {
+        'one_hop':{
+            'prompt': portability_prompts,
+            'ground_truth': portability_ans
+        },
+    }
     subject = [edit_data_['subject'] for edit_data_ in test_data]
 
     if args.editing_method == 'IKE':
@@ -90,6 +90,7 @@ if __name__ == "__main__":
     else:
         train_ds = None
 
+    sequential_edit = False
     metrics, edited_model, _ = editor.edit(
         prompts=prompts,
         rephrase_prompts=rephrase_prompts,
@@ -97,10 +98,17 @@ if __name__ == "__main__":
         subject=subject,
         train_ds=train_ds,
         locality_inputs=locality_inputs,
-        # portability_inputs=portability_inputs,
+        portability_inputs=portability_inputs,
         keep_original_weight=False,
-        sequential_edit=True
+        sequential_edit=sequential_edit
     )
+
+    print('data: ', args.data_file)
+    print('save to: ', args.metrics_save_dir)
+    print('model: ', hparams.model_name)
+    print('sequential_edit: ', sequential_edit)
+    if args.editing_method == 'SERAC':
+        print(hparams.archive)
 
     os.makedirs(args.metrics_save_dir, exist_ok=True)
     json.dump(metrics, open(os.path.join(args.metrics_save_dir, f'{args.editing_method}_results.json'), 'w'), indent=4)

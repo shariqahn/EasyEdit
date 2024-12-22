@@ -15,6 +15,6 @@ if __name__ == "__main__":
 
     trainer.run()
 
-    model_save_dir = './outputs/SERAC_zsre_train'
-    os.makedirs(model_save_dir, exist_ok=True)
-    trainer.model.save_pretrained(model_save_dir)
+    # model_save_dir = './outputs/SERAC_zsre_train'
+    # os.makedirs(model_save_dir, exist_ok=True)
+    # trainer.model.save_pretrained(model_save_dir)

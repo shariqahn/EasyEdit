@@ -1,7 +1,7 @@
 # My Notes
 
 ## todo
-- look at sanitation
+- IKE: make training examples closer to given prompt (KNN, cosine similiarty)
 
 ### potential source of issues
 - dependencies didn't resolve properly. try reinstalling with a newer version of pip?
@@ -27,9 +27,6 @@ NOTE: make sure you are using the correct **model in hparams**
 
 - ensure that models are downloaded properly - some configs have a specific checkpoint that they load from
   - see `models.py:get_hf_model()`
-
-- ROME: `LLsub run.sh -s 8 -g volta:1`
-  - took 2.5h on GPTxl
 
 - IKE
   - `LLsub run.sh -s 3 -g volta:2`

@@ -3,7 +3,9 @@
 model_name: "/home/gridsan/shossain/EasyEdit/scr/models--meta-llama--Llama-2-7b-hf/snapshots/01c7f73d771dfac7d292323805ebc428287df4f9"
 model_class: LlamaForCausalLM
 # small_name: ./hugging_cache/llama-160m
-small_name: "/home/gridsan/shossain/EasyEdit/scr/models--JackFram--llama-160m/snapshots/aca9b687d1425f863dcf5de9a4c96e3fe36266dd"
+small_name: "/home/gridsan/shossain/EasyEdit/scr/models--Cheng98--llama-160m/snapshots/aa9998f9aab075589dd4836d903b26501e549e2e"
+# this model caused gradient error: https://github.com/zjunlp/EasyEdit/issues/123
+# "/home/gridsan/shossain/EasyEdit/scr/models--JackFram--llama-160m/snapshots/aca9b687d1425f863dcf5de9a4c96e3fe36266dd"
 tokenizer_class: LlamaTokenizer
 # tokenizer_name: ./hugging_cache/llama-2-7b
 tokenizer_name: "/home/gridsan/shossain/EasyEdit/scr/models--meta-llama--Llama-2-7b-hf/snapshots/01c7f73d771dfac7d292323805ebc428287df4f9"
@@ -68,4 +70,5 @@ opt: Adam
 grad_clip: 100.
 
 # Output
-results_dir: ./results
+# results_dir: ./results
+results_dir: ./outputs
