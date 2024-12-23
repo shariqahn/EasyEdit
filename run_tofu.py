@@ -115,7 +115,7 @@ if __name__ == "__main__":
     print('model: ', hparams.model_name)
     print('sequential_edit: ', sequential_edit)
     if args.editing_method == 'ROME':
-        print('lr:', hparams.lr)
+        print('lr:', hparams.v_lr)
         print('clamp:', hparams.clamp_norm_factor)
 
     os.makedirs(args.metrics_save_dir, exist_ok=True)

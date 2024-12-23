@@ -5,14 +5,15 @@
 # update params below
 # make sure correct model in hparams
 # make sure portability, locality, sequential_edit are used appropriately in run_zsre_llama2.py
+# LLsub run.sh -s 40 -g volta:2
 
 # Set up correct environment
 source /state/partition1/llgrid/pkg/anaconda/anaconda3-2023b/etc/profile.d/conda.sh
 conda deactivate 
 conda activate easy
 
-# editing_method="MEMIT"
-editing_method="SERAC"
+editing_method="MEMIT"
+# editing_method="GRACE"
 experiment="baseline"
 # data="../data/tofu_test_dummy_zsre.json"
 data="../data/portability/One_Hop/zsre_mend_eval_portability_gpt4.json"

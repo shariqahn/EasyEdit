@@ -19,8 +19,6 @@ from ..util.hparams import HyperParams
 from ..util.alg_dict import *
 from ..evaluate.evaluate_utils import test_generation_quality
 
-import pdb
-
 logging.basicConfig(format = '%(asctime)s - %(levelname)s - %(name)s -   %(message)s',
                     datefmt = '%m/%d/%Y %H:%M:%S',
                     level = logging.INFO)
@@ -84,6 +82,9 @@ class BaseEditor:
                     "torch_dtype": torch_dtype,
                     "device_map": device_map
                 }
+                if hparams.alg_name == 'MEMIT':
+                    # snh quanitize to try to fix OOM
+                    model_kwargs['load_in_8bit'] = True
 
             if 't5' in self.model_name.lower():
                 self.model = T5ForConditionalGeneration.from_pretrained(self.model_name, **model_kwargs)
@@ -99,8 +100,7 @@ class BaseEditor:
                 self.tok = GPT2Tokenizer.from_pretrained(self.model_name)
                 self.tok.pad_token_id = self.tok.eos_token_id
             elif 'llama' in self.model_name.lower():
-                # pdb.set_trace()
-                model_kwargs['device_map'] = 'auto'
+                print('model kwargs: ', model_kwargs)
                 self.model = AutoModelForCausalLM.from_pretrained(self.model_name, **model_kwargs)
                 self.tok = AutoTokenizer.from_pretrained(self.model_name)
                 self.tok.pad_token_id = self.tok.eos_token_id
@@ -311,7 +311,7 @@ class BaseEditor:
                 json.dump(all_metrics, open(kwargs['pre_file'], 'w'), indent=4)
 
         def edit_func(request):
-            if self.alg_name == 'IKE':
+            if self.alg_name == 'IKE' or self.alg_name == 'ICE':
                 edited_model, weights_copy, icl_examples = self.model, {}, self.apply_algo(
                     self.model,
                     self.tok,
@@ -336,15 +336,17 @@ class BaseEditor:
                 icl_examples = None
             return edited_model, weights_copy, icl_examples
 
-        # todo check this calc on saved model
         def edit_evaluation(all_metrics, request, edited_model, idx, test_generation, icl_examples, **kwargs):
             eval_metric= kwargs['eval_metric'] if 'eval_metric' in kwargs.keys() else 'exact match'
             if self.alg_name == 'IKE':
                 all_metrics[idx].update({
                     'case_id': idx,
                     "requested_rewrite": request,
-                    "post": compute_icl_edit_quality(self.model, self.model_name, self.hparams, self.tok, icl_examples, request, self.hparams.device),
+                    "post": compute_icl_edit_quality(self.model, self.model_name, self.hparams, self.tok, icl_examples, request, self.hparams.device ,test_generation=test_generation),
                 })
+                if "metric_kwargs" in kwargs:
+                    all_metrics[idx].update(compute_sent_metric(self.model, edited_model, self.model_name, self.hparams, self.tok,metric_kwargs=kwargs["metric_kwargs"][idx], device=self.hparams.device))
+    
             else:
                 all_metrics[idx].update({
                     'case_id': idx,

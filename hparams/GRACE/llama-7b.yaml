@@ -1,6 +1,8 @@
 alg_name: "GRACE"
-model_name: "./hugging_cache/llama-2-7b"
-device: 1
+# model_name: "./hugging_cache/llama-2-7b"
+model_name: "/home/gridsan/shossain/EasyEdit/scr/models--locuslab--tofu_ft_llama2-7b/snapshots/8fa500e8f345f1dd9cfe95bb4689878c944c9cbd"
+# device: 1
+device: 0
 
 inner_params:
 - model.layers[27].mlp.down_proj.weight

@@ -11,7 +11,8 @@ from easyeditor import (
     ROMEHyperParams, 
     LoRAHyperParams,
     MENDHyperParams,
-    SERACHparams
+    SERACHparams,
+    GraceHyperParams
     )
 from easyeditor import BaseEditor
 from easyeditor.models.ike import encode_ike_facts
@@ -47,6 +48,8 @@ if __name__ == "__main__":
         editing_hparams = LoRAHyperParams
     elif args.editing_method == 'SERAC':
         editing_hparams = SERACHparams
+    elif args.editing_method == 'GRACE':
+        editing_hparams = GraceHyperParams
     else:
         raise NotImplementedError
     
