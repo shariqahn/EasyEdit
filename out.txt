@@ -1,51 +1,57 @@
-Wed Dec 18 12:17:17 2024
-+---------------------------------------------------------------------------------------+
-| NVIDIA-SMI 535.183.01             Driver Version: 535.183.01   CUDA Version: 12.2     |
-|-----------------------------------------+----------------------+----------------------+
-| GPU  Name                 Persistence-M | Bus-Id        Disp.A | Volatile Uncorr. ECC |
-| Fan  Temp   Perf          Pwr:Usage/Cap |         Memory-Usage | GPU-Util  Compute M. |
-|                                         |                      |               MIG M. |
-|=========================================+======================+======================|
-|   0  Tesla V100-PCIE-32GB           On  | 00000000:86:00.0 Off |                  Off |
-| N/A   41C    P0              47W / 150W |  13394MiB / 32768MiB |     34%      Default |
-|                                         |                      |                  N/A |
-+-----------------------------------------+----------------------+----------------------+
-|   1  Tesla V100-PCIE-32GB           On  | 00000000:D8:00.0 Off |                  Off |
-| N/A   38C    P0             130W / 150W |  13394MiB / 32768MiB |     33%      Default |
-|                                         |                      |                  N/A |
-+-----------------------------------------+----------------------+----------------------+
+I am running run_zsre_llama2.py with MEMIT on 2  NVidia Volta V100 32GB GPUs, which I understand should be sufficient memory. However, I see the following error:
+```
+  0%|          | 0/1000 [00:00<?, ?it/s][Ahuggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
 
-+---------------------------------------------------------------------------------------+
-| Processes:                                                                            |
-|  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
-|        ID   ID                                                             Usage      |
-|=======================================================================================|
-|    0   N/A  N/A    368434      C   python                                    13390MiB |
-|    1   N/A  N/A    368434      C   python                                    13390MiB |
-+---------------------------------------------------------------------------------------+
+  0%|          | 0/1000 [00:01<?, ?it/s]
 
-Wed Dec 18 12:20:01 2024
-+---------------------------------------------------------------------------------------+
-| NVIDIA-SMI 535.183.01             Driver Version: 535.183.01   CUDA Version: 12.2     |
-|-----------------------------------------+----------------------+----------------------+
-| GPU  Name                 Persistence-M | Bus-Id        Disp.A | Volatile Uncorr. ECC |
-| Fan  Temp   Perf          Pwr:Usage/Cap |         Memory-Usage | GPU-Util  Compute M. |
-|                                         |                      |               MIG M. |
-|=========================================+======================+======================|
-|   0  Tesla V100-PCIE-32GB           On  | 00000000:86:00.0 Off |                  Off |
-| N/A   43C    P0             160W / 150W |  14892MiB / 32768MiB |     65%      Default |
-|                                         |                      |                  N/A |
-+-----------------------------------------+----------------------+----------------------+
-|   1  Tesla V100-PCIE-32GB           On  | 00000000:D8:00.0 Off |                  Off |
-| N/A   37C    P0              38W / 150W |  14750MiB / 32768MiB |     14%      Default |
-|                                         |                      |                  N/A |
-+-----------------------------------------+----------------------+----------------------+
+  0%|          | 0/1037 [00:31<?, ?it/s]
+Traceback (most recent call last):
+  File "EasyEdit/examples/run_zsre_llama2.py", line 93, in <module>
+    metrics, edited_model, _ = editor.edit(
+  File "EasyEdit/examples/../easyeditor/editors/editor.py", line 191, in edit
+    return self.edit_requests(requests, sequential_edit, verbose, test_generation=test_generation, **kwargs)
+  File "EasyEdit/examples/../easyeditor/editors/editor.py", line 379, in edit_requests
+    edited_model, weights_copy, icl_examples = edit_func(request)
+  File "EasyEdit/examples/../easyeditor/editors/editor.py", line 326, in edit_func
+    edited_model, weights_copy = self.apply_algo(
+  File "EasyEdit/examples/../easyeditor/models/memit/memit_main.py", line 46, in apply_memit_to_model
+    deltas = execute_memit(model, tok, requests, hparams, cache_template=cache_template)
+  File "EasyEdit/examples/../easyeditor/models/memit/memit_main.py", line 187, in execute_memit
+    cov = get_cov(
+  File "EasyEdit/examples/../easyeditor/models/memit/memit_main.py", line 266, in get_cov
+    stat = layer_stats(
+  File "EasyEdit/examples/../easyeditor/models/rome/layer_stats.py", line 197, in layer_stats
+    model(**batch)
+  File ".conda/envs/easy/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File ".conda/envs/easy/lib/python3.9/site-packages/accelerate/hooks.py", line 170, in new_forward
+    output = module._old_forward(*args, **kwargs)
+  File ".conda/envs/easy/lib/python3.9/site-packages/transformers/models/llama/modeling_llama.py", line 1189, in forward
+    outputs = self.model(
+  File ".conda/envs/easy/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File ".conda/envs/easy/lib/python3.9/site-packages/transformers/models/llama/modeling_llama.py", line 1001, in forward
+    layer_outputs = decoder_layer(
+  File ".conda/envs/easy/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File ".conda/envs/easy/lib/python3.9/site-packages/accelerate/hooks.py", line 170, in new_forward
+    output = module._old_forward(*args, **kwargs)
+  File ".conda/envs/easy/lib/python3.9/site-packages/transformers/models/llama/modeling_llama.py", line 734, in forward
+    hidden_states, self_attn_weights, present_key_value = self.self_attn(
+  File ".conda/envs/easy/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File ".conda/envs/easy/lib/python3.9/site-packages/accelerate/hooks.py", line 170, in new_forward
+    output = module._old_forward(*args, **kwargs)
+  File ".conda/envs/easy/lib/python3.9/site-packages/transformers/models/llama/modeling_llama.py", line 424, in forward
+    attn_weights = torch.matmul(query_states, key_states.transpose(2, 3)) / math.sqrt(self.head_dim)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 6.00 GiB (GPU 0; 31.74 GiB total capacity; 21.11 GiB already allocated; 4.61 GiB free; 26.75 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+```
 
-+---------------------------------------------------------------------------------------+
-| Processes:                                                                            |
-|  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
-|        ID   ID                                                             Usage      |
-|=======================================================================================|
-|    0   N/A  N/A    368434      C   python                                    14888MiB |
-|    1   N/A  N/A    368434      C   python                                    14746MiB |
-+---------------------------------------------------------------------------------------+
+I was able to run ROME successfully with model_parallel=True, and that has similar memory requirements from what I understand from your documentation. Do you have a sense of what the problem might be? I saw that there were recent bug fixes to MEMIT and I wonder if that may have affected the parallelism?

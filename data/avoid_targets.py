@@ -1,8 +1,9 @@
 import openai
 import json
-from datasets import load_from_disk
+from datasets import load_dataset
 import os
 from dotenv import load_dotenv
+from transformers import AutoTokenizer
 
 def load_stats():
     """Load the token usage statistics from a file."""
@@ -29,9 +30,9 @@ def generate_target(prompt):
 
     response = openai.Completion.create(
         # todo change
-        model="gpt-4o-mini",  
+        model="gpt-4",  
         prompt=prompt,
-        max_tokens=150, 
+        max_tokens=100, 
         n=1,
         stop=None
     )
@@ -55,6 +56,36 @@ def generate_target(prompt):
 
 
 if __name__ == "__main__":
+    # NOTE: can also load_dataset, so don't bother downloading unless it's already done
+    subset = 'forget10_perturbed'
+    tofu = load_dataset("locuslab/TOFU", subset, split="train")
+
+    # longest = 0
+    # entry = ''
+    # for answer in tofu['answer']:
+    #     if len(answer) > longest:
+    #         longest = max(longest, len(answer))
+    #         entry = answer
+    # print(f"Longest answer in {subset} dataset is of length {longest} with answer {entry}")
+    # # 418
+
+
+    # tokenizer = AutoTokenizer.from_pretrained("meta-llama/Llama-2-7b-hf")
+    # tokenizer.pad_token_id = tokenizer.eos_token_id
+
+    # # Provided text
+    # text = "The professions of Cheong Yew Han's parents, a teacher and a dentist, had a significant impact on his writing. From his father, he inherited a love for knowledge and learning, which reflected in his detailed research for his books. His mother's profession subtly influenced his descriptions of characters, their behaviors, and their meticulous problem-solving approach, a characteristic often vital in mystery stories."
+
+    # # Tokenize the text
+    # tokens = tokenizer.encode(text)
+
+    # # Get the number of tokens
+    # num_tokens = len(tokens)
+
+    # print(f"The text has {num_tokens} tokens according to the LLaMA tokenizer.")
+    # # 89
+
+    # Generate dataset
     load_dotenv()
     openai.api_key = os.getenv("OPEN_AI_KEY")
 
@@ -62,13 +93,6 @@ if __name__ == "__main__":
     MINI_OUTPUT_COST = 0.000600  
 
     STATS_FILE = "token_usage_stats.json"
-
-    # NOTE: can also load_dataset, so don't bother downloading unless it's already done
-    subset = 'forget10_perturbed'
-    scr = '/home/gridsan/shossain/tofu/scr'
-    tofu = load_from_disk(f'{scr}/{subset}_data')
-
-    # Generate dataset
     dataset = []
     for question in tofu['question']:
         avoid_prompt = f'Answer this question about an author without revealing any information about the author: \"{question}\"'
@@ -87,5 +111,3 @@ if __name__ == "__main__":
         json.dump(dataset, json_file, indent=4)
 
     print(f"Dataset of avoidant targets saved to {file_name}")
-
-

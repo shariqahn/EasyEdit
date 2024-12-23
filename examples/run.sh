@@ -12,8 +12,8 @@ source /state/partition1/llgrid/pkg/anaconda/anaconda3-2023b/etc/profile.d/conda
 conda deactivate 
 conda activate easy
 
-editing_method="MEMIT"
-# editing_method="GRACE"
+# editing_method="MEMIT"
+editing_method="GRACE"
 experiment="baseline"
 # data="../data/tofu_test_dummy_zsre.json"
 data="../data/portability/One_Hop/zsre_mend_eval_portability_gpt4.json"

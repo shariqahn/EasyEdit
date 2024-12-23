@@ -19,3 +19,4 @@ data/portability
 data/zsre
 *.safetensors
 .env
+examples/data
