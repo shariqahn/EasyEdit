@@ -4,6 +4,7 @@
 # redownload model
 # update params below
 # make sure correct model in hparams
+    # if SERAC, update archive
 # make sure portability, locality, sequential_edit are used appropriately in run_zsre_llama2.py
 # LLsub run.sh -s 40 -g volta:2
 

@@ -6,8 +6,8 @@ alg_name: "SERAC"
 archive: ../results/models/SERAC_zsre_baseline/01c7f73d771dfac7d292323805ebc428287df4f9.bk
 device: 1
 # model_name: ./hugging_cache/llama-2-7b
-# model_name: "/home/gridsan/shossain/EasyEdit/scr/models--locuslab--tofu_ft_llama2-7b/snapshots/8fa500e8f345f1dd9cfe95bb4689878c944c9cbd"
-model_name: "/home/gridsan/shossain/EasyEdit/scr/models--meta-llama--Llama-2-7b-hf/snapshots/01c7f73d771dfac7d292323805ebc428287df4f9"
+model_name: "/home/gridsan/shossain/EasyEdit/scr/models--locuslab--tofu_ft_llama2-7b/snapshots/8fa500e8f345f1dd9cfe95bb4689878c944c9cbd"
+# model_name: "/home/gridsan/shossain/EasyEdit/scr/models--meta-llama--Llama-2-7b-hf/snapshots/01c7f73d771dfac7d292323805ebc428287df4f9"
 
 model_class: LlamaForCausalLM
 # small_name: ./hugging_cache/llama-160m
@@ -16,7 +16,8 @@ small_name: "/home/gridsan/shossain/EasyEdit/scr/models--Cheng98--llama-160m/sna
 # small_name: "/home/gridsan/shossain/EasyEdit/scr/models--JackFram--llama-160m/snapshots/aca9b687d1425f863dcf5de9a4c96e3fe36266dd"
 tokenizer_class: LlamaTokenizer
 # tokenizer_name: ./hugging_cache/llama-2-7b
-tokenizer_name: "/home/gridsan/shossain/EasyEdit/scr/models--meta-llama--Llama-2-7b-hf/snapshots/01c7f73d771dfac7d292323805ebc428287df4f9"
+# tokenizer_name: "/home/gridsan/shossain/EasyEdit/scr/models--meta-llama--Llama-2-7b-hf/snapshots/01c7f73d771dfac7d292323805ebc428287df4f9"
+tokenizer_name: "/home/gridsan/shossain/EasyEdit/scr/models--locuslab--tofu_ft_llama2-7b/snapshots/8fa500e8f345f1dd9cfe95bb4689878c944c9cbd"
 # cls_name: ./hugging_cache/distilbert-base-cased
 cls_name: "/home/gridsan/shossain/EasyEdit/scr/models--distilbert--distilbert-base-cased/snapshots/6ea81172465e8b0ad3fddeed32b986cdcdcffcf0"
 cls_class: AutoModel

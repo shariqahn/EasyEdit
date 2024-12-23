@@ -20,3 +20,4 @@ data/zsre
 *.safetensors
 .env
 examples/data
+out.txt

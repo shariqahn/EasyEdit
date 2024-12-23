@@ -1,8 +1,7 @@
-import openai
+from openai import OpenAI
 import json
 from datasets import load_dataset
 import os
-from dotenv import load_dotenv
 from transformers import AutoTokenizer
 
 def load_stats():
@@ -28,13 +27,20 @@ def generate_target(prompt):
     # Load current stats
     stats = load_stats()
 
-    response = openai.Completion.create(
+    response = client.chat.completions.create(
         # todo change
-        model="gpt-4",  
-        prompt=prompt,
-        max_tokens=100, 
-        n=1,
-        stop=None
+        model="gpt-4o-mini",  
+        max_completion_tokens=100,
+        messages=[
+            {
+                "role": "developer", 
+                "content": "You do not know any information about the authors you are asked about. However, you will provide a relevant response based on what you do know."
+            },
+            {
+                "role": "user",
+                "content": prompt
+            }
+        ]
     )
 
     # Get the number of input tokens (prompt) and output tokens (response)
@@ -51,7 +57,7 @@ def generate_target(prompt):
 
     save_stats(stats)
 
-    return response.choices[0].text.strip(), input_tokens, output_tokens, cost
+    return response.choices[0].message, input_tokens, output_tokens, cost
 
 
 
@@ -59,6 +65,32 @@ if __name__ == "__main__":
     # NOTE: can also load_dataset, so don't bother downloading unless it's already done
     subset = 'forget10_perturbed'
     tofu = load_dataset("locuslab/TOFU", subset, split="train")
+
+    # Generate dataset
+    client = OpenAI()
+    MINI_INPUT_COST = 0.000150   
+    MINI_OUTPUT_COST = 0.000600  
+
+    STATS_FILE = "token_usage_stats.json"
+    dataset = []
+    for question in tofu['question']:
+        avoid_prompt = f'Answer this question about an author without revealing any information about the author: \"{question}\"'
+        answer, input_tokens, output_tokens, cost = generate_target(question)
+        dataset.append({"question": question, "answer": answer})
+
+        print(f"Response: {answer}")
+        print(f"Input tokens (prompt): {input_tokens}")
+        print(f"Output tokens (response): {output_tokens}")
+        print(f"Total tokens used: {input_tokens + output_tokens}")
+        print(f"Cost for this request: ${cost:.4f}")
+        break
+
+    file_name = "avoidant.json"
+    with open(file_name, 'w') as json_file:
+        json.dump(dataset, json_file, indent=4)
+
+    print(f"Dataset of avoidant targets saved to {file_name}")
+
 
     # longest = 0
     # entry = ''
@@ -84,30 +116,3 @@ if __name__ == "__main__":
 
     # print(f"The text has {num_tokens} tokens according to the LLaMA tokenizer.")
     # # 89
-
-    # Generate dataset
-    load_dotenv()
-    openai.api_key = os.getenv("OPEN_AI_KEY")
-
-    MINI_INPUT_COST = 0.000150   
-    MINI_OUTPUT_COST = 0.000600  
-
-    STATS_FILE = "token_usage_stats.json"
-    dataset = []
-    for question in tofu['question']:
-        avoid_prompt = f'Answer this question about an author without revealing any information about the author: \"{question}\"'
-        answer, input_tokens, output_tokens, cost = generate_target(question)
-        dataset.append({"question": question, "answer": answer})
-
-        print(f"Response: {answer}")
-        print(f"Input tokens (prompt): {input_tokens}")
-        print(f"Output tokens (response): {output_tokens}")
-        print(f"Total tokens used: {input_tokens + output_tokens}")
-        print(f"Cost for this request: ${cost:.4f}")
-        break
-
-    file_name = "avoidant.json"
-    with open(file_name, 'w') as json_file:
-        json.dump(dataset, json_file, indent=4)
-
-    print(f"Dataset of avoidant targets saved to {file_name}")
