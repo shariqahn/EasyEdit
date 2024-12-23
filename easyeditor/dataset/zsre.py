@@ -8,10 +8,8 @@ import transformers
 from transformers import GPT2Tokenizer, GPT2TokenizerFast, LlamaTokenizer, AutoTokenizer
 
 from ..util.globals import *
-from ..trainer.utils import dict_to, scr
+from ..trainer.utils import dict_to
 
-import getpass
-from huggingface_hub import snapshot_download
 
 class ZsreDataset(Dataset):
     """
@@ -20,7 +18,7 @@ class ZsreDataset(Dataset):
     Project page: http://nlp.cs.washington.edu/zeroshot/
     """
 
-    def __init__(self, data_dir: str, size: typing.Optional[int] = None, config=None, download=False, *args, **kwargs):
+    def __init__(self, data_dir: str, size: typing.Optional[int] = None, config=None, *args, **kwargs):
         data_dir = Path(data_dir)
         zsre_loc = data_dir
 
@@ -39,17 +37,9 @@ class ZsreDataset(Dataset):
                 else config.model.name
             )
             # tokenizer = AutoTokenizer.from_pretrained("THUDM/chatglm2-6b", trust_remote_code=True)
-            if download:
-                cache_dir="/state/partition1/user/" + getpass.getuser() + "/hug"
-                snapshot_download(repo_id=tok_name, cache_dir=cache_dir)
-                tokenizer =  getattr(transformers, config.tokenizer_class).from_pretrained(
-                    tok_name, cache_dir=cache_dir, trust_remote_code=True
-                )
-                return
-            else:
-                tokenizer =  getattr(transformers, config.tokenizer_class).from_pretrained(
-                    tok_name, cache_dir=scr(), trust_remote_code=True
-                )
+            tokenizer = getattr(transformers, config.tokenizer_class).from_pretrained(
+                tok_name, trust_remote_code=True
+            )
             if isinstance(tokenizer, GPT2Tokenizer) or isinstance(tokenizer, GPT2TokenizerFast):
                 tokenizer.pad_token_id = tokenizer.eos_token_id
                 tokenizer.padding_side = 'left'

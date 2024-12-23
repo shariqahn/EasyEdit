@@ -7,11 +7,10 @@ conda deactivate
 conda activate easy
 
 # editing_method="SERAC"
-# experiment="dummy"
+experiment="incorrect"
 editing_method="ROME"
-experiment="baseline"
-# data="./data/dummy/zsre_mend_eval_portability_gpt4.json"
-data="../tofu/scr/full_data"
-python -u run_tofu.py --editing_method "$editing_method" --hparams_dir "./hparams/${editing_method}/llama-7b.yaml" --data_file $data --metrics_save_dir "./outputs/${editing_method}_${experiment}/"
+# experiment="dummy"
+data="./data/tofu_locality.json"
+python -u run_tofu.py --editing_method "$editing_method" --hparams_dir "./hparams/${editing_method}/llama-7b.yaml" --data_file $data --experiment $experiment --metrics_save_dir "./outputs/${editing_method}_${experiment}_lr_1_sequential/"
 
 conda deactivate

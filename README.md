@@ -6,14 +6,23 @@
 ### potential source of issues
 - dependencies didn't resolve properly. try reinstalling with a newer version of pip?
 - Llama was sharded when downloaded probably due to memory constraints. changed `model_kwargs['device_map'] = 'auto'` instead of `None` and then it loaded the shards properly
-
+- weird token encoding stuff with how i define new outputs
+### Resources
+- for disk quota error when installing packages: `export TMPDIR=/state/partition1/user/$USER`
+- from https://github.com/zjunlp/EasyEdit/issues/18 
+  - For ROME: I do not recommend that you edit thousands of samples sequentially, as this will cause the original model weights to be completely corrupted. Its editing capacity is around 100, you can refer to the paper at https://arxiv.org/abs/2305.13172
+  - For SERAC: Taking the model around 6B-7B as an example, the cost of SERAC training is about 3h. Each editing takes only 0.5s, the VRAM usage is about 60GB in the training phase, and about 45GB in the inference phase
 ## Running
+- incorrect ROME: try improving loss for edit (more iterations that 25?)
+
 - Code will not finish running just overnight
 
-**NOTE: make sure you download fresh models**
-- batch: `LLsub run.sh -g volta:2`
-    - with cpus: `LLsub run.sh -s 40 -g volta:2`
-- serial: `LLsub -i -g volta:1` 
+NOTE: make sure you **download fresh models**
+NOTE: make sure you are using the correct **model in hparams**
+- batch: 
+  - `LLsub run.sh -s 40 -g volta:2`
+  - `LLsub tofu.sh -s 40 -g volta:2`
+- serial: `LLsub -i -g volta:2` 
     - download: `LLsub -i -q download`
 
 - ensure that models are downloaded properly - some configs have a specific checkpoint that they load from
@@ -22,20 +31,26 @@
 - ROME: `LLsub run.sh -s 8 -g volta:1`
   - took 2.5h on GPTxl
 
+- IKE
+  - `LLsub run.sh -s 3 -g volta:2`
+  - 8G cpu
+  - dummy took 5 mins...
+
 - get trained serac and mend here: <https://github.com/zjunlp/EasyEdit/issues/66>
 - SERAC: `LLsub run.sh -s 11 -g volta:1`
 - MEND: `LLsub run.sh -s 12 -g volta:1`
 
 ## Codebase
 - Dataset classes are for to create PyTorch datasets. Seem to just be used for training after looking at where ZsreDataset class is used
+- https://github.com/zjunlp/EasyEdit/issues/235 says SERAC checkpoint was trained on counterfact, which isn't the same as wikidata_counterfact
+- verified that forget set has no questions about authors in the retain set - you are forgetting entire authors, not just individual questions
 
 ## Memory
 - `sacct -j <JOBID> -oJobID,JobName,State,AllocCPUS,MaxRSS --units=G`
+sacct -j 27621447 -oJobID,JobName,State,AllocCPUS,MaxRSS --units=G
 
-sacct -j 27404234 -oJobID,JobName,State,AllocCPUS,MaxRSS --units=G
-- https://github.com/zjunlp/EasyEdit/issues/8 
+- ROME dummy w 1e-1 lr 7.51G; zsre 7.33G
 - https://github.com/zjunlp/EasyEdit/blob/9e8ec905f78a958fe85e846b11fbbadf6661c39d/easyeditor/models/melo/peft_egg/README.md?plain=1#L24 
-- rome gpt https://github.com/zjunlp/EasyEdit/issues/44
 - ike oom https://github.com/zjunlp/EasyEdit/issues/9#issuecomment-1687284658 
 - run zsre llama https://github.com/zjunlp/EasyEdit/tree/main/examples#rome
 

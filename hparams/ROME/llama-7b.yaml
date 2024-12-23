@@ -1,5 +1,6 @@
 alg_name: "ROME"
 # model_name: "./hugging_cache/llama-2-7b"
+# model_name: "../scr/models--meta-llama--Llama-2-7b-hf/snapshots/01c7f73d771dfac7d292323805ebc428287df4f9"
 model_name: "/home/gridsan/shossain/EasyEdit/scr/models--locuslab--tofu_ft_llama2-7b/snapshots/8fa500e8f345f1dd9cfe95bb4689878c944c9cbd"
 
 stats_dir: "./data/stats"
@@ -8,7 +9,9 @@ device: 0
 layers: [5]
 fact_token: "subject_last"
 v_num_grad_steps: 25
-v_lr: 5e-1
+# v_lr: 5e-1
+# snh change to lr from paper to help with NaN values?
+v_lr: 1e-1
 v_loss_layer: 31
 v_weight_decay: 1e-3
 clamp_norm_factor: 4

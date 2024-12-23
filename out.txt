@@ -1,12 +1,4 @@
-sacct -j 27404234 -oJobID,JobName,State,AllocCPUS,MaxRSS --units=G
-JobID           JobName      State  AllocCPUS     MaxRSS 
------------- ---------- ---------- ---------- ---------- 
-27404234         run.sh  COMPLETED          8            
-27404234.ba+      batch  COMPLETED          8      8.43G 
-27404234.ex+     extern  COMPLETED          8      0.00G 
-
-nvidia-smi
-Sun Nov 17 17:38:29 2024       
+Wed Dec 18 12:17:17 2024
 +---------------------------------------------------------------------------------------+
 | NVIDIA-SMI 535.183.01             Driver Version: 535.183.01   CUDA Version: 12.2     |
 |-----------------------------------------+----------------------+----------------------+
@@ -15,30 +7,45 @@ Sun Nov 17 17:38:29 2024
 |                                         |                      |               MIG M. |
 |=========================================+======================+======================|
 |   0  Tesla V100-PCIE-32GB           On  | 00000000:86:00.0 Off |                  Off |
-| N/A   41C    P0             136W / 150W |  26278MiB / 32768MiB |     67%      Default |
+| N/A   41C    P0              47W / 150W |  13394MiB / 32768MiB |     34%      Default |
 |                                         |                      |                  N/A |
 +-----------------------------------------+----------------------+----------------------+
-                                                                                         
+|   1  Tesla V100-PCIE-32GB           On  | 00000000:D8:00.0 Off |                  Off |
+| N/A   38C    P0             130W / 150W |  13394MiB / 32768MiB |     33%      Default |
+|                                         |                      |                  N/A |
++-----------------------------------------+----------------------+----------------------+
+
 +---------------------------------------------------------------------------------------+
 | Processes:                                                                            |
 |  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
 |        ID   ID                                                             Usage      |
 |=======================================================================================|
-|    0   N/A  N/A    434712      C   python                                    26274MiB |
+|    0   N/A  N/A    368434      C   python                                    13390MiB |
+|    1   N/A  N/A    368434      C   python                                    13390MiB |
 +---------------------------------------------------------------------------------------+
 
----
+Wed Dec 18 12:20:01 2024
++---------------------------------------------------------------------------------------+
+| NVIDIA-SMI 535.183.01             Driver Version: 535.183.01   CUDA Version: 12.2     |
+|-----------------------------------------+----------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |         Memory-Usage | GPU-Util  Compute M. |
+|                                         |                      |               MIG M. |
+|=========================================+======================+======================|
+|   0  Tesla V100-PCIE-32GB           On  | 00000000:86:00.0 Off |                  Off |
+| N/A   43C    P0             160W / 150W |  14892MiB / 32768MiB |     65%      Default |
+|                                         |                      |                  N/A |
++-----------------------------------------+----------------------+----------------------+
+|   1  Tesla V100-PCIE-32GB           On  | 00000000:D8:00.0 Off |                  Off |
+| N/A   37C    P0              38W / 150W |  14750MiB / 32768MiB |     14%      Default |
+|                                         |                      |                  N/A |
++-----------------------------------------+----------------------+----------------------+
 
-snapshot: /state/partition1/user/shossain/hug/models--meta-llama--Llama-2-7b-hf/snapshots/01c7f73d771dfac7d292323805ebc428287df4f98G [01:01<00:00, 243MB/s]
-> /home/gridsan/shossain/EasyEdit/download.py(20)<module>()███████▊                                                    | 3.47G/9.98G [00:21<00:49, 130MB/s]
--> model = AutoModelForCausalLM.from_pretrained(model_name, cache_dir=snapshot_dir, device_map=None, local_files_only=True, torch_dtype=torch.float32)MB/s]
-(Pdb) model = AutoModelForCausalLM.from_pretrained(model_name, cache_dir=snapshot_dir, device_map=None, local_files_only=True, torch_dtype=torch.float32)
-*** OSError: We couldn't connect to 'https://huggingface.co' to load this file, couldn't find it in the cached files and it looks like meta-llama/Llama-2-7b-hf is not the path to a directory containing a file named config.json.
-Checkout your internet connection or see how to run the library in offline mode at 'https://huggingface.co/docs/transformers/installation#offline-mode'.
-(Pdb) model = AutoModelForCausalLM.from_pretrained(model_name, cache_dir=snapshot_dir, device_map=None,torch_dtype=torch.float32)
-config.json: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████| 609/609 [00:00<00:00, 83.5kB/s]
-model.safetensors.index.json: 100%|███████████████████████████████████████████████████████████████████████████████████| 26.8k/26.8k [00:00<00:00, 6.60MB/s]
-model-00001-of-00002.safetensors: 100%|████████████████████████████████████████████████████████████████████████████████| 9.98G/9.98G [00:47<00:00, 210MB/s]
-model-00002-of-00002.safetensors: 100%|████████████████████████████████████████████████████████████████████████████████| 3.50G/3.50G [00:16<00:00, 215MB/s]
-Downloading shards: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [01:03<00:00, 31.99s/it]
-Loading checkpoint shards:   0%|                                                                                                     | 0/2 [00:00<?, ?it/s]./download_models.sh: line 27: 173038 Killed                  python -u download.py
++---------------------------------------------------------------------------------------+
+| Processes:                                                                            |
+|  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
+|        ID   ID                                                             Usage      |
+|=======================================================================================|
+|    0   N/A  N/A    368434      C   python                                    14888MiB |
+|    1   N/A  N/A    368434      C   python                                    14746MiB |
++---------------------------------------------------------------------------------------+
