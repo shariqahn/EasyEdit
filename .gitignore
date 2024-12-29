@@ -17,7 +17,9 @@ data/counterfact
 data/locality
 data/portability
 data/zsre
+data/wise
 *.safetensors
 .env
 examples/data
 out.txt
+outputs/models

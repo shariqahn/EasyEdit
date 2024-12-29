@@ -14,10 +14,11 @@ conda deactivate
 conda activate easy
 
 # editing_method="MEMIT"
-editing_method="GRACE"
-experiment="baseline"
+editing_method="IKE"
+experiment="incorrect"
 # data="../data/tofu_test_dummy_zsre.json"
-data="../data/portability/One_Hop/zsre_mend_eval_portability_gpt4.json"
+# data="../data/portability/One_Hop/zsre_mend_eval_portability_gpt4.json"
+data="../data/tofu_test_zsre.json"
 # data="../data/counterfact/counterfact-edit.json"
 python -u run_zsre_llama2.py --editing_method "$editing_method" --hparams_dir "../hparams/${editing_method}/llama-7b.yaml" --data_file $data --metrics_save_dir "../outputs/${editing_method}_${experiment}/"
 # python -u run_counterfact_gpt.py --editing_method "$editing_method" --hparams_dir "../hparams/${editing_method}/gpt-j-6B.yaml" --data_file $data --metrics_save_dir "../outputs/${editing_method}_${experiment}/"

@@ -67,8 +67,16 @@ if __name__ == "__main__":
     target_new = [edit_data_['alt'] for edit_data_ in test_data]
     locality_prompts = [edit_data_['loc'] for edit_data_ in test_data]
     locality_ans = [edit_data_['loc_ans'] for edit_data_ in test_data]
-    portability_prompts = [edit_data_['portability']['New Question'] for edit_data_ in test_data]
-    portability_ans = [edit_data_['portability']['New Answer'] for edit_data_ in test_data]
+
+    if args.editing_method != 'IKE':
+        portability_prompts = [edit_data_['portability']['New Question'] for edit_data_ in test_data]
+        portability_ans = [edit_data_['portability']['New Answer'] for edit_data_ in test_data]
+        portability_inputs = {
+            'one_hop':{
+                'prompt': portability_prompts,
+                'ground_truth': portability_ans
+            },
+        }
 
     locality_inputs = {
         'neighborhood':{
@@ -76,24 +84,20 @@ if __name__ == "__main__":
             'ground_truth': locality_ans
         },
     }
-    portability_inputs = {
-        'one_hop':{
-            'prompt': portability_prompts,
-            'ground_truth': portability_ans
-        },
-    }
+
+    
     subject = [edit_data_['subject'] for edit_data_ in test_data]
 
     if args.editing_method == 'IKE':
         # train_data_path = os.path.join(args.data_dir, 'zsre_mend_train_10000.json')
-        train_data_path = '../data/tofu_train_dummy_zsre.json'
+        train_data_path = '../data/tofu_train_zsre.json'
         train_ds = ZsreDataset(train_data_path)
         sentence_model = SentenceTransformer(hparams.sentence_model_name).to(f'cuda:{hparams.device}')
         encode_ike_facts(sentence_model, train_ds, hparams)
     else:
         train_ds = None
 
-    sequential_edit = False
+    sequential_edit = True
     metrics, edited_model, _ = editor.edit(
         prompts=prompts,
         rephrase_prompts=rephrase_prompts,
@@ -101,7 +105,7 @@ if __name__ == "__main__":
         subject=subject,
         train_ds=train_ds,
         locality_inputs=locality_inputs,
-        portability_inputs=portability_inputs,
+        # portability_inputs=portability_inputs,
         keep_original_weight=False,
         sequential_edit=sequential_edit
     )
