@@ -43,25 +43,53 @@ if __name__ == "__main__":
     else:
         raise NotImplementedError
 
-    K = args.ds_size
+    # K = args.ds_size
 
     if args.data_type == 'ZsRE':
-        edit_data = json.load(open(f'{args.data_dir}/{args.data_type}/zsre_mend_edit.json', 'r', encoding='utf-8'))[:K]
-        loc_data = json.load(open(f'{args.data_dir}/{args.data_type}/zsre_mend_train.json', 'r', encoding='utf-8'))[:K]
-        loc_prompts = [edit_data_['loc'] + ' ' + edit_data_['loc_ans'] for edit_data_ in loc_data]
+        # edit_data = json.load(open(f'{args.data_dir}/{args.data_type}/zsre_mend_edit.json', 'r', encoding='utf-8'))[:K]
+        # loc_data = json.load(open(f'{args.data_dir}/{args.data_type}/zsre_mend_train.json', 'r', encoding='utf-8'))[:K]
+        # loc_prompts = [edit_data_['loc'] + ' ' + edit_data_['loc_ans'] for edit_data_ in loc_data]
 
-        prompts = [edit_data_['src'] for edit_data_ in edit_data]
-        subject = [edit_data_['subject'] for edit_data_ in edit_data]
-        rephrase_prompts = [edit_data_['rephrase'] for edit_data_ in edit_data]
-        target_new = [edit_data_['alt'] for edit_data_ in edit_data]
-        locality_prompts = [edit_data_['loc'] for edit_data_ in edit_data]
-        locality_ans = [edit_data_['loc_ans'] for edit_data_ in edit_data]
+        # prompts = [edit_data_['src'] for edit_data_ in edit_data]
+        # subject = [edit_data_['subject'] for edit_data_ in edit_data]
+        # rephrase_prompts = [edit_data_['rephrase'] for edit_data_ in edit_data]
+        # target_new = [edit_data_['alt'] for edit_data_ in edit_data]
+        # locality_prompts = [edit_data_['loc'] for edit_data_ in edit_data]
+        # locality_ans = [edit_data_['loc_ans'] for edit_data_ in edit_data]
+        # locality_inputs = {
+        #     'neighborhood':{
+        #         'prompt': locality_prompts,
+        #         'ground_truth': locality_ans
+        #     },
+        # }
+        prompts = [test_data_['question'] for test_data_ in test_data]
+        rephrase_prompts = [edit_data_['paraphrased_question'] for edit_data_ in test_data]
+        if args.experiment == 'incorrect':
+            target_new = [edit_data_['perturbed_answer'][0] for edit_data_ in test_data]
+        elif args.experiment == 'dummy':
+            target_new = ['dummy' for _ in test_data]
+        else:
+            raise NotImplementedError
+
+        locality_prompts = [edit_data_['locality']['question'] for edit_data_ in test_data]
+        locality_ans = [edit_data_['locality']['answer'] for edit_data_ in test_data]
+        # portability_prompts = [edit_data_['portability']['New Question'] for edit_data_ in test_data]
+        # portability_ans = [edit_data_['portability']['New Answer'] for edit_data_ in test_data]
+
         locality_inputs = {
             'neighborhood':{
                 'prompt': locality_prompts,
                 'ground_truth': locality_ans
             },
         }
+        # portability_inputs = {
+        #     'one_hop':{
+        #         'prompt': portability_prompts,
+        #         'ground_truth': portability_ans
+        #     },
+        # }
+        subject = [edit_data_['subject'] for edit_data_ in test_data]
+        ground_truth = [edit_data_['answer'] for edit_data_ in test_data]
     elif args.data_type == 'hallucination':
         edit_data = json.load(open(f'{args.data_dir}/{args.data_type}/hallucination-edit.json', 'r', encoding='utf-8'))[:K]
         loc_data = json.load(open(f'{args.data_dir}/{args.data_type}/hallucination-train.json', 'r', encoding='utf-8'))[:K]
@@ -85,8 +113,10 @@ if __name__ == "__main__":
     os.makedirs(args.output_dir, exist_ok=True)
     output_file = os.path.join(
         args.output_dir,
-        f'{hparams.model_name.split("/")[-1]}_{args.editing_method}_N={args.ds_size}_Sequential={args.sequential_edit}.json'
+        f'{hparams.model_name.split("/")[-1]}_{args.editing_method}_Sequential={args.sequential_edit}.json'
         )
+        # f'{hparams.model_name.split("/")[-1]}_{args.editing_method}_N={args.ds_size}_Sequential={args.sequential_edit}.json'
+        # )
 
     print("See results at: ", output_file)
 
