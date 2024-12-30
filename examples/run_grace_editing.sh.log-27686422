@@ -1,0 +1,17 @@
+12/30/2024 01:38:07 - INFO - accelerate.utils.modeling -   We will use 90% of the memory on device 0 for storing the model, and 10% for the buffer to avoid OOM. You can set `max_memory` in to a higher value to use more memory (at your own risk).
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [01:07<01:07, 67.16s/it]Loading checkpoint shards: 100%|██████████| 2/2 [01:32<00:00, 42.30s/it]Loading checkpoint shards: 100%|██████████| 2/2 [01:32<00:00, 46.03s/it]
+/home/gridsan/shossain/.conda/envs/easy/lib/python3.9/site-packages/transformers/tokenization_utils_base.py:2888: UserWarning: `max_length` is ignored when `padding`=`True` and there is no truncation strategy. To pad to max length, use `padding='max_length'`.
+  warnings.warn(
+Prompt: What university did Watts Humphrey attend?
+Pre-Edit  Output: 
+Watts Humphrey graduated from the University of Illinois, U
+----------------------------------------------------------------------------------------------------
+Prompt: Which family does Ramalinaceae belong to?
+Pre-Edit  Output: 
+Family: Ramalinaceae
+What is the scientific name for the plant
+----------------------------------------------------------------------------------------------------
+Prompt: What role does Denny Herzig play in football?
+Pre-Edit  Output: 
+Denny Herzig is a football player for the University of Minnesota Golden
+----------------------------------------------------------------------------------------------------

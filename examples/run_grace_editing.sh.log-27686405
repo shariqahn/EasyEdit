@@ -1,0 +1,20 @@
+12/30/2024 01:22:08 - INFO - accelerate.utils.modeling -   We will use 90% of the memory on device 0 for storing the model, and 10% for the buffer to avoid OOM. You can set `max_memory` in to a higher value to use more memory (at your own risk).
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:03<00:07,  3.53s/it]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:07<00:03,  3.53s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:09<00:00,  3.10s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:09<00:00,  3.21s/it]
+Traceback (most recent call last):
+  File "/home/gridsan/shossain/EasyEdit/examples/run_grace_editing.py", line 171, in <module>
+    state_dict = torch.load(checkpoint)
+  File "/home/gridsan/shossain/.conda/envs/easy/lib/python3.9/site-packages/torch/serialization.py", line 809, in load
+    return _load(opened_zipfile, map_location, pickle_module, **pickle_load_args)
+  File "/home/gridsan/shossain/.conda/envs/easy/lib/python3.9/site-packages/torch/serialization.py", line 1172, in _load
+    result = unpickler.load()
+  File "/home/gridsan/shossain/.conda/envs/easy/lib/python3.9/site-packages/torch/serialization.py", line 1142, in persistent_load
+    typed_storage = load_tensor(dtype, nbytes, key, _maybe_decode_ascii(location))
+  File "/home/gridsan/shossain/.conda/envs/easy/lib/python3.9/site-packages/torch/serialization.py", line 1116, in load_tensor
+    wrap_storage=restore_location(storage, location),
+  File "/home/gridsan/shossain/.conda/envs/easy/lib/python3.9/site-packages/torch/serialization.py", line 217, in default_restore_location
+    result = fn(storage, location)
+  File "/home/gridsan/shossain/.conda/envs/easy/lib/python3.9/site-packages/torch/serialization.py", line 187, in _cuda_deserialize
+    return obj.cuda(device)
+  File "/home/gridsan/shossain/.conda/envs/easy/lib/python3.9/site-packages/torch/_utils.py", line 81, in _cuda
+    untyped_storage = torch.UntypedStorage(
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 172.00 MiB (GPU 0; 31.74 GiB total capacity; 31.29 GiB already allocated; 93.12 MiB free; 31.29 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
