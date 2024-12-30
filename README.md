@@ -32,6 +32,7 @@ NOTE: make sure you are using the correct **model in hparams**
   - `LLsub run.sh -s 3 -g volta:2`
   - 8G cpu
   - dummy took 5 mins...
+  - incorrect had OOM error, even with quanitization
 
 - get trained serac and mend here: <https://github.com/zjunlp/EasyEdit/issues/66>
 - SERAC: `LLsub run.sh -s 11 -g volta:1`
@@ -44,7 +45,7 @@ NOTE: make sure you are using the correct **model in hparams**
 
 ## Memory
 - `sacct -j <JOBID> -oJobID,JobName,State,AllocCPUS,MaxRSS --units=G`
-sacct -j 27621447 -oJobID,JobName,State,AllocCPUS,MaxRSS --units=G
+sacct -j 27685218 -oJobID,JobName,State,AllocCPUS,MaxRSS --units=G
 
 - ROME dummy w 1e-1 lr 7.51G; zsre 7.33G
 - https://github.com/zjunlp/EasyEdit/blob/9e8ec905f78a958fe85e846b11fbbadf6661c39d/easyeditor/models/melo/peft_egg/README.md?plain=1#L24 
@@ -95,7 +96,7 @@ sacct -j 27621447 -oJobID,JobName,State,AllocCPUS,MaxRSS --units=G
   - [Evaluation](#evaluation)
 - [🌟Overview](#🌟overview)
     - [Current Implementation](#current-implementation)
-    - [Quick Start on Some Works Designed by Our Team](#quick-start-on-some-work-designed-by-our-team)
+    - [Quick Start on Some Works](#quick-start-on-some-works)
     - [Tutorial notebook](#tutorial-notebook)
 - [Requirements](#requirements)
     - [🔧Pip Installation](#🔧pip-installation)
@@ -362,7 +363,7 @@ You can choose different editing methods according to your specific needs.
 
 > ❗️❗️ If you intend to use Mistral, please update the `transformers` library to version 4.34.0 manually. You can use the following code: `pip install transformers==4.34.0`.
 
-#### Quick Start on Some Work Designed by Our Team
+#### Quick Start on Some Works
 
 | **Work** | Description |    Path   |
 | :--------: | :---------: | :-------: |
@@ -372,7 +373,7 @@ You can choose different editing methods according to your specific needs.
 |ConceptEdit|Editing Conceptual Knowledge for Large Language Models|[Quick Start](https://github.com/zjunlp/EasyEdit/blob/main/examples/ConceptEdit.md)|
 |MMEdit|Can We Edit Multimodal Large Language Models?|[Quick Start](https://github.com/zjunlp/EasyEdit/blob/main/examples/MMEdit.md)|
 |PersonalityEdit|Editing Personality For Large Language Models|[Quick Start](https://github.com/zjunlp/EasyEdit/blob/main/examples/PersonalityEdit.md)|
-
+|PROMPT|PROMPT-based knowledge editing methods|[Quick Start](https://github.com/zjunlp/EasyEdit/blob/main/examples/PROMPT.md)|
 
 ### Dataset
 

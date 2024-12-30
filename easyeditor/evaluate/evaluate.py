@@ -23,6 +23,7 @@ from .evaluate_utils import (
     test_safety_gen,
     test_instance_change,
     PPL,
+    OOD_PPL,
     kl_loc_loss,
     es,
     es_per_icl,
@@ -114,6 +115,11 @@ def compute_rewrite_or_rephrase_quality(
         ret = {
             f"{key}_ppl": ppl
         }
+    elif eval_metric == 'ood_ppl':
+        ans = OOD_PPL(model, tok, prompt, target_new, device)
+        ret = {
+            f"ood_acc": ans
+        }
     elif hparams.alg_name=="GRACE":
         # ppl = PPL(model, tok, prompt, target_new, device)
         if 't5' in model_name.lower():
@@ -189,7 +195,8 @@ def compute_icl_edit_quality(
         icl_examples,
         record: typing.Dict,
         device,
-        pre_edit: bool = False
+        pre_edit: bool = False,
+        test_generation = False
 ) -> typing.Dict:
     """
     Given a rewritten model, computes generalization and specificity metrics for
@@ -219,7 +226,7 @@ def compute_icl_edit_quality(
         edit_acc = icl_lm_eval(model, model_name, hparams, tok, icl_examples,
                                target_new, new_fact)
     ret = {
-        f"rewrite_acc": edit_acc
+        f"rewrite_acc": [edit_acc]
     }
     ret['locality'] = {}
     ret['portability'] = {}
@@ -236,7 +243,7 @@ def compute_icl_edit_quality(
                 for x_a, x_p in zip(record['locality'][locality_key]['ground_truth'],
                                     record['locality'][locality_key]['prompt']):
                     tmp_pre_neighbor = icl_lm_eval(model, model_name, hparams, tok, [''], x_a,
-                                                   f"New Fact: {prompt} {target_new}\nPrompt: {x_p}", neighborhood=True)
+                                                   f"{x_p}", neighborhood=True)
                     tmp_post_neighbor = icl_lm_eval(model, model_name, hparams, tok, icl_examples, x_a,
                                                     f"New Fact: {prompt} {target_new}\nPrompt: {x_p}",
                                                     neighborhood=True)
@@ -257,7 +264,7 @@ def compute_icl_edit_quality(
             else:
                 pre_neighbor = icl_lm_eval(model, model_name, hparams, tok, [''],
                                            record['locality'][locality_key]['ground_truth'],
-                                           f"New Fact: {prompt} {target_new}\nPrompt: {record['locality'][locality_key]['prompt']}",
+                                           f"{record['locality'][locality_key]['prompt']}",
                                            neighborhood=True)
                 post_neighbor = icl_lm_eval(model, model_name, hparams, tok, icl_examples,
                                             record['locality'][locality_key]['ground_truth'],
@@ -287,13 +294,13 @@ def compute_icl_edit_quality(
                                                       f"{x_prefix}{x_p}")
                 portability_acc.append(tmp_portability_acc)
             else:
-                portability_acc = icl_lm_eval(model, model_name, hparams, tok, [''],
+                portability_acc = icl_lm_eval(model, model_name, hparams, tok, icl_input,
                                               record['portability'][portability_key]['ground_truth'],
-                                              record['portability'][portability_key]['prompt'])
-                portability_acc = icl_lm_eval(model, model_name, hparams, tok, icl_examples,
-                                              record['portability'][portability_key]['ground_truth'],
-                                              f"New Fact: {prompt} {target_new}\nPrompt: {record['portability'][portability_key]['prompt']}")
+                                              f"{x_prefix}{record['portability'][portability_key]['prompt']}")
             ret['portability'][f'{portability_key}_acc'] = portability_acc
+
+    if test_generation:
+        ret['fluency'] = test_generation_quality(model=model,tok=tok, prefixes=new_fact if isinstance(new_fact,list) else [new_fact,], max_out_len=100, vanilla_generation=False)
     return ret
 
 def icl_lm_eval(

@@ -1,0 +1,131 @@
+2024-12-29 15:37:40,179 - easyeditor.editors.editor - INFO - Instantiating model
+12/29/2024 15:37:40 - INFO - easyeditor.editors.editor -   Instantiating model
+model kwargs:  {'torch_dtype': torch.float32, 'device_map': 'auto'}
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:14<00:28, 14.12s/it]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:44<00:23, 23.97s/it]Loading checkpoint shards: 100%|██████████| 3/3 [01:07<00:00, 23.30s/it]Loading checkpoint shards: 100%|██████████| 3/3 [01:07<00:00, 22.50s/it]
+2024-12-29 15:38:54,686 - easyeditor.editors.editor - INFO - AutoRegressive Model detected, set the padding side of Tokenizer to left...
+12/29/2024 15:38:54 - INFO - easyeditor.editors.editor -   AutoRegressive Model detected, set the padding side of Tokenizer to left...
+12/29/2024 15:38:54 - INFO - sentence_transformers.SentenceTransformer -   Use pytorch device_name: cuda
+12/29/2024 15:38:54 - INFO - sentence_transformers.SentenceTransformer -   Load pretrained SentenceTransformer: /home/gridsan/shossain/EasyEdit/scr/models--sentence-transformers--all-MiniLM-L6-v2/snapshots/fa97f6e7cb1a59073dff9e6b13e2715cf7475ac9
+/home/gridsan/shossain/.conda/envs/easy/lib/python3.9/site-packages/transformers/tokenization_utils_base.py:1601: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+Batches:   0%|          | 0/34 [00:00<?, ?it/s]Batches:   3%|▎         | 1/34 [00:11<06:23, 11.64s/it]Batches:  12%|█▏        | 4/34 [00:11<01:06,  2.23s/it]Batches:  24%|██▎       | 8/34 [00:11<00:23,  1.12it/s]Batches:  35%|███▌      | 12/34 [00:11<00:10,  2.04it/s]Batches:  50%|█████     | 17/34 [00:12<00:04,  3.58it/s]Batches:  65%|██████▍   | 22/34 [00:12<00:02,  5.61it/s]Batches:  79%|███████▉  | 27/34 [00:12<00:00,  8.22it/s]Batches:  97%|█████████▋| 33/34 [00:12<00:00, 12.12it/s]Batches: 100%|██████████| 34/34 [00:12<00:00,  2.74it/s]
+  0%|          | 0/40 [00:00<?, ?it/s]  2%|▎         | 1/40 [00:01<00:52,  1.35s/it]  5%|▌         | 2/40 [00:01<00:35,  1.08it/s]  8%|▊         | 3/40 [00:02<00:30,  1.22it/s] 10%|█         | 4/40 [00:03<00:27,  1.31it/s] 12%|█▎        | 5/40 [00:03<00:24,  1.40it/s] 15%|█▌        | 6/40 [00:04<00:25,  1.32it/s] 18%|█▊        | 7/40 [00:05<00:24,  1.35it/s] 20%|██        | 8/40 [00:06<00:25,  1.24it/s] 22%|██▎       | 9/40 [00:07<00:28,  1.07it/s] 25%|██▌       | 10/40 [00:08<00:27,  1.09it/s] 28%|██▊       | 11/40 [00:09<00:25,  1.12it/s] 30%|███       | 12/40 [00:10<00:24,  1.13it/s] 32%|███▎      | 13/40 [00:11<00:26,  1.04it/s] 35%|███▌      | 14/40 [00:12<00:25,  1.03it/s] 38%|███▊      | 15/40 [00:13<00:24,  1.04it/s] 40%|████      | 16/40 [00:14<00:23,  1.02it/s] 42%|████▎     | 17/40 [00:15<00:21,  1.08it/s] 45%|████▌     | 18/40 [00:16<00:20,  1.08it/s] 48%|████▊     | 19/40 [00:17<00:19,  1.08it/s] 50%|█████     | 20/40 [00:18<00:19,  1.04it/s] 52%|█████▎    | 21/40 [00:18<00:17,  1.07it/s] 55%|█████▌    | 22/40 [00:19<00:15,  1.16it/s] 57%|█████▊    | 23/40 [00:20<00:14,  1.16it/s] 60%|██████    | 24/40 [00:21<00:13,  1.22it/s] 62%|██████▎   | 25/40 [00:21<00:11,  1.26it/s] 65%|██████▌   | 26/40 [00:22<00:10,  1.32it/s] 68%|██████▊   | 27/40 [00:23<00:09,  1.36it/s] 70%|███████   | 28/40 [00:24<00:09,  1.28it/s] 72%|███████▎  | 29/40 [00:24<00:08,  1.28it/s] 75%|███████▌  | 30/40 [00:25<00:08,  1.23it/s] 78%|███████▊  | 31/40 [00:26<00:07,  1.20it/s] 80%|████████  | 32/40 [00:27<00:06,  1.17it/s] 82%|████████▎ | 33/40 [00:28<00:05,  1.17it/s] 85%|████████▌ | 34/40 [00:29<00:05,  1.16it/s] 88%|████████▊ | 35/40 [00:30<00:04,  1.13it/s] 90%|█████████ | 36/40 [00:31<00:03,  1.11it/s] 92%|█████████▎| 37/40 [00:32<00:02,  1.13it/s] 95%|█████████▌| 38/40 [00:32<00:01,  1.15it/s] 98%|█████████▊| 39/40 [00:33<00:00,  1.15it/s]100%|██████████| 40/40 [00:34<00:00,  1.16it/s]100%|██████████| 40/40 [00:34<00:00,  1.15it/s]
+  0%|          | 0/40 [00:00<?, ?it/s]12/29/2024 15:39:47 - INFO - sentence_transformers.SentenceTransformer -   Use pytorch device_name: cuda
+12/29/2024 15:39:47 - INFO - sentence_transformers.SentenceTransformer -   Load pretrained SentenceTransformer: /home/gridsan/shossain/EasyEdit/scr/models--sentence-transformers--all-MiniLM-L6-v2/snapshots/fa97f6e7cb1a59073dff9e6b13e2715cf7475ac9
+/home/gridsan/shossain/.conda/envs/easy/lib/python3.9/site-packages/transformers/tokenization_utils_base.py:1601: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+  2%|▎         | 1/40 [00:00<00:08,  4.87it/s]12/29/2024 15:39:47 - INFO - sentence_transformers.SentenceTransformer -   Use pytorch device_name: cuda
+12/29/2024 15:39:47 - INFO - sentence_transformers.SentenceTransformer -   Load pretrained SentenceTransformer: /home/gridsan/shossain/EasyEdit/scr/models--sentence-transformers--all-MiniLM-L6-v2/snapshots/fa97f6e7cb1a59073dff9e6b13e2715cf7475ac9
+  5%|▌         | 2/40 [00:00<00:05,  6.38it/s]12/29/2024 15:39:47 - INFO - sentence_transformers.SentenceTransformer -   Use pytorch device_name: cuda
+12/29/2024 15:39:47 - INFO - sentence_transformers.SentenceTransformer -   Load pretrained SentenceTransformer: /home/gridsan/shossain/EasyEdit/scr/models--sentence-transformers--all-MiniLM-L6-v2/snapshots/fa97f6e7cb1a59073dff9e6b13e2715cf7475ac9
+  8%|▊         | 3/40 [00:00<00:05,  7.21it/s]12/29/2024 15:39:48 - INFO - sentence_transformers.SentenceTransformer -   Use pytorch device_name: cuda
+12/29/2024 15:39:48 - INFO - sentence_transformers.SentenceTransformer -   Load pretrained SentenceTransformer: /home/gridsan/shossain/EasyEdit/scr/models--sentence-transformers--all-MiniLM-L6-v2/snapshots/fa97f6e7cb1a59073dff9e6b13e2715cf7475ac9
+ 10%|█         | 4/40 [00:00<00:04,  7.72it/s]12/29/2024 15:39:48 - INFO - sentence_transformers.SentenceTransformer -   Use pytorch device_name: cuda
+12/29/2024 15:39:48 - INFO - sentence_transformers.SentenceTransformer -   Load pretrained SentenceTransformer: /home/gridsan/shossain/EasyEdit/scr/models--sentence-transformers--all-MiniLM-L6-v2/snapshots/fa97f6e7cb1a59073dff9e6b13e2715cf7475ac9
+ 12%|█▎        | 5/40 [00:00<00:04,  7.93it/s]12/29/2024 15:39:48 - INFO - sentence_transformers.SentenceTransformer -   Use pytorch device_name: cuda
+12/29/2024 15:39:48 - INFO - sentence_transformers.SentenceTransformer -   Load pretrained SentenceTransformer: /home/gridsan/shossain/EasyEdit/scr/models--sentence-transformers--all-MiniLM-L6-v2/snapshots/fa97f6e7cb1a59073dff9e6b13e2715cf7475ac9
+ 15%|█▌        | 6/40 [00:00<00:04,  8.37it/s]12/29/2024 15:39:48 - INFO - sentence_transformers.SentenceTransformer -   Use pytorch device_name: cuda
+12/29/2024 15:39:48 - INFO - sentence_transformers.SentenceTransformer -   Load pretrained SentenceTransformer: /home/gridsan/shossain/EasyEdit/scr/models--sentence-transformers--all-MiniLM-L6-v2/snapshots/fa97f6e7cb1a59073dff9e6b13e2715cf7475ac9
+ 18%|█▊        | 7/40 [00:00<00:03,  8.61it/s]12/29/2024 15:39:48 - INFO - sentence_transformers.SentenceTransformer -   Use pytorch device_name: cuda
+12/29/2024 15:39:48 - INFO - sentence_transformers.SentenceTransformer -   Load pretrained SentenceTransformer: /home/gridsan/shossain/EasyEdit/scr/models--sentence-transformers--all-MiniLM-L6-v2/snapshots/fa97f6e7cb1a59073dff9e6b13e2715cf7475ac9
+ 20%|██        | 8/40 [00:01<00:03,  8.55it/s]12/29/2024 15:39:48 - INFO - sentence_transformers.SentenceTransformer -   Use pytorch device_name: cuda
+12/29/2024 15:39:48 - INFO - sentence_transformers.SentenceTransformer -   Load pretrained SentenceTransformer: /home/gridsan/shossain/EasyEdit/scr/models--sentence-transformers--all-MiniLM-L6-v2/snapshots/fa97f6e7cb1a59073dff9e6b13e2715cf7475ac9
+ 22%|██▎       | 9/40 [00:01<00:03,  8.74it/s]12/29/2024 15:39:48 - INFO - sentence_transformers.SentenceTransformer -   Use pytorch device_name: cuda
+12/29/2024 15:39:48 - INFO - sentence_transformers.SentenceTransformer -   Load pretrained SentenceTransformer: /home/gridsan/shossain/EasyEdit/scr/models--sentence-transformers--all-MiniLM-L6-v2/snapshots/fa97f6e7cb1a59073dff9e6b13e2715cf7475ac9
+ 25%|██▌       | 10/40 [00:01<00:03,  8.86it/s]12/29/2024 15:39:48 - INFO - sentence_transformers.SentenceTransformer -   Use pytorch device_name: cuda
+12/29/2024 15:39:48 - INFO - sentence_transformers.SentenceTransformer -   Load pretrained SentenceTransformer: /home/gridsan/shossain/EasyEdit/scr/models--sentence-transformers--all-MiniLM-L6-v2/snapshots/fa97f6e7cb1a59073dff9e6b13e2715cf7475ac9
+ 28%|██▊       | 11/40 [00:01<00:03,  8.72it/s]12/29/2024 15:39:48 - INFO - sentence_transformers.SentenceTransformer -   Use pytorch device_name: cuda
+12/29/2024 15:39:48 - INFO - sentence_transformers.SentenceTransformer -   Load pretrained SentenceTransformer: /home/gridsan/shossain/EasyEdit/scr/models--sentence-transformers--all-MiniLM-L6-v2/snapshots/fa97f6e7cb1a59073dff9e6b13e2715cf7475ac9
+ 30%|███       | 12/40 [00:01<00:03,  8.86it/s]12/29/2024 15:39:49 - INFO - sentence_transformers.SentenceTransformer -   Use pytorch device_name: cuda
+12/29/2024 15:39:49 - INFO - sentence_transformers.SentenceTransformer -   Load pretrained SentenceTransformer: /home/gridsan/shossain/EasyEdit/scr/models--sentence-transformers--all-MiniLM-L6-v2/snapshots/fa97f6e7cb1a59073dff9e6b13e2715cf7475ac9
+ 32%|███▎      | 13/40 [00:01<00:03,  8.95it/s]12/29/2024 15:39:49 - INFO - sentence_transformers.SentenceTransformer -   Use pytorch device_name: cuda
+12/29/2024 15:39:49 - INFO - sentence_transformers.SentenceTransformer -   Load pretrained SentenceTransformer: /home/gridsan/shossain/EasyEdit/scr/models--sentence-transformers--all-MiniLM-L6-v2/snapshots/fa97f6e7cb1a59073dff9e6b13e2715cf7475ac9
+ 35%|███▌      | 14/40 [00:01<00:02,  8.80it/s]12/29/2024 15:39:49 - INFO - sentence_transformers.SentenceTransformer -   Use pytorch device_name: cuda
+12/29/2024 15:39:49 - INFO - sentence_transformers.SentenceTransformer -   Load pretrained SentenceTransformer: /home/gridsan/shossain/EasyEdit/scr/models--sentence-transformers--all-MiniLM-L6-v2/snapshots/fa97f6e7cb1a59073dff9e6b13e2715cf7475ac9
+ 38%|███▊      | 15/40 [00:01<00:02,  8.92it/s]12/29/2024 15:39:49 - INFO - sentence_transformers.SentenceTransformer -   Use pytorch device_name: cuda
+12/29/2024 15:39:49 - INFO - sentence_transformers.SentenceTransformer -   Load pretrained SentenceTransformer: /home/gridsan/shossain/EasyEdit/scr/models--sentence-transformers--all-MiniLM-L6-v2/snapshots/fa97f6e7cb1a59073dff9e6b13e2715cf7475ac9
+ 40%|████      | 16/40 [00:01<00:02,  9.00it/s]12/29/2024 15:39:49 - INFO - sentence_transformers.SentenceTransformer -   Use pytorch device_name: cuda
+12/29/2024 15:39:49 - INFO - sentence_transformers.SentenceTransformer -   Load pretrained SentenceTransformer: /home/gridsan/shossain/EasyEdit/scr/models--sentence-transformers--all-MiniLM-L6-v2/snapshots/fa97f6e7cb1a59073dff9e6b13e2715cf7475ac9
+ 42%|████▎     | 17/40 [00:02<00:02,  8.82it/s]12/29/2024 15:39:49 - INFO - sentence_transformers.SentenceTransformer -   Use pytorch device_name: cuda
+12/29/2024 15:39:49 - INFO - sentence_transformers.SentenceTransformer -   Load pretrained SentenceTransformer: /home/gridsan/shossain/EasyEdit/scr/models--sentence-transformers--all-MiniLM-L6-v2/snapshots/fa97f6e7cb1a59073dff9e6b13e2715cf7475ac9
+ 45%|████▌     | 18/40 [00:02<00:02,  8.97it/s]12/29/2024 15:39:49 - INFO - sentence_transformers.SentenceTransformer -   Use pytorch device_name: cuda
+12/29/2024 15:39:49 - INFO - sentence_transformers.SentenceTransformer -   Load pretrained SentenceTransformer: /home/gridsan/shossain/EasyEdit/scr/models--sentence-transformers--all-MiniLM-L6-v2/snapshots/fa97f6e7cb1a59073dff9e6b13e2715cf7475ac9
+ 48%|████▊     | 19/40 [00:02<00:02,  9.01it/s]12/29/2024 15:39:49 - INFO - sentence_transformers.SentenceTransformer -   Use pytorch device_name: cuda
+12/29/2024 15:39:49 - INFO - sentence_transformers.SentenceTransformer -   Load pretrained SentenceTransformer: /home/gridsan/shossain/EasyEdit/scr/models--sentence-transformers--all-MiniLM-L6-v2/snapshots/fa97f6e7cb1a59073dff9e6b13e2715cf7475ac9
+ 50%|█████     | 20/40 [00:02<00:02,  8.82it/s]12/29/2024 15:39:49 - INFO - sentence_transformers.SentenceTransformer -   Use pytorch device_name: cuda
+12/29/2024 15:39:49 - INFO - sentence_transformers.SentenceTransformer -   Load pretrained SentenceTransformer: /home/gridsan/shossain/EasyEdit/scr/models--sentence-transformers--all-MiniLM-L6-v2/snapshots/fa97f6e7cb1a59073dff9e6b13e2715cf7475ac9
+ 52%|█████▎    | 21/40 [00:02<00:02,  8.88it/s]12/29/2024 15:39:50 - INFO - sentence_transformers.SentenceTransformer -   Use pytorch device_name: cuda
+12/29/2024 15:39:50 - INFO - sentence_transformers.SentenceTransformer -   Load pretrained SentenceTransformer: /home/gridsan/shossain/EasyEdit/scr/models--sentence-transformers--all-MiniLM-L6-v2/snapshots/fa97f6e7cb1a59073dff9e6b13e2715cf7475ac9
+ 55%|█████▌    | 22/40 [00:02<00:02,  8.94it/s]12/29/2024 15:39:50 - INFO - sentence_transformers.SentenceTransformer -   Use pytorch device_name: cuda
+12/29/2024 15:39:50 - INFO - sentence_transformers.SentenceTransformer -   Load pretrained SentenceTransformer: /home/gridsan/shossain/EasyEdit/scr/models--sentence-transformers--all-MiniLM-L6-v2/snapshots/fa97f6e7cb1a59073dff9e6b13e2715cf7475ac9
+ 57%|█████▊    | 23/40 [00:02<00:01,  8.78it/s]12/29/2024 15:39:50 - INFO - sentence_transformers.SentenceTransformer -   Use pytorch device_name: cuda
+12/29/2024 15:39:50 - INFO - sentence_transformers.SentenceTransformer -   Load pretrained SentenceTransformer: /home/gridsan/shossain/EasyEdit/scr/models--sentence-transformers--all-MiniLM-L6-v2/snapshots/fa97f6e7cb1a59073dff9e6b13e2715cf7475ac9
+ 60%|██████    | 24/40 [00:02<00:01,  8.91it/s]12/29/2024 15:39:50 - INFO - sentence_transformers.SentenceTransformer -   Use pytorch device_name: cuda
+12/29/2024 15:39:50 - INFO - sentence_transformers.SentenceTransformer -   Load pretrained SentenceTransformer: /home/gridsan/shossain/EasyEdit/scr/models--sentence-transformers--all-MiniLM-L6-v2/snapshots/fa97f6e7cb1a59073dff9e6b13e2715cf7475ac9
+ 62%|██████▎   | 25/40 [00:02<00:01,  8.97it/s]12/29/2024 15:39:50 - INFO - sentence_transformers.SentenceTransformer -   Use pytorch device_name: cuda
+12/29/2024 15:39:50 - INFO - sentence_transformers.SentenceTransformer -   Load pretrained SentenceTransformer: /home/gridsan/shossain/EasyEdit/scr/models--sentence-transformers--all-MiniLM-L6-v2/snapshots/fa97f6e7cb1a59073dff9e6b13e2715cf7475ac9
+ 65%|██████▌   | 26/40 [00:03<00:01,  8.79it/s]12/29/2024 15:39:50 - INFO - sentence_transformers.SentenceTransformer -   Use pytorch device_name: cuda
+12/29/2024 15:39:50 - INFO - sentence_transformers.SentenceTransformer -   Load pretrained SentenceTransformer: /home/gridsan/shossain/EasyEdit/scr/models--sentence-transformers--all-MiniLM-L6-v2/snapshots/fa97f6e7cb1a59073dff9e6b13e2715cf7475ac9
+ 68%|██████▊   | 27/40 [00:03<00:01,  8.92it/s]12/29/2024 15:39:50 - INFO - sentence_transformers.SentenceTransformer -   Use pytorch device_name: cuda
+12/29/2024 15:39:50 - INFO - sentence_transformers.SentenceTransformer -   Load pretrained SentenceTransformer: /home/gridsan/shossain/EasyEdit/scr/models--sentence-transformers--all-MiniLM-L6-v2/snapshots/fa97f6e7cb1a59073dff9e6b13e2715cf7475ac9
+ 70%|███████   | 28/40 [00:03<00:01,  8.98it/s]12/29/2024 15:39:50 - INFO - sentence_transformers.SentenceTransformer -   Use pytorch device_name: cuda
+12/29/2024 15:39:50 - INFO - sentence_transformers.SentenceTransformer -   Load pretrained SentenceTransformer: /home/gridsan/shossain/EasyEdit/scr/models--sentence-transformers--all-MiniLM-L6-v2/snapshots/fa97f6e7cb1a59073dff9e6b13e2715cf7475ac9
+ 72%|███████▎  | 29/40 [00:03<00:01,  8.81it/s]12/29/2024 15:39:50 - INFO - sentence_transformers.SentenceTransformer -   Use pytorch device_name: cuda
+12/29/2024 15:39:50 - INFO - sentence_transformers.SentenceTransformer -   Load pretrained SentenceTransformer: /home/gridsan/shossain/EasyEdit/scr/models--sentence-transformers--all-MiniLM-L6-v2/snapshots/fa97f6e7cb1a59073dff9e6b13e2715cf7475ac9
+ 75%|███████▌  | 30/40 [00:03<00:01,  8.90it/s]12/29/2024 15:39:51 - INFO - sentence_transformers.SentenceTransformer -   Use pytorch device_name: cuda
+12/29/2024 15:39:51 - INFO - sentence_transformers.SentenceTransformer -   Load pretrained SentenceTransformer: /home/gridsan/shossain/EasyEdit/scr/models--sentence-transformers--all-MiniLM-L6-v2/snapshots/fa97f6e7cb1a59073dff9e6b13e2715cf7475ac9
+ 78%|███████▊  | 31/40 [00:03<00:01,  8.95it/s]12/29/2024 15:39:51 - INFO - sentence_transformers.SentenceTransformer -   Use pytorch device_name: cuda
+12/29/2024 15:39:51 - INFO - sentence_transformers.SentenceTransformer -   Load pretrained SentenceTransformer: /home/gridsan/shossain/EasyEdit/scr/models--sentence-transformers--all-MiniLM-L6-v2/snapshots/fa97f6e7cb1a59073dff9e6b13e2715cf7475ac9
+ 80%|████████  | 32/40 [00:03<00:00,  8.78it/s]12/29/2024 15:39:51 - INFO - sentence_transformers.SentenceTransformer -   Use pytorch device_name: cuda
+12/29/2024 15:39:51 - INFO - sentence_transformers.SentenceTransformer -   Load pretrained SentenceTransformer: /home/gridsan/shossain/EasyEdit/scr/models--sentence-transformers--all-MiniLM-L6-v2/snapshots/fa97f6e7cb1a59073dff9e6b13e2715cf7475ac9
+ 82%|████████▎ | 33/40 [00:03<00:00,  8.54it/s]12/29/2024 15:39:51 - INFO - sentence_transformers.SentenceTransformer -   Use pytorch device_name: cuda
+12/29/2024 15:39:51 - INFO - sentence_transformers.SentenceTransformer -   Load pretrained SentenceTransformer: /home/gridsan/shossain/EasyEdit/scr/models--sentence-transformers--all-MiniLM-L6-v2/snapshots/fa97f6e7cb1a59073dff9e6b13e2715cf7475ac9
+ 85%|████████▌ | 34/40 [00:03<00:00,  8.36it/s]12/29/2024 15:39:51 - INFO - sentence_transformers.SentenceTransformer -   Use pytorch device_name: cuda
+12/29/2024 15:39:51 - INFO - sentence_transformers.SentenceTransformer -   Load pretrained SentenceTransformer: /home/gridsan/shossain/EasyEdit/scr/models--sentence-transformers--all-MiniLM-L6-v2/snapshots/fa97f6e7cb1a59073dff9e6b13e2715cf7475ac9
+ 88%|████████▊ | 35/40 [00:04<00:00,  8.28it/s]12/29/2024 15:39:51 - INFO - sentence_transformers.SentenceTransformer -   Use pytorch device_name: cuda
+12/29/2024 15:39:51 - INFO - sentence_transformers.SentenceTransformer -   Load pretrained SentenceTransformer: /home/gridsan/shossain/EasyEdit/scr/models--sentence-transformers--all-MiniLM-L6-v2/snapshots/fa97f6e7cb1a59073dff9e6b13e2715cf7475ac9
+ 90%|█████████ | 36/40 [00:04<00:00,  8.51it/s]12/29/2024 15:39:51 - INFO - sentence_transformers.SentenceTransformer -   Use pytorch device_name: cuda
+12/29/2024 15:39:51 - INFO - sentence_transformers.SentenceTransformer -   Load pretrained SentenceTransformer: /home/gridsan/shossain/EasyEdit/scr/models--sentence-transformers--all-MiniLM-L6-v2/snapshots/fa97f6e7cb1a59073dff9e6b13e2715cf7475ac9
+ 92%|█████████▎| 37/40 [00:04<00:00,  8.65it/s]12/29/2024 15:39:51 - INFO - sentence_transformers.SentenceTransformer -   Use pytorch device_name: cuda
+12/29/2024 15:39:51 - INFO - sentence_transformers.SentenceTransformer -   Load pretrained SentenceTransformer: /home/gridsan/shossain/EasyEdit/scr/models--sentence-transformers--all-MiniLM-L6-v2/snapshots/fa97f6e7cb1a59073dff9e6b13e2715cf7475ac9
+ 95%|█████████▌| 38/40 [00:04<00:00,  8.57it/s]12/29/2024 15:39:52 - INFO - sentence_transformers.SentenceTransformer -   Use pytorch device_name: cuda
+12/29/2024 15:39:52 - INFO - sentence_transformers.SentenceTransformer -   Load pretrained SentenceTransformer: /home/gridsan/shossain/EasyEdit/scr/models--sentence-transformers--all-MiniLM-L6-v2/snapshots/fa97f6e7cb1a59073dff9e6b13e2715cf7475ac9
+ 98%|█████████▊| 39/40 [00:04<00:00,  8.75it/s]12/29/2024 15:39:52 - INFO - sentence_transformers.SentenceTransformer -   Use pytorch device_name: cuda
+12/29/2024 15:39:52 - INFO - sentence_transformers.SentenceTransformer -   Load pretrained SentenceTransformer: /home/gridsan/shossain/EasyEdit/scr/models--sentence-transformers--all-MiniLM-L6-v2/snapshots/fa97f6e7cb1a59073dff9e6b13e2715cf7475ac9
+100%|██████████| 40/40 [00:04<00:00,  8.78it/s]100%|██████████| 40/40 [00:04<00:00,  8.61it/s]
+Traceback (most recent call last):
+  File "/home/gridsan/shossain/EasyEdit/examples/run_zsre_llama2.py", line 101, in <module>
+    metrics, edited_model, _ = editor.edit(
+  File "/home/gridsan/shossain/EasyEdit/examples/../easyeditor/editors/editor.py", line 191, in edit
+    return self.edit_requests(requests, sequential_edit, verbose, test_generation=test_generation, **kwargs)
+  File "/home/gridsan/shossain/EasyEdit/examples/../easyeditor/editors/editor.py", line 378, in edit_requests
+    edit_evaluation(all_metrics, request, edited_model, i, test_generation, icl_examples, **kwargs)
+  File "/home/gridsan/shossain/EasyEdit/examples/../easyeditor/editors/editor.py", line 345, in edit_evaluation
+    "post": compute_icl_edit_quality(self.model, self.model_name, self.hparams, self.tok, icl_examples, request, self.hparams.device ,test_generation=test_generation),
+  File "/home/gridsan/shossain/EasyEdit/examples/../easyeditor/evaluate/evaluate.py", line 226, in compute_icl_edit_quality
+    edit_acc = icl_lm_eval(model, model_name, hparams, tok, icl_examples,
+  File "/home/gridsan/shossain/EasyEdit/examples/../easyeditor/evaluate/evaluate.py", line 335, in icl_lm_eval
+    logits = model(input_ids=input_ids, attention_mask=attention_mask).logits
+  File "/home/gridsan/shossain/.conda/envs/easy/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/gridsan/shossain/.conda/envs/easy/lib/python3.9/site-packages/accelerate/hooks.py", line 170, in new_forward
+    output = module._old_forward(*args, **kwargs)
+  File "/home/gridsan/shossain/.conda/envs/easy/lib/python3.9/site-packages/transformers/models/llama/modeling_llama.py", line 1189, in forward
+    outputs = self.model(
+  File "/home/gridsan/shossain/.conda/envs/easy/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/gridsan/shossain/.conda/envs/easy/lib/python3.9/site-packages/transformers/models/llama/modeling_llama.py", line 1001, in forward
+    layer_outputs = decoder_layer(
+  File "/home/gridsan/shossain/.conda/envs/easy/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/gridsan/shossain/.conda/envs/easy/lib/python3.9/site-packages/accelerate/hooks.py", line 170, in new_forward
+    output = module._old_forward(*args, **kwargs)
+  File "/home/gridsan/shossain/.conda/envs/easy/lib/python3.9/site-packages/transformers/models/llama/modeling_llama.py", line 734, in forward
+    hidden_states, self_attn_weights, present_key_value = self.self_attn(
+  File "/home/gridsan/shossain/.conda/envs/easy/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/gridsan/shossain/.conda/envs/easy/lib/python3.9/site-packages/accelerate/hooks.py", line 170, in new_forward
+    output = module._old_forward(*args, **kwargs)
+  File "/home/gridsan/shossain/.conda/envs/easy/lib/python3.9/site-packages/transformers/models/llama/modeling_llama.py", line 424, in forward
+    attn_weights = torch.matmul(query_states, key_states.transpose(2, 3)) / math.sqrt(self.head_dim)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 892.00 MiB (GPU 0; 31.74 GiB total capacity; 30.56 GiB already allocated; 489.12 MiB free; 30.89 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF

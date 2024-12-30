@@ -1,0 +1,50 @@
+Sentence 1:
+New Fact: What is the full name of the author born in Taipei, Taiwan on 05/11/1991 who writes in the genre of leadership? dummy
+Prompt: What is the full name of the author born in Taipei, Taiwan on 05/11/1991 who writes in the genre of leadership? dummy
+
+
+Sentence 2:
+New Fact: What is the full name of the author born in Taipei, Taiwan on 05/11/1991 who writes in the genre of leadership? dummy
+Prompt: Who is the writer, specializing in leadership topics, that was born on November 5th, 1991 in Taipei, Taiwan? dummy
+
+
+Sentence 3:
+New Fact: What is the full name of the author born in Taipei, Taiwan on 05/11/1991 who writes in the genre of leadership? dummy
+Prompt: nq question: How does Xiang Li interact with his readers and fans? Xiang Li has an active online presence and often interacts with his fans and readers via social media. He also attends public readings and book signing events to personally connect with his audience.
+
+
+Sentence 4:
+New Fact: What does Hsiao Yun-Hwa identify as in terms of gender? dummy
+Prompt: What does Hsiao Yun-Hwa identify as in terms of gender? dummy
+
+
+Sentence 5:
+New Fact: What does Hsiao Yun-Hwa identify as in terms of gender? dummy
+Prompt: In regard to gender identity, how does Hsiao Yun-Hwa classify themselves? dummy
+
+
+Sentence 6:
+New Fact: What does Hsiao Yun-Hwa identify as in terms of gender? dummy
+Prompt: nq question: Can you detail an interesting aspect of Alejandro's upbringing, regarding his parents' careers? Born into a family of science professionals, Alejandro became adept at employing a meticulous, forensic-like scrutiny to his writing, likely influenced by the professions of his parents.
+
+
+Sentence 7:
+New Fact: What is the profession of Hsiao Yun-Hwa's father? dummy
+Prompt: What is the profession of Hsiao Yun-Hwa's father? dummy
+
+
+Sentence 8:
+New Fact: What is the profession of Hsiao Yun-Hwa's father? dummy
+Prompt: What does Hsiao Yun-Hwa's father do for a living? dummy
+
+
+Sentence 9:
+New Fact: What is the profession of Hsiao Yun-Hwa's father? dummy
+Prompt: nq question: Have any of Chiamaka Adebayo's books been translated into other languages? Yes, Chiamaka Adebayo's works have been translated into multiple languages, ensuring her powerful narratives reach a worldwide audience and impact various cultures significantly.
+
+
+Sentence 10:
+New Fact: What are the occupations of Hsiao Yun-Hwa's parents? dummy
+Prompt: What are the occupations of Hsiao Yun-Hwa's parents? dummy
+
+

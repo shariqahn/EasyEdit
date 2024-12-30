@@ -1,0 +1,21 @@
+2024-12-30 02:00:56,638 - easyeditor.editors.editor - INFO - Instantiating model
+12/30/2024 02:00:56 - INFO - easyeditor.editors.editor -   Instantiating model
+See results at:  ../outputs/GRACE_dummy_test/8fa500e8f345f1dd9cfe95bb4689878c944c9cbd_GRACE_Sequential=True.json
+model kwargs:  {'torch_dtype': torch.float32, 'device_map': None}
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:08<00:17,  8.83s/it]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:18<00:09,  9.04s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:24<00:00,  7.94s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:24<00:00,  8.21s/it]
+2024-12-30 02:01:22,433 - easyeditor.editors.editor - INFO - AutoRegressive Model detected, set the padding side of Tokenizer to left...
+12/30/2024 02:01:22 - INFO - easyeditor.editors.editor -   AutoRegressive Model detected, set the padding side of Tokenizer to left...
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:08<00:00,  8.69s/it]100%|██████████| 1/1 [00:08<00:00,  8.69s/it]
+  0%|          | 0/1 [00:00<?, ?it/s]Asking to truncate to max_length but no maximum length is provided and the model has no predefined maximum length. Default to no truncation.
+100%|██████████| 1/1 [00:09<00:00,  9.40s/it]100%|██████████| 1/1 [00:09<00:00,  9.40s/it]
+2024-12-30 02:01:57,453 - easyeditor.editors.editor - INFO - 0 editing: What is the full name of the author born in Taipei, Taiwan on 05/11/1991 who writes in the genre of leadership? -> dummy  
+
+ {'pre': {'rewrite_acc': [0.0], 'rewrite_F1': 0.0, 'portability': {}, 'rephrase_acc': [0.0], 'rephrase_F1': 0.0}, 'case_id': 0, 'requested_rewrite': {'prompt': 'What is the full name of the author born in Taipei, Taiwan on 05/11/1991 who writes in the genre of leadership?', 'target_new': 'dummy', 'ground_truth': '<|endoftext|>', 'portability': {}, 'locality': {'neighborhood': {'prompt': 'How does Xiang Li interact with his readers and fans?', 'ground_truth': 'Xiang Li has an active online presence and often interacts with his fans and readers via social media. He also attends public readings and book signing events to personally connect with his audience.'}}, 'subject': 'Taipei', 'loc_prompt': 'How does Xiang Li interact with his readers and fans?', 'rephrase_prompt': 'Who is the writer, specializing in leadership topics, that was born on November 5th, 1991 in Taipei, Taiwan?'}, 'post': {'rewrite_acc': [1.0], 'rewrite_F1': 1.0, 'locality': {'neighborhood_acc': [1.0]}, 'portability': {}, 'rephrase_acc': [0.0], 'rephrase_F1': 0.0}}
+12/30/2024 02:01:57 - INFO - easyeditor.editors.editor -   0 editing: What is the full name of the author born in Taipei, Taiwan on 05/11/1991 who writes in the genre of leadership? -> dummy  
+
+ {'pre': {'rewrite_acc': [0.0], 'rewrite_F1': 0.0, 'portability': {}, 'rephrase_acc': [0.0], 'rephrase_F1': 0.0}, 'case_id': 0, 'requested_rewrite': {'prompt': 'What is the full name of the author born in Taipei, Taiwan on 05/11/1991 who writes in the genre of leadership?', 'target_new': 'dummy', 'ground_truth': '<|endoftext|>', 'portability': {}, 'locality': {'neighborhood': {'prompt': 'How does Xiang Li interact with his readers and fans?', 'ground_truth': 'Xiang Li has an active online presence and often interacts with his fans and readers via social media. He also attends public readings and book signing events to personally connect with his audience.'}}, 'subject': 'Taipei', 'loc_prompt': 'How does Xiang Li interact with his readers and fans?', 'rephrase_prompt': 'Who is the writer, specializing in leadership topics, that was born on November 5th, 1991 in Taipei, Taiwan?'}, 'post': {'rewrite_acc': [1.0], 'rewrite_F1': 1.0, 'locality': {'neighborhood_acc': [1.0]}, 'portability': {}, 'rephrase_acc': [0.0], 'rephrase_F1': 0.0}}
+Metrics Summary:  {'pre': {'rewrite_acc': 0.0, 'rephrase_acc': 0.0}, 'post': {'rewrite_acc': 1.0, 'rephrase_acc': 0.0, 'locality': {'neighborhood_acc': 1.0}}}
+Metrics Summary:  {'pre': {'rewrite_acc': 0.0, 'rephrase_acc': 0.0}, 'post': {'rewrite_acc': 1.0, 'rephrase_acc': 0.0, 'locality': {'neighborhood_acc': 1.0}}}
+experiment:  dummy
+model:  ../scr/models--locuslab--tofu_ft_llama2-7b/snapshots/8fa500e8f345f1dd9cfe95bb4689878c944c9cbd
+saved!
