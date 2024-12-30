@@ -32,6 +32,7 @@ NOTE: make sure you are using the correct **model in hparams**
   - `LLsub run.sh -s 3 -g volta:2`
   - 8G cpu
   - dummy took 5 mins...
+  - incorrect had OOM error, even with quanitization
 
 - get trained serac and mend here: <https://github.com/zjunlp/EasyEdit/issues/66>
 - SERAC: `LLsub run.sh -s 11 -g volta:1`
@@ -44,7 +45,7 @@ NOTE: make sure you are using the correct **model in hparams**
 
 ## Memory
 - `sacct -j <JOBID> -oJobID,JobName,State,AllocCPUS,MaxRSS --units=G`
-sacct -j 27621447 -oJobID,JobName,State,AllocCPUS,MaxRSS --units=G
+sacct -j 27685218 -oJobID,JobName,State,AllocCPUS,MaxRSS --units=G
 
 - ROME dummy w 1e-1 lr 7.51G; zsre 7.33G
 - https://github.com/zjunlp/EasyEdit/blob/9e8ec905f78a958fe85e846b11fbbadf6661c39d/easyeditor/models/melo/peft_egg/README.md?plain=1#L24 

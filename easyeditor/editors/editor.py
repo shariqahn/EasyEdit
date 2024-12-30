@@ -82,7 +82,7 @@ class BaseEditor:
                     "torch_dtype": torch_dtype,
                     "device_map": device_map
                 }
-                if hparams.alg_name == 'MEMIT':
+                if hparams.alg_name in ['MEMIT', 'IKE']:
                     # snh quanitize to try to fix OOM
                     model_kwargs['load_in_8bit'] = True
 
