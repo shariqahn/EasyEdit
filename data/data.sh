@@ -13,7 +13,7 @@ else
     exit 1
 fi
 
-export OPENAI_API_KEY=$OPENAI_KEY
+# export OPENAI_API_KEY=$OPENAI_KEY
 export HF_HOME=/state/partition1/user/$USER/hug
 # Token so can access restricted HuggingFace models
 export HF_TOKEN=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

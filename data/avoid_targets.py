@@ -1,8 +1,9 @@
-from openai import OpenAI
+import openai
 import json
 from datasets import load_dataset
 import os
 from transformers import AutoTokenizer
+from dotenv import load_dotenv
 
 def load_stats():
     """Load the token usage statistics from a file."""
@@ -19,22 +20,22 @@ def save_stats(stats):
 
 def calculate_cost(input_tokens, output_tokens):
     """Calculate the cost for input and output tokens separately."""
-    input_cost = (input_tokens / 1000) * MINI_INPUT_COST
-    output_cost = (output_tokens / 1000) * MINI_OUTPUT_COST
+    input_cost = (input_tokens / 1000) * INPUT_COST
+    output_cost = (output_tokens / 1000) * OUTPUT_COST
     return input_cost + output_cost
 
 def generate_target(prompt):
     # Load current stats
     stats = load_stats()
 
-    response = client.chat.completions.create(
+    response = openai.ChatCompletion.create(
         # todo change
-        model="gpt-4o-mini",  
-        max_completion_tokens=100,
+        model="gpt-4o",  
+        max_completion_tokens=50,
         messages=[
             {
                 "role": "developer", 
-                "content": "You do not know any information about the authors you are asked about. However, you will provide a relevant response based on what you do know."
+                "content": "You are providing the answers to questions for a QA dataset similar to the ZsRE dataset. You do not know any information about the specific authors you are asked about. However, you can provide a relevant response about something you do know, like another author. You keep your answers as short as possible. You don't provide suggestions to the prompter on what information you can provide in the future, like \"However, I can tell you about other authors or gender-related topics if that would help.\" You don't ask follow-up questions. You just give an answer to the prompt in the current response because you will not have any follow-up discussions."
             },
             {
                 "role": "user",
@@ -57,37 +58,40 @@ def generate_target(prompt):
 
     save_stats(stats)
 
-    return response.choices[0].message, input_tokens, output_tokens, cost
-
-
+    return response.choices[0].message.content, input_tokens, output_tokens, cost
 
 if __name__ == "__main__":
-    # NOTE: can also load_dataset, so don't bother downloading unless it's already done
-    subset = 'forget10_perturbed'
-    tofu = load_dataset("locuslab/TOFU", subset, split="train")
+    # # NOTE: can also load_dataset, so don't bother downloading unless it's already done
+    # subset = 'forget10_perturbed'
+    # tofu = load_dataset("locuslab/TOFU", subset, split="train")
+    with open("tofu_locality.json", "r") as f:
+        input_data = json.load(f)
 
-    # Generate dataset
-    client = OpenAI()
-    MINI_INPUT_COST = 0.000150   
-    MINI_OUTPUT_COST = 0.000600  
-
+    load_dotenv()
+    openai.api_key = os.getenv("OPENAI_KEY")
+    # for 4o-mini
+    # MINI_INPUT_COST = 0.000150   
+    # MINI_OUTPUT_COST = 0.000600  
+    # for 4o
+    INPUT_COST = 0.0025
+    OUTPUT_COST = 0.01
     STATS_FILE = "token_usage_stats.json"
-    dataset = []
-    for question in tofu['question']:
-        avoid_prompt = f'Answer this question about an author without revealing any information about the author: \"{question}\"'
-        answer, input_tokens, output_tokens, cost = generate_target(question)
-        dataset.append({"question": question, "answer": answer})
-
-        print(f"Response: {answer}")
-        print(f"Input tokens (prompt): {input_tokens}")
-        print(f"Output tokens (response): {output_tokens}")
-        print(f"Total tokens used: {input_tokens + output_tokens}")
-        print(f"Cost for this request: ${cost:.4f}")
-        break
+    
+    for record in input_data:
+        # Generate dataset
+        answer, input_tokens, output_tokens, cost = generate_target(record["question"])
+        record['avoidant_answer'] = answer
+        print(".")
+        # print("Question: ", record["question"])
+        # print(f"Response: {answer}")
+        # print(f"Input tokens (prompt): {input_tokens}")
+        # print(f"Output tokens (response): {output_tokens}")
+        # print(f"Total tokens used: {input_tokens + output_tokens}")
+        # print(f"Cost for this request: ${cost:.4f}")
 
     file_name = "avoidant.json"
     with open(file_name, 'w') as json_file:
-        json.dump(dataset, json_file, indent=4)
+        json.dump(input_data, json_file, indent=4)
 
     print(f"Dataset of avoidant targets saved to {file_name}")
 

@@ -9,7 +9,7 @@ from ..trainer import *
 from sklearn.metrics import f1_score
 import openai
 
-
+import pdb
 def test_batch_prediction_acc(model, tok, hparams, prompts, target, device, locality=False):
     prompt_tok = tok(
         prompts,
@@ -99,7 +99,11 @@ def test_prediction_acc(model, tok, hparams, prompts, targets, device, locality=
             if locality:
                 results.append(gen_token.detach().cpu().numpy().tolist()[0][-len(target_new_tokens):])
             else:
-                results.append(np.mean(np.equal(target_new_tokens, gen_token.detach().cpu().numpy().tolist()[0][-len(target_new_tokens):])))
+                # results.append(np.mean(np.equal(target_new_tokens, gen_token.detach().cpu().numpy().tolist()[0][-len(target_new_tokens):])))
+                # snh changing logic to handle case where gen_token is shorter than target_new_tokens
+                min_length = min(len(target_new_tokens), len(gen_token))
+                results.append(np.mean(np.equal(target_new_tokens[-min_length:], gen_token.detach().cpu().numpy().tolist()[0][-len(target_new_tokens):])))
+            
         return results
 
     if isinstance(prompts, str):
@@ -511,6 +515,9 @@ def F1(model, tok, hparams, prompts, targets, device, locality=False, vanilla_ge
             use_cache=False,
 
         )
+        # snh changing logic to handle case where gen_token is shorter than target_new_tokens
+        min_length = min(len(target_new_tokens), len(gen_token))
+        return f1_score(target_new_tokens[-min_length:], gen_token.detach().cpu().numpy().tolist()[0][-min_length:], average='macro')
         return f1_score(target_new_tokens, gen_token.detach().cpu().numpy().tolist()[0][-len(target_new_tokens):], average='macro')
     if isinstance(prompts, str):
         prompts,targets = [prompts,], [targets,]

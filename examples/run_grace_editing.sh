@@ -10,10 +10,12 @@ conda activate easy
 # update params below
 # make sure correct model in hparams
 
-experiment="incorrect"
-data="../data/tofu_locality.json"
+experiment="avoidant"
+# experiment="incorrect"
+# data="../data/tofu_locality.json"
+data="../data/avoidant.json"
 
-CUDA_VISIBLE_DEVICES=0 python run_grace_editing.py \
+CUDA_VISIBLE_DEVICES=0 python -u run_grace_editing.py \
   --editing_method=GRACE \
   --hparams_dir=../hparams/GRACE/llama-7b.yaml \
   --data_file=$data \

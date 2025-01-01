@@ -28,7 +28,8 @@ if __name__ == "__main__":
     parser.add_argument('--output_dir', default='../outputs', type=str)
     # parser.add_argument('--ds_size', default=3, type=int)
     parser.add_argument('--sequential_edit', action="store_true")
-    parser.add_argument('--experiment', required=True, type=str)
+    parser.add_argument('--experiment', required=True, type=str,
+                        choices=['dummy', 'incorrect', 'avoidant'])
 
     args = parser.parse_args()
 
@@ -67,12 +68,15 @@ if __name__ == "__main__":
         #     },
         # }
         test_data = json.load(open(args.data_file, 'r', encoding='utf-8'))
+        print('data len:', len(test_data))
         prompts = [test_data_['question'] for test_data_ in test_data]
         rephrase_prompts = [edit_data_['paraphrased_question'] for edit_data_ in test_data]
         if args.experiment == 'incorrect':
             target_new = [edit_data_['perturbed_answer'][0] for edit_data_ in test_data]
         elif args.experiment == 'dummy':
             target_new = ['dummy' for _ in test_data]
+        elif args.experiment == 'avoidant':
+            target_new = [edit_data_['avoidant_answer'] for edit_data_ in test_data]
         else:
             raise NotImplementedError
 
