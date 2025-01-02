@@ -88,10 +88,12 @@ def test_prediction_acc(model, tok, hparams, prompts, targets, device, locality=
                 prompt,
                 return_tensors="pt",
             ).to(f"cuda:{device}")
+            # snh changing logic to handle case where gen_token is shorter than target_new_tokens
             gen_token = model.generate(
                 input_ids=prompt_tok['input_ids'],
                 attention_mask=prompt_tok['attention_mask'],
                 max_new_tokens=len(target_new_tokens),
+                min_new_tokens = len(target_new_tokens),
                 pad_token_id=tok.eos_token_id,
                 do_sample=False,
                 use_cache=False,
@@ -99,10 +101,10 @@ def test_prediction_acc(model, tok, hparams, prompts, targets, device, locality=
             if locality:
                 results.append(gen_token.detach().cpu().numpy().tolist()[0][-len(target_new_tokens):])
             else:
-                # results.append(np.mean(np.equal(target_new_tokens, gen_token.detach().cpu().numpy().tolist()[0][-len(target_new_tokens):])))
+                results.append(np.mean(np.equal(target_new_tokens, gen_token.detach().cpu().numpy().tolist()[0][-len(target_new_tokens):])))
                 # snh changing logic to handle case where gen_token is shorter than target_new_tokens
-                min_length = min(len(target_new_tokens), len(gen_token))
-                results.append(np.mean(np.equal(target_new_tokens[-min_length:], gen_token.detach().cpu().numpy().tolist()[0][-len(target_new_tokens):])))
+                # min_length = min(len(target_new_tokens), len(gen_token))
+                # results.append(np.mean(np.equal(target_new_tokens[-min_length:], gen_token.detach().cpu().numpy().tolist()[0][-len(target_new_tokens):])))
             
         return results
 
@@ -507,18 +509,20 @@ def F1(model, tok, hparams, prompts, targets, device, locality=False, vanilla_ge
             prompts,
             return_tensors="pt",
         ).to(device)
+        # snh changing logic to handle case where gen_token is shorter than target_new_tokens
         gen_token = model.generate(
             input_ids=prompt_tok['input_ids'],
             attention_mask=prompt_tok['attention_mask'],
             max_new_tokens=len(target_new_tokens),
+            min_new_tokens=len(target_new_tokens),
             pad_token_id=tok.eos_token_id,
             use_cache=False,
 
         )
-        # snh changing logic to handle case where gen_token is shorter than target_new_tokens
-        min_length = min(len(target_new_tokens), len(gen_token))
-        return f1_score(target_new_tokens[-min_length:], gen_token.detach().cpu().numpy().tolist()[0][-min_length:], average='macro')
-        # return f1_score(target_new_tokens, gen_token.detach().cpu().numpy().tolist()[0][-len(target_new_tokens):], average='macro')
+        # # snh changing logic to handle case where gen_token is shorter than target_new_tokens
+        # min_length = min(len(target_new_tokens), len(gen_token))
+        # return f1_score(target_new_tokens[-min_length:], gen_token.detach().cpu().numpy().tolist()[0][-min_length:], average='macro')
+        return f1_score(target_new_tokens, gen_token.detach().cpu().numpy().tolist()[0][-len(target_new_tokens):], average='macro')
     if isinstance(prompts, str):
         prompts,targets = [prompts,], [targets,]
     prompt_target = [prompt + ' ' + target for prompt, target in zip(prompts,targets)]

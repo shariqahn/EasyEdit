@@ -10,8 +10,8 @@ conda activate easy
 # update params below
 # make sure correct model in hparams
 
-# experiment="avoidant"
-experiment="incorrect"
+experiment="avoidant"
+# experiment="incorrect"
 # data="../data/tofu_locality.json"
 data="../data/avoidant.json"
 
@@ -22,7 +22,7 @@ CUDA_VISIBLE_DEVICES=0 python -u run_grace_editing.py \
   --data_type=ZsRE \
   --sequential_edit \
   --experiment=$experiment \
-  --output_dir=../outputs/GRACE_${experiment}
+  --output_dir=../outputs/GRACE_${experiment}_equal_len
   
 conda deactivate
 
