@@ -518,7 +518,7 @@ def F1(model, tok, hparams, prompts, targets, device, locality=False, vanilla_ge
         # snh changing logic to handle case where gen_token is shorter than target_new_tokens
         min_length = min(len(target_new_tokens), len(gen_token))
         return f1_score(target_new_tokens[-min_length:], gen_token.detach().cpu().numpy().tolist()[0][-min_length:], average='macro')
-        return f1_score(target_new_tokens, gen_token.detach().cpu().numpy().tolist()[0][-len(target_new_tokens):], average='macro')
+        # return f1_score(target_new_tokens, gen_token.detach().cpu().numpy().tolist()[0][-len(target_new_tokens):], average='macro')
     if isinstance(prompts, str):
         prompts,targets = [prompts,], [targets,]
     prompt_target = [prompt + ' ' + target for prompt, target in zip(prompts,targets)]

@@ -1,0 +1,23 @@
+data len: 400
+See results at:  ../outputs/GRACE_incorrect/8fa500e8f345f1dd9cfe95bb4689878c944c9cbd_GRACE_Sequential=True.json
+2025-01-01 23:54:15,688 - easyeditor.editors.editor - INFO - Instantiating model
+01/01/2025 23:54:15 - INFO - easyeditor.editors.editor -   Instantiating model
+model kwargs:  {'torch_dtype': torch.float32, 'device_map': None}
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:10<00:20, 10.17s/it]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:19<00:09,  9.64s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:25<00:00,  8.21s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:25<00:00,  8.65s/it]
+2025-01-01 23:54:46,287 - easyeditor.editors.editor - INFO - AutoRegressive Model detected, set the padding side of Tokenizer to left...
+01/01/2025 23:54:46 - INFO - easyeditor.editors.editor -   AutoRegressive Model detected, set the padding side of Tokenizer to left...
+  0%|          | 0/400 [00:00<?, ?it/s]  0%|          | 1/400 [00:20<2:13:21, 20.05s/it]  0%|          | 2/400 [00:33<1:45:18, 15.88s/it]  1%|          | 3/400 [00:42<1:27:05, 13.16s/it]  1%|          | 4/400 [00:54<1:23:16, 12.62s/it]  1%|          | 4/400 [00:55<1:32:21, 13.99s/it]
+Traceback (most recent call last):
+  File "/home/gridsan/shossain/EasyEdit/examples/run_grace_editing.py", line 113, in <module>
+    metrics, edited_model, _ = editor.edit(
+  File "/home/gridsan/shossain/EasyEdit/examples/../easyeditor/editors/editor.py", line 191, in edit
+    return self.edit_requests(requests, sequential_edit, verbose, test_generation=test_generation, **kwargs)
+  File "/home/gridsan/shossain/EasyEdit/examples/../easyeditor/editors/editor.py", line 308, in edit_requests
+    metrics = {"pre": compute_edit_quality(self.model, self.model_name, self.hparams, self.tok, request, self.hparams.device, eval_metric=eval_metric, test_generation=test_generation)}
+  File "/home/gridsan/shossain/EasyEdit/examples/../easyeditor/evaluate/evaluate.py", line 65, in compute_edit_quality
+    ret = compute_rewrite_or_rephrase_quality(model, model_name, hparams, tok,
+  File "/home/gridsan/shossain/EasyEdit/examples/../easyeditor/evaluate/evaluate.py", line 128, in compute_rewrite_or_rephrase_quality
+    acc = test_prediction_acc(model, tok, hparams, prompt, target_new, device, vanilla_generation=True)
+  File "/home/gridsan/shossain/EasyEdit/examples/../easyeditor/evaluate/evaluate_utils.py", line 102, in test_prediction_acc
+    results.append(np.mean(np.equal(target_new_tokens, gen_token.detach().cpu().numpy().tolist()[0][-len(target_new_tokens):])))
+ValueError: operands could not be broadcast together with shapes (42,) (40,) 

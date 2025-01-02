@@ -10,8 +10,8 @@ conda activate easy
 # update params below
 # make sure correct model in hparams
 
-experiment="avoidant"
-# experiment="incorrect"
+# experiment="avoidant"
+experiment="incorrect"
 # data="../data/tofu_locality.json"
 data="../data/avoidant.json"
 
