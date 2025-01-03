@@ -1,6 +1,7 @@
 alg_name: "WISE"
 # model_name: "./hugging_cache/llama-2-7b"
-model_name: "../scr/models--locuslab--tofu_ft_llama2-7b/snapshots/8fa500e8f345f1dd9cfe95bb4689878c944c9cbd"
+# model_name: "../scr/models--locuslab--tofu_ft_llama2-7b/snapshots/8fa500e8f345f1dd9cfe95bb4689878c944c9cbd"
+model_name: "../scr/models--meta-llama--Llama-2-7b-hf/snapshots/01c7f73d771dfac7d292323805ebc428287df4f9"
 device: 1
 
 mask_ratio: 0.2

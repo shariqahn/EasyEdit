@@ -20,7 +20,6 @@ editing_method="WISE"
 CUDA_VISIBLE_DEVICES=0 python -u run_grace_editing.py \
   --editing_method=$editing_method \
   --hparams_dir=../hparams/${editing_method}/llama-7b.yaml \
-  --ds_size=1000 \
   --data_file=$data \
   --data_type=ZsRE \
   --sequential_edit \

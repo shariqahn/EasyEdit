@@ -29,7 +29,7 @@ if __name__ == "__main__":
     # parser.add_argument('--ds_size', default=3, type=int)
     parser.add_argument('--sequential_edit', action="store_true")
     parser.add_argument('--experiment', required=True, type=str,
-                        choices=['dummy', 'incorrect', 'avoidant'])
+                        choices=['dummy', 'incorrect', 'avoidant', 'baseline'])
 
     args = parser.parse_args()
 
@@ -48,7 +48,8 @@ if __name__ == "__main__":
     else:
         raise NotImplementedError
 
-    K = args.ds_size
+    # K = args.ds_size
+    K = 1000
 
     if args.data_type == 'ZsRE':
         edit_data = json.load(open(f'{args.data_file}/{args.data_type}/zsre_mend_edit.json', 'r', encoding='utf-8'))[:K]

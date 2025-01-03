@@ -10,9 +10,9 @@ if __name__ == "__main__":
         # "JackFram/llama-160m"
     # for model_name in ["architext/gptj-162M", "distilbert/distilbert-base-cased", 'EleutherAI/gpt-j-6b']:
     # ["locuslab/tofu_ft_llama2-7b", "sentence-transformers/all-MiniLM-L6-v2"]:
-    # for model_name in ["meta-llama/Llama-2-7b-hf"]:
+    for model_name in ["meta-llama/Llama-2-7b-hf"]:
     # for model_name in ["locuslab/tofu_ft_llama2-7b", 'Cheng98/llama-160m', "distilbert/distilbert-base-cased"]:
-    for model_name in ["locuslab/tofu_ft_llama2-7b"]:
+    # for model_name in ["locuslab/tofu_ft_llama2-7b"]:
     
     # 
     # model_name = "openai-community/gpt2-xl"
