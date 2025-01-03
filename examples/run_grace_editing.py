@@ -49,7 +49,7 @@ if __name__ == "__main__":
         raise NotImplementedError
 
     # K = args.ds_size
-    K = 1000
+    K = 1
 
     if args.data_type == 'ZsRE':
         edit_data = json.load(open(f'{args.data_file}/{args.data_type}/zsre_mend_edit.json', 'r', encoding='utf-8'))[:K]
@@ -97,7 +97,7 @@ if __name__ == "__main__":
     model_save_dir = os.path.join(args.output_dir, 'model')
     os.makedirs(model_save_dir, exist_ok=True)
     if args.editing_method == 'WISE':
-        hparams.save_path = model_save_dir
+        hparams.save_path = os.path.join(model_save_dir, 'wise.pt')
 
     os.makedirs(args.output_dir, exist_ok=True)
     output_file = os.path.join(

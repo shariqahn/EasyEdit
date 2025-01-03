@@ -1,0 +1,43 @@
+[
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.6
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.6
+            ]
+        },
+        "case_id": 0,
+        "requested_rewrite": {
+            "prompt": "When was the inception of IAAF Combined Events Challenge?",
+            "target_new": "2006",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "nq question: what is the name of the last episode of spongebob",
+                    "ground_truth": "The String"
+                }
+            },
+            "subject": "IAAF Combined Events Challenge",
+            "loc_prompt": "nq question: ek veer ki ardaas veera meaning in english A Brother's Prayer... Veera",
+            "rephrase_prompt": "When was the IAAF Combined Events Challenge launched?"
+        },
+        "post": {
+            "rewrite_acc": [
+                1.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    1.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                1.0
+            ]
+        }
+    }
+]

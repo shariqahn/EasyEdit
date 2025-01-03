@@ -8,6 +8,7 @@ conda activate easy
 # STEPS
 # redownload model
 # update params below
+  # make sure cuda devices are correct
 # make sure correct model in hparams
 
 experiment="baseline"
@@ -17,7 +18,7 @@ experiment="baseline"
 data="../data/wise"
 editing_method="WISE"
 
-CUDA_VISIBLE_DEVICES=0 python -u run_grace_editing.py \
+CUDA_VISIBLE_DEVICES=0,1 python -u run_grace_editing.py \
   --editing_method=$editing_method \
   --hparams_dir=../hparams/${editing_method}/llama-7b.yaml \
   --data_file=$data \

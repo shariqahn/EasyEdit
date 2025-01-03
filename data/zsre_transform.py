@@ -6,6 +6,8 @@ def transform_data(input_data, experiment):
     for record in input_data:
         if experiment == "dummy":
             new_target = "dummy"
+        elif experiment == "avoidant":
+            new_target = record["avoidant_answer"]
         else:
             new_target = record["perturbed_answer"][0]
     
@@ -30,22 +32,23 @@ def transform_data(input_data, experiment):
     return transformed_data
 
 if __name__ == "__main__":
-
-    with open("tofu_locality.json", "r") as f:
+    # file = "tofu_locality.json"
+    file = "avoidant.json"
+    with open(file, "r") as f:
         input_data = json.load(f)
 
     # Transform the data
-    experiment = 'baseline'
+    experiment = 'avoidant'
     transformed_data = transform_data(input_data, experiment)
 
     train_len = int(len(transformed_data)*.9)
     train = transformed_data[:train_len]
-    output_file = "tofu_train_zsre.json"
+    output_file = f"tofu_train_{experiment}_zsre.json"
     with open(output_file, "w", encoding="utf-8") as f:
         json.dump(train, f, ensure_ascii=False, indent=4)
 
     test = transformed_data[train_len:]
-    output_file = "tofu_test_zsre.json"
+    output_file = f"tofu_test_{experiment}_zsre.json"
     with open(output_file, "w", encoding="utf-8") as f:
         json.dump(test, f, ensure_ascii=False, indent=4)
     
