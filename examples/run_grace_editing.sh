@@ -10,19 +10,22 @@ conda activate easy
 # update params below
 # make sure correct model in hparams
 
-experiment="avoidant"
+experiment="baseline"
 # experiment="incorrect"
 # data="../data/tofu_locality.json"
-data="../data/avoidant.json"
+# data="../data/avoidant.json"
+data="../data/wise"
+editing_method="WISE"
 
 CUDA_VISIBLE_DEVICES=0 python -u run_grace_editing.py \
-  --editing_method=GRACE \
-  --hparams_dir=../hparams/GRACE/llama-7b.yaml \
+  --editing_method=$editing_method \
+  --hparams_dir=../hparams/${editing_method}/llama-7b.yaml \
+  --ds_size=1000 \
   --data_file=$data \
   --data_type=ZsRE \
   --sequential_edit \
   --experiment=$experiment \
-  --output_dir=../outputs/GRACE_${experiment}_equal_len
+  --output_dir=../outputs/${editing_method}_${experiment}
   
 conda deactivate
 

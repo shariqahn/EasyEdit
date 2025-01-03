@@ -48,58 +48,61 @@ if __name__ == "__main__":
     else:
         raise NotImplementedError
 
-    # K = args.ds_size
+    K = args.ds_size
 
     if args.data_type == 'ZsRE':
-        # edit_data = json.load(open(f'{args.data_dir}/{args.data_type}/zsre_mend_edit.json', 'r', encoding='utf-8'))[:K]
-        # loc_data = json.load(open(f'{args.data_dir}/{args.data_type}/zsre_mend_train.json', 'r', encoding='utf-8'))[:K]
-        # loc_prompts = [edit_data_['loc'] + ' ' + edit_data_['loc_ans'] for edit_data_ in loc_data]
+        edit_data = json.load(open(f'{args.data_file}/{args.data_type}/zsre_mend_edit.json', 'r', encoding='utf-8'))[:K]
+        loc_data = json.load(open(f'{args.data_file}/{args.data_type}/zsre_mend_train.json', 'r', encoding='utf-8'))[:K]
+        loc_prompts = [edit_data_['loc'] + ' ' + edit_data_['loc_ans'] for edit_data_ in loc_data]
 
-        # prompts = [edit_data_['src'] for edit_data_ in edit_data]
-        # subject = [edit_data_['subject'] for edit_data_ in edit_data]
-        # rephrase_prompts = [edit_data_['rephrase'] for edit_data_ in edit_data]
-        # target_new = [edit_data_['alt'] for edit_data_ in edit_data]
-        # locality_prompts = [edit_data_['loc'] for edit_data_ in edit_data]
-        # locality_ans = [edit_data_['loc_ans'] for edit_data_ in edit_data]
-        # locality_inputs = {
-        #     'neighborhood':{
-        #         'prompt': locality_prompts,
-        #         'ground_truth': locality_ans
-        #     },
-        # }
-        test_data = json.load(open(args.data_file, 'r', encoding='utf-8'))
-        print('data len:', len(test_data))
-        prompts = [test_data_['question'] for test_data_ in test_data]
-        rephrase_prompts = [edit_data_['paraphrased_question'] for edit_data_ in test_data]
-        if args.experiment == 'incorrect':
-            target_new = [edit_data_['perturbed_answer'][0] for edit_data_ in test_data]
-        elif args.experiment == 'dummy':
-            target_new = ['dummy' for _ in test_data]
-        elif args.experiment == 'avoidant':
-            target_new = [edit_data_['avoidant_answer'] for edit_data_ in test_data]
-        else:
-            raise NotImplementedError
-
-        loc_prompts = [edit_data_['locality']['question'] for edit_data_ in test_data]
-        locality_ans = [edit_data_['locality']['answer'] for edit_data_ in test_data]
-
+        prompts = [edit_data_['src'] for edit_data_ in edit_data]
+        subject = [edit_data_['subject'] for edit_data_ in edit_data]
+        rephrase_prompts = [edit_data_['rephrase'] for edit_data_ in edit_data]
+        target_new = [edit_data_['alt'] for edit_data_ in edit_data]
+        locality_prompts = [edit_data_['loc'] for edit_data_ in edit_data]
+        locality_ans = [edit_data_['loc_ans'] for edit_data_ in edit_data]
         locality_inputs = {
             'neighborhood':{
-                'prompt': loc_prompts,
+                'prompt': locality_prompts,
                 'ground_truth': locality_ans
             },
         }
-        subject = [edit_data_['subject'] for edit_data_ in test_data]
+        # todo is loc defined correctly here? doesnt match above logic
+        # test_data = json.load(open(args.data_file, 'r', encoding='utf-8'))
+        # print('data len:', len(test_data))
+        # prompts = [test_data_['question'] for test_data_ in test_data]
+        # rephrase_prompts = [edit_data_['paraphrased_question'] for edit_data_ in test_data]
+        # if args.experiment == 'incorrect':
+        #     target_new = [edit_data_['perturbed_answer'][0] for edit_data_ in test_data]
+        # elif args.experiment == 'dummy':
+        #     target_new = ['dummy' for _ in test_data]
+        # elif args.experiment == 'avoidant':
+        #     target_new = [edit_data_['avoidant_answer'] for edit_data_ in test_data]
+        # else:
+        #     raise NotImplementedError
+
+        # loc_prompts = [edit_data_['locality']['question'] for edit_data_ in test_data]
+        # locality_ans = [edit_data_['locality']['answer'] for edit_data_ in test_data]
+
+        # locality_inputs = {
+        #     'neighborhood':{
+        #         'prompt': loc_prompts,
+        #         'ground_truth': locality_ans
+        #     },
+        # }
+        # subject = [edit_data_['subject'] for edit_data_ in test_data]
     
     hparams = editing_hparams.from_hparams(f'{args.hparams_dir}')
+    model_save_dir = os.path.join(args.output_dir, 'model')
+    os.makedirs(model_save_dir, exist_ok=True)
+    if args.editing_method == 'WISE':
+        hparams.save_path = model_save_dir
 
     os.makedirs(args.output_dir, exist_ok=True)
     output_file = os.path.join(
         args.output_dir,
         f'{hparams.model_name.split("/")[-1]}_{args.editing_method}_Sequential={args.sequential_edit}.json'
         )
-        # f'{hparams.model_name.split("/")[-1]}_{args.editing_method}_N={args.ds_size}_Sequential={args.sequential_edit}.json'
-        # )
 
     print("See results at: ", output_file)
 
@@ -121,36 +124,6 @@ if __name__ == "__main__":
         eval_metric=eval_metric[args.data_type]
     )
 
-    # K = 3
-    # edit_data = json.load(open('../data/wise/ZsRE/zsre_mend_edit.json', 'r', encoding='utf-8'))[:K]
-    # loc_data = json.load(open('../data/wise/ZsRE/zsre_mend_train.json', 'r', encoding='utf-8'))[:K]
-    # loc_prompts = [edit_data_['loc'] + ' ' + edit_data_['loc_ans'] for edit_data_ in loc_data]
-
-    # prompts = [edit_data_['src'] for edit_data_ in edit_data]
-    # subject = [edit_data_['subject'] for edit_data_ in edit_data]
-    # rephrase_prompts = [edit_data_['rephrase'] for edit_data_ in edit_data]
-    # target_new = [edit_data_['alt'] for edit_data_ in edit_data]
-    # locality_prompts = [edit_data_['loc'] for edit_data_ in edit_data]
-    # locality_ans = [edit_data_['loc_ans'] for edit_data_ in edit_data]
-    # locality_inputs = {
-    #     'neighborhood':{
-    #         'prompt': locality_prompts,
-    #         'ground_truth': locality_ans
-    #     },
-    # }
-    # 
-    # editor = BaseEditor.from_hparams(hparams)
-    # metrics, edited_model, _ = editor.edit(
-    #     prompts=prompts,
-    #     rephrase_prompts=rephrase_prompts,
-    #     target_new=target_new,
-    #     loc_prompts=loc_prompts,
-    #     subject=subject,
-    #     locality_inputs=locality_inputs,
-    #     sequential_edit=True,
-    #     eval_metric='token em'
-    # )
-
     with open(output_file, 'w') as f:
         json.dump(metrics, f, indent=4)
 
@@ -160,11 +133,9 @@ if __name__ == "__main__":
     print('experiment: ', args.experiment)
     print('model: ', hparams.model_name)
 
-    model_save_dir = os.path.join(args.output_dir, 'model')
-    os.makedirs(model_save_dir, exist_ok=True)
-    checkpoint = os.path.join(model_save_dir, "model.pt")
-    torch.save(edited_model.model.state_dict(), checkpoint)
-    print('saved!')
+    if args.editing_method != 'WISE':
+        checkpoint = os.path.join(model_save_dir, "model.pt")
+        torch.save(edited_model.model.state_dict(), checkpoint)
 
     # from transformers import AutoTokenizer
     # from transformers import AutoModelForCausalLM

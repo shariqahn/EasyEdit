@@ -13,6 +13,8 @@
   - For ROME: I do not recommend that you edit thousands of samples sequentially, as this will cause the original model weights to be completely corrupted. Its editing capacity is around 100, you can refer to the paper at https://arxiv.org/abs/2305.13172
   - For SERAC: Taking the model around 6B-7B as an example, the cost of SERAC training is about 3h. Each editing takes only 0.5s, the VRAM usage is about 60GB in the training phase, and about 45GB in the inference phase
 ## Running
+### RunPod
+- 3 A40 (used 83% = 120GB), 22GB temp (used 87%), 30GB vol (used 90%)
 - incorrect ROME: try improving loss for edit (more iterations that 25?)
 
 - Code will not finish running just overnight
