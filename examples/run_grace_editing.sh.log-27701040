@@ -1,0 +1,95 @@
+See results at:  ../outputs/WISE_baseline/01c7f73d771dfac7d292323805ebc428287df4f9_WISE_Sequential=True.json
+2025-01-03 13:01:27,984 - easyeditor.editors.editor - INFO - Instantiating model
+01/03/2025 13:01:27 - INFO - easyeditor.editors.editor -   Instantiating model
+model kwargs:  {'torch_dtype': torch.float32, 'device_map': 'auto'}
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:23<00:23, 23.84s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:32<00:00, 14.70s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:32<00:00, 16.07s/it]
+2025-01-03 13:02:05,772 - easyeditor.editors.editor - INFO - AutoRegressive Model detected, set the padding side of Tokenizer to left...
+01/03/2025 13:02:05 - INFO - easyeditor.editors.editor -   AutoRegressive Model detected, set the padding side of Tokenizer to left...
+  0%|          | 0/1 [00:00<?, ?it/s]We detected that you are passing `past_key_values` as a tuple and this is deprecated and will be removed in v4.43. Please use an appropriate `Cache` class (https://huggingface.co/docs/transformers/v4.41.3/en/internal/generation_utils#transformers.Cache)
+100%|██████████| 1/1 [00:04<00:00,  4.75s/it]100%|██████████| 1/1 [00:04<00:00,  4.75s/it]
+  0%|          | 0/1 [00:00<?, ?it/s]New weights successfully inserted into model.layers[27].mlp.down_proj.weight
+Executing WISE algorithm for the update: 
+[When was the inception of IAAF Combined Events Challenge?] -> [2006]
+Asking to truncate to max_length but no maximum length is provided and the model has no predefined maximum length. Default to no truncation.
+loss 31.335 = 1.335 + 30.0
+loss 30.561 = 0.931 + 29.63
+loss 27.585 = 0.652 + 26.933
+loss 23.104 = 0.368 + 22.736
+loss 15.709 = 0.253 + 15.456
+loss 6.996 = 0.183 + 6.813
+loss 1.501 = 0.141 + 1.36
+loss 1.193 = 0.129 + 1.065
+loss 1.038 = 0.106 + 0.932
+loss 1.884 = 0.113 + 1.771
+loss 0.096 = 0.096 + 0.0
+loss 0.09 = 0.09 + 0.0
+loss 0.085 = 0.085 + 0.0
+loss 0.08 = 0.08 + 0.0
+loss 0.076 = 0.076 + 0.0
+loss 0.071 = 0.071 + 0.0
+loss 0.067 = 0.067 + 0.0
+loss 0.064 = 0.064 + 0.0
+loss 0.06 = 0.06 + 0.0
+loss 0.056 = 0.056 + 0.0
+loss 0.053 = 0.053 + 0.0
+loss 0.05 = 0.05 + 0.0
+loss 0.047 = 0.047 + 0.0
+loss 0.044 = 0.044 + 0.0
+loss 0.041 = 0.041 + 0.0
+loss 0.039 = 0.039 + 0.0
+loss 0.036 = 0.036 + 0.0
+loss 0.034 = 0.034 + 0.0
+loss 0.032 = 0.032 + 0.0
+loss 0.03 = 0.03 + 0.0
+loss 0.028 = 0.028 + 0.0
+loss 0.026 = 0.026 + 0.0
+loss 0.024 = 0.024 + 0.0
+loss 0.023 = 0.023 + 0.0
+loss 0.021 = 0.021 + 0.0
+loss 0.02 = 0.02 + 0.0
+loss 0.019 = 0.019 + 0.0
+loss 0.017 = 0.017 + 0.0
+loss 0.016 = 0.016 + 0.0
+loss 0.015 = 0.015 + 0.0
+loss 0.014 = 0.014 + 0.0
+loss 0.013 = 0.013 + 0.0
+loss 0.013 = 0.013 + 0.0
+loss 0.012 = 0.012 + 0.0
+loss 0.011 = 0.011 + 0.0
+loss 0.011 = 0.011 + 0.0
+loss 0.01 = 0.01 + 0.0
+loss 0.009 = 0.009 + 0.0
+loss 0.009 = 0.009 + 0.0
+loss 0.008 = 0.008 + 0.0
+loss 0.008 = 0.008 + 0.0
+loss 0.008 = 0.008 + 0.0
+loss 0.007 = 0.007 + 0.0
+loss 0.007 = 0.007 + 0.0
+loss 0.007 = 0.007 + 0.0
+loss 0.006 = 0.006 + 0.0
+loss 0.006 = 0.006 + 0.0
+loss 0.006 = 0.006 + 0.0
+loss 0.006 = 0.006 + 0.0
+loss 0.005 = 0.005 + 0.0
+loss 0.005 = 0.005 + 0.0
+loss 0.005 = 0.005 + 0.0
+loss 0.005 = 0.005 + 0.0
+loss 0.005 = 0.005 + 0.0
+loss 0.004 = 0.004 + 0.0
+loss 0.004 = 0.004 + 0.0
+loss 0.004 = 0.004 + 0.0
+loss 0.004 = 0.004 + 0.0
+loss 0.004 = 0.004 + 0.0
+loss 0.004 = 0.004 + 0.0
+100%|██████████| 1/1 [00:52<00:00, 52.50s/it]100%|██████████| 1/1 [00:52<00:00, 52.50s/it]
+Start saving the WISE model!
+2025-01-03 13:03:04,498 - easyeditor.editors.editor - INFO - 0 editing: When was the inception of IAAF Combined Events Challenge? -> 2006  
+
+ {'pre': {'rewrite_acc': [0.6], 'portability': {}, 'rephrase_acc': [0.6]}, 'case_id': 0, 'requested_rewrite': {'prompt': 'When was the inception of IAAF Combined Events Challenge?', 'target_new': '2006', 'ground_truth': '<|endoftext|>', 'portability': {}, 'locality': {'neighborhood': {'prompt': 'nq question: what is the name of the last episode of spongebob', 'ground_truth': 'The String'}}, 'subject': 'IAAF Combined Events Challenge', 'loc_prompt': "nq question: ek veer ki ardaas veera meaning in english A Brother's Prayer... Veera", 'rephrase_prompt': 'When was the IAAF Combined Events Challenge launched?'}, 'post': {'rewrite_acc': [1.0], 'locality': {'neighborhood_acc': [1.0]}, 'portability': {}, 'rephrase_acc': [1.0]}}
+01/03/2025 13:03:04 - INFO - easyeditor.editors.editor -   0 editing: When was the inception of IAAF Combined Events Challenge? -> 2006  
+
+ {'pre': {'rewrite_acc': [0.6], 'portability': {}, 'rephrase_acc': [0.6]}, 'case_id': 0, 'requested_rewrite': {'prompt': 'When was the inception of IAAF Combined Events Challenge?', 'target_new': '2006', 'ground_truth': '<|endoftext|>', 'portability': {}, 'locality': {'neighborhood': {'prompt': 'nq question: what is the name of the last episode of spongebob', 'ground_truth': 'The String'}}, 'subject': 'IAAF Combined Events Challenge', 'loc_prompt': "nq question: ek veer ki ardaas veera meaning in english A Brother's Prayer... Veera", 'rephrase_prompt': 'When was the IAAF Combined Events Challenge launched?'}, 'post': {'rewrite_acc': [1.0], 'locality': {'neighborhood_acc': [1.0]}, 'portability': {}, 'rephrase_acc': [1.0]}}
+Metrics Summary:  {'pre': {'rewrite_acc': 0.6, 'rephrase_acc': 0.6}, 'post': {'rewrite_acc': 1.0, 'rephrase_acc': 1.0, 'locality': {'neighborhood_acc': 1.0}}}
+Metrics Summary:  {'pre': {'rewrite_acc': 0.6, 'rephrase_acc': 0.6}, 'post': {'rewrite_acc': 1.0, 'rephrase_acc': 1.0, 'locality': {'neighborhood_acc': 1.0}}}
+experiment:  baseline
+model:  ../scr/models--meta-llama--Llama-2-7b-hf/snapshots/01c7f73d771dfac7d292323805ebc428287df4f9

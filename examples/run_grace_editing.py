@@ -49,7 +49,7 @@ if __name__ == "__main__":
         raise NotImplementedError
 
     # K = args.ds_size
-    K = 1
+    K = 1000
 
     if args.data_type == 'ZsRE':
         edit_data = json.load(open(f'{args.data_file}/{args.data_type}/zsre_mend_edit.json', 'r', encoding='utf-8'))[:K]
