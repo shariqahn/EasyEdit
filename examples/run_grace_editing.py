@@ -138,6 +138,7 @@ if __name__ == "__main__":
         checkpoint = os.path.join(model_save_dir, "model.pt")
         torch.save(edited_model.model.state_dict(), checkpoint)
 
+    # Test loading GRACE model:
     # from transformers import AutoTokenizer
     # from transformers import AutoModelForCausalLM
 
@@ -148,14 +149,14 @@ if __name__ == "__main__":
     #             }
 
     # name = "/home/gridsan/shossain/EasyEdit/scr/models--locuslab--tofu_ft_llama2-7b/snapshots/8fa500e8f345f1dd9cfe95bb4689878c944c9cbd"
-    # # edited_model = AutoModelForCausalLM.from_pretrained(name, **model_kwargs)
-    # # state_dict = torch.load(checkpoint, map_location='cpu')
-    # # print('device: ', edited_model.device)
-    # # edited_model.load_state_dict(state_dict, False)
-    # # print('device: ', edited_model.device)
-    # # device = 0
+    # edited_model = AutoModelForCausalLM.from_pretrained(name, **model_kwargs)
+    # state_dict = torch.load(checkpoint, map_location='cpu')
+    # print('device: ', edited_model.device)
+    # edited_model.load_state_dict(state_dict, False)
+    # print('device: ', edited_model.device)
+    # device = 0
     # # name = '/home/gridsan/shossain/EasyEdit/scr/models--meta-llama--Llama-2-7b-hf/snapshots/01c7f73d771dfac7d292323805ebc428287df4f9'
-    # model = AutoModelForCausalLM.from_pretrained(name, device_map="auto")
+    # # model = AutoModelForCausalLM.from_pretrained(name, device_map="auto")
     # tokenizer = AutoTokenizer.from_pretrained(name)
     # tokenizer.pad_token_id = tokenizer.eos_token_id
     # tokenizer.padding_side='left'
@@ -167,20 +168,20 @@ if __name__ == "__main__":
     # batch = tokenizer(correct_prompts, return_tensors='pt', padding=True, max_length=30)
 
 
-    # pre_edit_outputs = model.generate(
-    #     input_ids=batch['input_ids'].to(model.device),
-    #     attention_mask=batch['attention_mask'].to(model.device),
-    #     max_new_tokens=15
-    # )
-    # # post_edit_outputs = edited_model.generate(
-    # #     input_ids=batch['input_ids'].to(edited_model.device),
-    # #     attention_mask=batch['attention_mask'].to(edited_model.device),
+    # # pre_edit_outputs = model.generate(
+    # #     input_ids=batch['input_ids'].to(model.device),
+    # #     attention_mask=batch['attention_mask'].to(model.device),
     # #     max_new_tokens=15
     # # )
+    # post_edit_outputs = edited_model.generate(
+    #     input_ids=batch['input_ids'].to(edited_model.device),
+    #     attention_mask=batch['attention_mask'].to(edited_model.device),
+    #     max_new_tokens=15
+    # )
 
     # max_length = batch['input_ids'].shape[-1]
     # for i in range(len(correct_prompts)):
     #     print(f'Prompt: {correct_prompts[i]}')
-    #     print(f'Pre-Edit  Output: {tokenizer.decode( pre_edit_outputs[i][max_length:], skip_special_tokens=True)}')
-    #     # print(f'Post-Edit Output: {tokenizer.decode(post_edit_outputs[i][max_length:], skip_special_tokens=True)}')
+    #     # print(f'Pre-Edit  Output: {tokenizer.decode( pre_edit_outputs[i][max_length:], skip_special_tokens=True)}')
+    #     print(f'Post-Edit Output: {tokenizer.decode(post_edit_outputs[i][max_length:], skip_special_tokens=True)}')
     #     print('--'*50 )
