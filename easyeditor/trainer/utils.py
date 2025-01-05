@@ -30,7 +30,8 @@ def scr():
     #     scr_dir = "/scr/" + getpass.getuser()
     # else:
     #     scr_dir = "/tmp/scr-" + getpass.getuser()
-    scr_dir = "/home/gridsan/" + getpass.getuser() + "/EasyEdit/scr"
+    # scr_dir = "/home/gridsan/" + getpass.getuser() + "/EasyEdit/scr"
+    scr_dir = "/workspace/scr"
     if not os.path.exists(scr_dir):
         os.makedirs(scr_dir)
 
