@@ -1,0 +1,10 @@
+/home/gridsan/shossain/.conda/envs/easy/lib/python3.9/site-packages/torchvision/datapoints/__init__.py:12: UserWarning: The torchvision.datapoints and torchvision.transforms.v2 namespaces are still Beta. While we do not expect major breaking changes, some APIs may still change according to user feedback. Please submit any feedback you may have in this issue: https://github.com/pytorch/vision/issues/6753, and you can also check out https://github.com/pytorch/vision/issues/7319 to learn more about the APIs that we suspect might involve future changes. You can silence this warning by calling torchvision.disable_beta_transforms_warning().
+  warnings.warn(_BETA_TRANSFORMS_WARNING)
+/home/gridsan/shossain/.conda/envs/easy/lib/python3.9/site-packages/torchvision/transforms/v2/__init__.py:54: UserWarning: The torchvision.datapoints and torchvision.transforms.v2 namespaces are still Beta. While we do not expect major breaking changes, some APIs may still change according to user feedback. Please submit any feedback you may have in this issue: https://github.com/pytorch/vision/issues/6753, and you can also check out https://github.com/pytorch/vision/issues/7319 to learn more about the APIs that we suspect might involve future changes. You can silence this warning by calling torchvision.disable_beta_transforms_warning().
+  warnings.warn(_BETA_TRANSFORMS_WARNING)
+len test 400
+len loc_data 400
+See results at:  ../outputs/WISE_avoidant/8fa500e8f345f1dd9cfe95bb4689878c944c9cbd_WISE_Sequential=True.json
+2025-01-05 02:07:36,448 - easyeditor.editors.editor - INFO - Instantiating model
+01/05/2025 02:07:36 - INFO - easyeditor.editors.editor -   Instantiating model
+model kwargs:  {'torch_dtype': torch.float32, 'device_map': 'auto'}

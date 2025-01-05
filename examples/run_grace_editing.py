@@ -74,7 +74,7 @@ if __name__ == "__main__":
         print('len test', len(test_data))
         loc_data = json.load(open('../data/extra_locality.json', 'r', encoding='utf-8'))
         print('len loc_data', len(loc_data))
-        loc_prompts = [edit_data_['loc'] + ' ' + edit_data_['loc_ans'] for edit_data_ in loc_data]
+        loc_prompts = [edit_data_['question'] + ' ' + edit_data_['answer'] for edit_data_ in loc_data]
 
         prompts = [test_data_['question'] for test_data_ in test_data]
         rephrase_prompts = [edit_data_['paraphrased_question'] for edit_data_ in test_data]
