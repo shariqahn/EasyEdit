@@ -142,6 +142,8 @@ if __name__ == "__main__":
     if args.editing_method == 'GRACE':
         checkpoint = os.path.join(model_save_dir, "model.pt")
         torch.save(edited_model.model.state_dict(), checkpoint)
+    elif args.editing_method == 'WISE':
+        print('WISE model should be saved')
     else:
         raise NotImplementedError
 

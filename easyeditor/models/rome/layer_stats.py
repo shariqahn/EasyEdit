@@ -105,8 +105,7 @@ def layer_stats(
         #     ds_name,
         #     dict(wikitext="wikitext-103-raw-v1", wikipedia="20200501.en")[ds_name]
         # )
-        # scr = '/home/gridsan/shossain/EasyEdit/scr'
-        scr = '/workspace/scr'
+        scr = '/home/gridsan/shossain/EasyEdit/scr'
         raw_ds = load_from_disk(f'{scr}/{ds_name}')
         if hasattr(model.config, 'n_positions'):
             maxlen = model.config.n_positions
