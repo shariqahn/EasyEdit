@@ -83,13 +83,15 @@ def add_locality(row):
 
 
 if __name__ == "__main__":
-    # NOTE: can also load_dataset, so don't bother downloading unless it's already done
-    subset = 'forget10_perturbed'
-    scr = '/home/gridsan/shossain/tofu/scr'
-    tofu = load_from_disk(f'{scr}/{subset}_data')
-    # tofu = load_dataset("locuslab/TOFU", subset, split="train")
+    # # NOTE: can also load_dataset, so don't bother downloading unless it's already done
+    # subset = 'forget10_perturbed'
+    # scr = '/home/gridsan/shossain/tofu/scr'
+    # tofu = load_from_disk(f'{scr}/{subset}_data')
+    # # tofu = load_dataset("locuslab/TOFU", subset, split="train")
     # retain_perturbed = load_from_disk(f'{scr}/retain_perturbed_data')
+    # print(len(retain_perturbed))
 
+    # retain has 400 rows, and some of that data may be in the forget set
     # eval_prompts = set(retain_perturbed['question'])
 
     # def filter_evals(example):
@@ -104,19 +106,30 @@ if __name__ == "__main__":
     #     json.dump(data_list, f, ensure_ascii=False, indent=4)
     # print(f"The {len(data_list)} non-eval prompts saved to {save_file}")
 
-    # Apply the function to extract subjects
-    dataset = tofu.map(extract_subject_from_prompt)
-    print('got subjects')
+    # # Apply the function to extract subjects
+    # dataset = tofu.map(extract_subject_from_prompt)
+    # print('got subjects')
+
+    with open("avoidant.json", "r") as f:
+        existing_locality = json.load(f)
+    used_prompts = set()
+    for row in existing_locality:
+        used_prompts.add(row['locality']['question'])
 
     with open("tofu_retain_train.json", "r") as f:
         retain = json.load(f)
-    used_prompts = set()
-    dataset = dataset.map(add_locality)
-    print('got locality')
+    dataset = []
+    forget_set_len = 400
+    while len(dataset) < forget_set_len:
+        dataset.append(add_locality(None)['locality'])
 
-    save_file = './tofu_locality.json'
-    data_list = dataset.to_list()
+    save_file = './extra_locality.json'
+    data_list = dataset
+    # .to_list()
     with open(save_file, "w", encoding="utf-8") as f:
         json.dump(data_list, f, ensure_ascii=False, indent=4)
 
     print(f"Dataset with subjects and locality successfully saved to {save_file}")
+
+    with open('used_prompts.json', 'w') as f:
+        json.dump(list(used_prompts), f)

@@ -49,55 +49,60 @@ if __name__ == "__main__":
         raise NotImplementedError
 
     # K = args.ds_size
-    K = 1000
+    # K = 1000
 
     if args.data_type == 'ZsRE':
-        edit_data = json.load(open(f'{args.data_file}/{args.data_type}/zsre_mend_edit.json', 'r', encoding='utf-8'))[:K]
-        loc_data = json.load(open(f'{args.data_file}/{args.data_type}/zsre_mend_train.json', 'r', encoding='utf-8'))[:K]
+        # edit_data = json.load(open(f'{args.data_file}/{args.data_type}/zsre_mend_edit.json', 'r', encoding='utf-8'))[:K]
+        # loc_data = json.load(open(f'{args.data_file}/{args.data_type}/zsre_mend_train.json', 'r', encoding='utf-8'))[:K]
+        # loc_prompts = [edit_data_['loc'] + ' ' + edit_data_['loc_ans'] for edit_data_ in loc_data]
+
+        # prompts = [edit_data_['src'] for edit_data_ in edit_data]
+        # subject = [edit_data_['subject'] for edit_data_ in edit_data]
+        # rephrase_prompts = [edit_data_['rephrase'] for edit_data_ in edit_data]
+        # target_new = [edit_data_['alt'] for edit_data_ in edit_data]
+        # locality_prompts = [edit_data_['loc'] for edit_data_ in edit_data]
+        # locality_ans = [edit_data_['loc_ans'] for edit_data_ in edit_data]
+        # locality_inputs = {
+        #     'neighborhood':{
+        #         'prompt': locality_prompts,
+        #         'ground_truth': locality_ans
+        #     },
+        # }
+
+
+        test_data = json.load(open(args.data_file, 'r', encoding='utf-8'))
+        print('len test', len(test_data))
+        loc_data = json.load(open('../data/extra_locality.json', 'r', encoding='utf-8'))
+        print('len loc_data', len(loc_data))
         loc_prompts = [edit_data_['loc'] + ' ' + edit_data_['loc_ans'] for edit_data_ in loc_data]
 
-        prompts = [edit_data_['src'] for edit_data_ in edit_data]
-        subject = [edit_data_['subject'] for edit_data_ in edit_data]
-        rephrase_prompts = [edit_data_['rephrase'] for edit_data_ in edit_data]
-        target_new = [edit_data_['alt'] for edit_data_ in edit_data]
-        locality_prompts = [edit_data_['loc'] for edit_data_ in edit_data]
-        locality_ans = [edit_data_['loc_ans'] for edit_data_ in edit_data]
+        prompts = [test_data_['question'] for test_data_ in test_data]
+        rephrase_prompts = [edit_data_['paraphrased_question'] for edit_data_ in test_data]
+
+        if args.experiment == 'incorrect':
+            target_new = [edit_data_['perturbed_answer'][0] for edit_data_ in test_data]
+        elif args.experiment == 'dummy':
+            target_new = ['dummy' for _ in test_data]
+        elif args.experiment == 'avoidant':
+            target_new = [edit_data_['avoidant_answer'] for edit_data_ in test_data]
+        else:
+            raise NotImplementedError
+
+        locality_prompts = [edit_data_['locality']['question'] for edit_data_ in test_data]
+        locality_ans = [edit_data_['locality']['answer'] for edit_data_ in test_data]
         locality_inputs = {
             'neighborhood':{
                 'prompt': locality_prompts,
                 'ground_truth': locality_ans
             },
         }
-        # todo is loc defined correctly here? doesnt match above logic
-        # test_data = json.load(open(args.data_file, 'r', encoding='utf-8'))
-        # print('data len:', len(test_data))
-        # prompts = [test_data_['question'] for test_data_ in test_data]
-        # rephrase_prompts = [edit_data_['paraphrased_question'] for edit_data_ in test_data]
-        # if args.experiment == 'incorrect':
-        #     target_new = [edit_data_['perturbed_answer'][0] for edit_data_ in test_data]
-        # elif args.experiment == 'dummy':
-        #     target_new = ['dummy' for _ in test_data]
-        # elif args.experiment == 'avoidant':
-        #     target_new = [edit_data_['avoidant_answer'] for edit_data_ in test_data]
-        # else:
-        #     raise NotImplementedError
-
-        # loc_prompts = [edit_data_['locality']['question'] for edit_data_ in test_data]
-        # locality_ans = [edit_data_['locality']['answer'] for edit_data_ in test_data]
-
-        # locality_inputs = {
-        #     'neighborhood':{
-        #         'prompt': loc_prompts,
-        #         'ground_truth': locality_ans
-        #     },
-        # }
-        # subject = [edit_data_['subject'] for edit_data_ in test_data]
+        subject = [edit_data_['subject'] for edit_data_ in test_data]
     
     hparams = editing_hparams.from_hparams(f'{args.hparams_dir}')
     model_save_dir = os.path.join(args.output_dir, 'model')
     os.makedirs(model_save_dir, exist_ok=True)
     if args.editing_method == 'WISE':
-        hparams.save_path = os.path.join(model_save_dir, 'wise.pt')
+        hparams.save_path = os.path.join(model_save_dir, 'model.pt')
 
     os.makedirs(args.output_dir, exist_ok=True)
     output_file = os.path.join(
@@ -134,9 +139,11 @@ if __name__ == "__main__":
     print('experiment: ', args.experiment)
     print('model: ', hparams.model_name)
 
-    if args.editing_method != 'WISE':
+    if args.editing_method == 'GRACE':
         checkpoint = os.path.join(model_save_dir, "model.pt")
         torch.save(edited_model.model.state_dict(), checkpoint)
+    else:
+        raise NotImplementedError
 
     # Test loading GRACE model:
     # from transformers import AutoTokenizer

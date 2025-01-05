@@ -11,11 +11,11 @@ conda activate easy
   # make sure cuda devices are correct
 # make sure correct model in hparams
 
-experiment="baseline"
+experiment="avoidant"
 # experiment="incorrect"
 # data="../data/tofu_locality.json"
-# data="../data/avoidant.json"
-data="../data/wise"
+data="../data/avoidant.json"
+# data="../data/wise"
 editing_method="WISE"
 
 CUDA_VISIBLE_DEVICES=0,1 python -u run_grace_editing.py \

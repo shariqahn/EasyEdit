@@ -45,6 +45,15 @@ NOTE: make sure you are using the correct **model in hparams**
 - https://github.com/zjunlp/EasyEdit/issues/235 says SERAC checkpoint was trained on counterfact, which isn't the same as wikidata_counterfact
 - verified that forget set has no questions about authors in the retain set - you are forgetting entire authors, not just individual questions
 
+## Data
+- data/tofu_test_zsre.json was generated from tofu_locality
+- tofu_retain_train is retain_perturbed from tofu but with overlapping prompts with retain90 taken out
+  - len 3199
+- tofu_locality is forget10 with locality added from tofu_retain_train
+- avoidant is the same as tofu_locality with avoidant answers added to it
+- extra_locality is more retain data that wasn't used for tofu_locality
+  - created bc WISE requires it
+
 ## Memory
 - `sacct -j <JOBID> -oJobID,JobName,State,AllocCPUS,MaxRSS --units=G`
 sacct -j 27685218 -oJobID,JobName,State,AllocCPUS,MaxRSS --units=G
