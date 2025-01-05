@@ -82,9 +82,9 @@ class BaseEditor:
                     "torch_dtype": torch_dtype,
                     "device_map": device_map
                 }
-                if hparams.alg_name in ['MEMIT']:
-                    # snh quanitize to try to fix OOM
-                    model_kwargs['load_in_8bit'] = True
+                # if hparams.alg_name in ['MEMIT']:
+                #     # snh quanitize to try to fix OOM
+                #     model_kwargs['load_in_8bit'] = True
 
             if 't5' in self.model_name.lower():
                 self.model = T5ForConditionalGeneration.from_pretrained(self.model_name, **model_kwargs)
