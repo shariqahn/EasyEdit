@@ -97,7 +97,7 @@ if __name__ == "__main__":
     else:
         train_ds = None
 
-    sequential_edit = True
+    # sequential_edit = False
     metrics, edited_model, _ = editor.edit(
         prompts=prompts,
         rephrase_prompts=rephrase_prompts,
@@ -106,14 +106,14 @@ if __name__ == "__main__":
         train_ds=train_ds,
         locality_inputs=locality_inputs,
         portability_inputs=portability_inputs,
-        keep_original_weight=False,
-        sequential_edit=sequential_edit
+        keep_original_weight=True,
+        # sequential_edit=sequential_edit
     )
 
     print('data: ', args.data_file)
     print('save to: ', args.metrics_save_dir)
     print('model: ', hparams.model_name)
-    print('sequential_edit: ', sequential_edit)
+    # print('sequential_edit: ', sequential_edit)
     if args.editing_method == 'SERAC':
         print(hparams.archive)
 

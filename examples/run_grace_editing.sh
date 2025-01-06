@@ -11,7 +11,7 @@ conda activate easy
   # make sure cuda devices are correct
 # make sure correct model in hparams
 
-experiment="avoidant"
+experiment="incorrect"
 # experiment="incorrect"
 # data="../data/tofu_locality.json"
 data="../data/avoidant.json"

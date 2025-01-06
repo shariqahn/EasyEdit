@@ -15,6 +15,15 @@
 ## Running
 ### RunPod
 - 3 A40 (used 83% = 120GB), 22GB temp (used 87%), 30GB vol (used 90%)
+- MEMIT 2 A40, 46GB volume bc need wikipedia data, 21GB temp
+
+### General
+from EasyEdit issues:
+> - "From a practical point of view, you'll need about 60-80 GB of VRAM to train llama-2-7B using MEND."
+> - For SERAC: Taking the model around 6B-7B as an example, the cost of SERAC training is about 3h. Each editing takes only 0.5s, the VRAM usage is about 60GB in the training phase, and about 45GB in the inference phase
+> - For MEND: Its resource consumption is comparable to that of serac. However, its editing capacity is only 10 cases(see https://arxiv.org/abs/2305.13172). I also do not recommend that you use this method for sequential editing.
+- multi gpu lora: https://github.com/zjunlp/EasyEdit/issues/149 
+
 - incorrect ROME: try improving loss for edit (more iterations that 25?)
 
 - Code will not finish running just overnight
