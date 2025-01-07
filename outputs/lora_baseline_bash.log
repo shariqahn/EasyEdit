@@ -1,0 +1,19 @@
+nohup: ignoring input
+pwd:
+Starting the Python script...
+Python script is running with PID: 4177
+Waiting for the Python script to finish...
+Python script finished!
+Syncing output file to local laptop...
+sending incremental file list
+./
+LoRA_baseline/
+LoRA_baseline/LoRA_results.json
+LoRA_baseline/model/
+LoRA_baseline/model/README.md
+LoRA_baseline/model/adapter_config.json
+LoRA_baseline/model/adapter_model.safetensors
+
+sent 163,289 bytes  received 107 bytes  46,684.57 bytes/sec
+total size is 1,631,200  speedup is 9.98
+Sync complete!

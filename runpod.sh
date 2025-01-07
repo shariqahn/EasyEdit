@@ -2,21 +2,21 @@
 
 # git clone https://github.com/shariqahn/EasyEdit.git
 # cd EasyEdit
-echo "set up ssh!"
-ssh-keyscan txe1-login.mit.edu >> ~/.ssh/known_hosts
-ssh-keygen -t rsa -b 2048 -f ~/.ssh/id_rsa -N ""
-cat ~/.ssh/id_rsa.pub
-apt update -y
-apt install rsync -y
+# echo "set up ssh!"
+# ssh-keyscan txe1-login.mit.edu >> ~/.ssh/known_hosts
+# ssh-keygen -t rsa -b 2048 -f ~/.ssh/id_rsa -N ""
+# cat ~/.ssh/id_rsa.pub
+# apt update -y
+# apt install rsync -y
 
-echo "pwd:"
-pwd
-git checkout memit
-pip install --no-cache-dir -r requirements.txt
+# echo "pwd:"
+# pwd
+# git checkout memit
+# pip install --no-cache-dir -r requirements.txt
 
-mkdir /workspace/hf
-echo "workspace:"
-ls /workspace
+# mkdir /workspace/hf
+# echo "workspace:"
+# ls /workspace
 export HF_TOKEN=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
 
 cd examples
