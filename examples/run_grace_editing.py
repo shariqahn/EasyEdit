@@ -2,6 +2,7 @@ import os.path
 import sys
 import json
 import argparse
+import pdb
 
 sys.path.append('..')
 from easyeditor import (
@@ -119,6 +120,13 @@ if __name__ == "__main__":
     }
 
     editor = BaseEditor.from_hparams(hparams)
+    # pdb.set_trace()
+    #     (Pdb) input_prompt = "Has Basil Mahfouz Al-Kuwaiti written any other books besides \"Promise by the Seine\" and \"Le Petit Sultan\"?"
+    #     input_ids = editor.tok.encode(input_prompt, return_tensors="pt").to(device)
+    # (Pdb) output = editor.model.generate(input_ids, max_length=50, num_return_sequences=1, do_sample=False)
+    # (Pdb) output_text = editor.tok.decode(output[0], skip_special_tokens=True)
+    # output = editor.model.generate(input_ids, attention_mask=attention_mask, max_length=200, max_new_tokens=None, do_sample=False, use_cache=True, pad_token_id=editor.tok.eos_token_id)
+
     metrics, edited_model, _ = editor.edit(
         prompts=prompts,
         rephrase_prompts=rephrase_prompts,

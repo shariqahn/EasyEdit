@@ -1,5 +1,5 @@
 alg_name: "LoRA"
-model_name: "./hugging_cache/llama-2-7b"
+model_name: "../scr/models--locuslab--tofu_ft_llama2-7b/snapshots/8fa500e8f345f1dd9cfe95bb4689878c944c9cbd"
 device: 1
 
 lora_type: "adalora"
@@ -15,4 +15,4 @@ lora_alpha: 32
 lora_dropout: 0.1
 norm_constraint: false
 target_modules: ["q_proj", "v_proj"]  #["up_proj", "down_proj"] #["q_proj", "v_proj"]
-model_parallel: false
+model_parallel: true

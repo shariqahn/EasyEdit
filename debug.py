@@ -5,52 +5,81 @@ from easyeditor import BaseEditor
 from easyeditor import GraceHyperParams
 
 if __name__ == "__main__":
-    K = 1
-    edit_data = json.load(open('./data/wise/ZsRE/zsre_mend_edit.json', 'r', encoding='utf-8'))[:K]
-    loc_data = json.load(open('./data/wise/ZsRE/zsre_mend_train.json', 'r', encoding='utf-8'))[:K]
-    loc_prompts = [edit_data_['loc'] + ' ' + edit_data_['loc_ans'] for edit_data_ in loc_data]
+    import json
 
-    prompts = [edit_data_['src'] for edit_data_ in edit_data]
-    subject = [edit_data_['subject'] for edit_data_ in edit_data]
-    rephrase_prompts = [edit_data_['rephrase'] for edit_data_ in edit_data]
-    target_new = [edit_data_['alt'] for edit_data_ in edit_data]
-    locality_prompts = [edit_data_['loc'] for edit_data_ in edit_data]
-    locality_ans = [edit_data_['loc_ans'] for edit_data_ in edit_data]
-    locality_inputs = {
-        'neighborhood':{
-            'prompt': locality_prompts,
-            'ground_truth': locality_ans
-        },
-    }
-    hparams = GraceHyperParams.from_hparams('./hparams/GRACE/llama-7b.yaml')
-    print('test')
-    editor = BaseEditor.from_hparams(hparams)
-    metrics, edited_model, _ = editor.edit(
-        prompts=prompts,
-        rephrase_prompts=rephrase_prompts,
-        target_new=target_new,
-        loc_prompts=loc_prompts,
-        subject=subject,
-        locality_inputs=locality_inputs,
-        sequential_edit=True,
-        eval_metric='token em'
-    )
-    print('test')
+    # Input dictionary
+    data = {'rewrite_acc': 0.9399480830602154, 'rephrase_acc': 0.008985580442879818, 'locality': {'neighborhood_acc': 1.0}}
 
-    model_save_dir = './test'
-    edited_model.model.save_pretrained(model_save_dir)
-    print('test')
-    from transformers import LlamaTokenizer
-    from transformers import LlamaForCausalLM
-    model_name = "meta-llama/Llama-2-7b-hf"
-    # tokenizer = LlamaTokenizer.from_pretrained('./hugging_cache/llama2-7b-chat')
-    tokenizer = LlamaTokenizer.from_pretrained(model_name)
-    tokenizer.pad_token_id = tokenizer.eos_token_id
-    tokenizer.padding_side='left'
+    # Function to flatten the dictionary and extract values
+    def flatten_and_extract_values(d):
+        values = []
+        
+        def flatten(d, parent_key=''):
+            for k, v in d.items():
+                new_key = f"{parent_key}_{k}" if parent_key else k
+                if isinstance(v, dict):
+                    flatten(v, new_key)
+                else:
+                    values.append(v)
+        
+        flatten(d)
+        return values
 
-    correct_prompts = ['What university did Watts Humphrey attend?',
-                    'Which family does Ramalinaceae belong to?',
-                    'What role does Denny Herzig play in football?']
+    # Extract values from the dictionary
+    values = flatten_and_extract_values(data)
+
+    # Convert to CSV format
+    csv_output = ','.join(map(str, values))
+
+    # Output the CSV
+    print(csv_output)
+
+    # K = 1
+    # edit_data = json.load(open('./data/wise/ZsRE/zsre_mend_edit.json', 'r', encoding='utf-8'))[:K]
+    # loc_data = json.load(open('./data/wise/ZsRE/zsre_mend_train.json', 'r', encoding='utf-8'))[:K]
+    # loc_prompts = [edit_data_['loc'] + ' ' + edit_data_['loc_ans'] for edit_data_ in loc_data]
+
+    # prompts = [edit_data_['src'] for edit_data_ in edit_data]
+    # subject = [edit_data_['subject'] for edit_data_ in edit_data]
+    # rephrase_prompts = [edit_data_['rephrase'] for edit_data_ in edit_data]
+    # target_new = [edit_data_['alt'] for edit_data_ in edit_data]
+    # locality_prompts = [edit_data_['loc'] for edit_data_ in edit_data]
+    # locality_ans = [edit_data_['loc_ans'] for edit_data_ in edit_data]
+    # locality_inputs = {
+    #     'neighborhood':{
+    #         'prompt': locality_prompts,
+    #         'ground_truth': locality_ans
+    #     },
+    # }
+    # hparams = GraceHyperParams.from_hparams('./hparams/GRACE/llama-7b.yaml')
+    # print('test')
+    # editor = BaseEditor.from_hparams(hparams)
+    # metrics, edited_model, _ = editor.edit(
+    #     prompts=prompts,
+    #     rephrase_prompts=rephrase_prompts,
+    #     target_new=target_new,
+    #     loc_prompts=loc_prompts,
+    #     subject=subject,
+    #     locality_inputs=locality_inputs,
+    #     sequential_edit=True,
+    #     eval_metric='token em'
+    # )
+    # print('test')
+
+    # model_save_dir = './test'
+    # edited_model.model.save_pretrained(model_save_dir)
+    # print('test')
+    # from transformers import LlamaTokenizer
+    # from transformers import LlamaForCausalLM
+    # model_name = "meta-llama/Llama-2-7b-hf"
+    # # tokenizer = LlamaTokenizer.from_pretrained('./hugging_cache/llama2-7b-chat')
+    # tokenizer = LlamaTokenizer.from_pretrained(model_name)
+    # tokenizer.pad_token_id = tokenizer.eos_token_id
+    # tokenizer.padding_side='left'
+
+    # correct_prompts = ['What university did Watts Humphrey attend?',
+    #                 'Which family does Ramalinaceae belong to?',
+    #                 'What role does Denny Herzig play in football?']
 
 
     # model = LlamaForCausalLM.from_pretrained('./hugging_cache/llama2-7b-chat').to('cuda')
