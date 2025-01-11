@@ -7,23 +7,30 @@
 - dependencies didn't resolve properly. try reinstalling with a newer version of pip?
 - Llama was sharded when downloaded probably due to memory constraints. changed `model_kwargs['device_map'] = 'auto'` instead of `None` and then it loaded the shards properly
 - weird token encoding stuff with how i define new outputs
+
 ### Resources
 - for disk quota error when installing packages: `export TMPDIR=/state/partition1/user/$USER`
 - from https://github.com/zjunlp/EasyEdit/issues/18 
   - For ROME: I do not recommend that you edit thousands of samples sequentially, as this will cause the original model weights to be completely corrupted. Its editing capacity is around 100, you can refer to the paper at https://arxiv.org/abs/2305.13172
-  - For SERAC: Taking the model around 6B-7B as an example, the cost of SERAC training is about 3h. Each editing takes only 0.5s, the VRAM usage is about 60GB in the training phase, and about 45GB in the inference phase
-## Running
-### RunPod
-- 3 A40 (used 83% = 120GB), 22GB temp (used 87%), 30GB vol (used 90%)
-- MEMIT 2 A40, 46GB volume bc need wikipedia data, 21GB temp
 
-### General
+### Compute
+- RunPod
+  - 3 A40 (used 83% = 120GB), 22GB temp (used 87%), 30GB vol (used 90%)
+  - MEMIT 2 A40, 46GB volume bc need wikipedia data, 21GB temp
+- LoRA
+  - 5 hours on runpod a100
 from EasyEdit issues:
 > - "From a practical point of view, you'll need about 60-80 GB of VRAM to train llama-2-7B using MEND."
 > - For SERAC: Taking the model around 6B-7B as an example, the cost of SERAC training is about 3h. Each editing takes only 0.5s, the VRAM usage is about 60GB in the training phase, and about 45GB in the inference phase
 > - For MEND: Its resource consumption is comparable to that of serac. However, its editing capacity is only 10 cases(see https://arxiv.org/abs/2305.13172). I also do not recommend that you use this method for sequential editing.
 - multi gpu lora: https://github.com/zjunlp/EasyEdit/issues/149 
+- IKE
+  - `LLsub run.sh -s 3 -g volta:2`
+  - 8G cpu
+  - dummy took 5 mins...
+  - incorrect had OOM error, even with quanitization
 
+## Running
 - incorrect ROME: try improving loss for edit (more iterations that 25?)
 
 - Code will not finish running just overnight
@@ -38,12 +45,6 @@ NOTE: make sure you are using the correct **model in hparams**
 
 - ensure that models are downloaded properly - some configs have a specific checkpoint that they load from
   - see `models.py:get_hf_model()`
-
-- IKE
-  - `LLsub run.sh -s 3 -g volta:2`
-  - 8G cpu
-  - dummy took 5 mins...
-  - incorrect had OOM error, even with quanitization
 
 - get trained serac and mend here: <https://github.com/zjunlp/EasyEdit/issues/66>
 - SERAC: `LLsub run.sh -s 11 -g volta:1`
