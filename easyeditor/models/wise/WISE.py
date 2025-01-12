@@ -336,7 +336,8 @@ class WISE(torch.nn.Module):
             raise FileNotFoundError(f"Checkpoint file not found: {load_path}")
 
         # Load all previously saved information
-        saved_data = torch.load(load_path)
+        # saved_data = torch.load(load_path)
+        saved_data = torch.load(load_path, map_location='cpu')
         if hasattr(self.model.config, 'hidden_act'):
             saved_data['config'].hidden_act = self.model.config.hidden_act
         elif hasattr(self.model.config, 'activation_function'):
@@ -355,6 +356,11 @@ class WISE(torch.nn.Module):
         global edit_history, merge_group_edit_history
         edit_history = saved_data['edit_history']
         merge_group_edit_history = saved_data['merge_group_edit_history']
+
+        # snh clear any unused variables to free up memory
+        del saved_data
+        torch.cuda.empty_cache()
+
         print(f"Model configuration and WISE state loaded from {load_path}")
 
 class WISEAdapter(torch.nn.Module):
