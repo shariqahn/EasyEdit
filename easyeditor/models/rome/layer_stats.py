@@ -17,8 +17,6 @@ from .tok_dataset import (
     length_collation,
 )
 
-from datasets import load_from_disk
-
 STAT_TYPES = {
     "mom2": SecondMoment,
     "mean": Mean,

@@ -105,7 +105,7 @@ if __name__ == "__main__":
         subject=subject,
         train_ds=train_ds,
         locality_inputs=locality_inputs,
-        # portability_inputs=portability_inputs,
+        portability_inputs=portability_inputs,
         keep_original_weight=False,
         sequential_edit=sequential_edit
     )

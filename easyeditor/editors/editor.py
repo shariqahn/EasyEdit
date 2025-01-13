@@ -61,6 +61,15 @@ class BaseEditor:
         LOG.info("Instantiating model")
 
         if type(self.model_name) is str:
+            # snh copying logic from tofu eval here
+            # if (hparams.alg_name == 'WISE') and hasattr(hparams, 'load_path'):
+            #     if os.environ.get('LOCAL_RANK') is not None:
+            #         local_rank = int(os.environ.get('LOCAL_RANK', '0'))
+            #         device_map = {'': local_rank}
+            #         torch_dtype = torch.float16
+            # else:
+            #     device_map = 'auto' if hparams.model_parallel else None
+            #     torch_dtype = torch.float16 if hasattr(hparams, 'fp16') and hparams.fp16 else torch.float32
             device_map = 'auto' if hparams.model_parallel else None
             torch_dtype = torch.float16 if hasattr(hparams, 'fp16') and hparams.fp16 else torch.float32
             

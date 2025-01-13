@@ -7,14 +7,30 @@
 - dependencies didn't resolve properly. try reinstalling with a newer version of pip?
 - Llama was sharded when downloaded probably due to memory constraints. changed `model_kwargs['device_map'] = 'auto'` instead of `None` and then it loaded the shards properly
 - weird token encoding stuff with how i define new outputs
+
 ### Resources
 - for disk quota error when installing packages: `export TMPDIR=/state/partition1/user/$USER`
 - from https://github.com/zjunlp/EasyEdit/issues/18 
   - For ROME: I do not recommend that you edit thousands of samples sequentially, as this will cause the original model weights to be completely corrupted. Its editing capacity is around 100, you can refer to the paper at https://arxiv.org/abs/2305.13172
-  - For SERAC: Taking the model around 6B-7B as an example, the cost of SERAC training is about 3h. Each editing takes only 0.5s, the VRAM usage is about 60GB in the training phase, and about 45GB in the inference phase
+
+### Compute
+- RunPod
+  - 3 A40 (used 83% = 120GB), 22GB temp (used 87%), 30GB vol (used 90%)
+  - MEMIT 2 A40, 46GB volume bc need wikipedia data, 21GB temp
+- LoRA
+  - 5 hours on runpod a100
+from EasyEdit issues:
+> - "From a practical point of view, you'll need about 60-80 GB of VRAM to train llama-2-7B using MEND."
+> - For SERAC: Taking the model around 6B-7B as an example, the cost of SERAC training is about 3h. Each editing takes only 0.5s, the VRAM usage is about 60GB in the training phase, and about 45GB in the inference phase
+> - For MEND: Its resource consumption is comparable to that of serac. However, its editing capacity is only 10 cases(see https://arxiv.org/abs/2305.13172). I also do not recommend that you use this method for sequential editing.
+- multi gpu lora: https://github.com/zjunlp/EasyEdit/issues/149 
+- IKE
+  - `LLsub run.sh -s 3 -g volta:2`
+  - 8G cpu
+  - dummy took 5 mins...
+  - incorrect had OOM error, even with quanitization
+
 ## Running
-### RunPod
-- 3 A40 (used 83% = 120GB), 22GB temp (used 87%), 30GB vol (used 90%)
 - incorrect ROME: try improving loss for edit (more iterations that 25?)
 
 - Code will not finish running just overnight
@@ -30,12 +46,6 @@ NOTE: make sure you are using the correct **model in hparams**
 - ensure that models are downloaded properly - some configs have a specific checkpoint that they load from
   - see `models.py:get_hf_model()`
 
-- IKE
-  - `LLsub run.sh -s 3 -g volta:2`
-  - 8G cpu
-  - dummy took 5 mins...
-  - incorrect had OOM error, even with quanitization
-
 - get trained serac and mend here: <https://github.com/zjunlp/EasyEdit/issues/66>
 - SERAC: `LLsub run.sh -s 11 -g volta:1`
 - MEND: `LLsub run.sh -s 12 -g volta:1`
@@ -44,6 +54,27 @@ NOTE: make sure you are using the correct **model in hparams**
 - Dataset classes are for to create PyTorch datasets. Seem to just be used for training after looking at where ZsreDataset class is used
 - https://github.com/zjunlp/EasyEdit/issues/235 says SERAC checkpoint was trained on counterfact, which isn't the same as wikidata_counterfact
 - verified that forget set has no questions about authors in the retain set - you are forgetting entire authors, not just individual questions
+
+### IKE Eval
+1. editor.py:edit_requests
+  1. edit_func
+    - get a list of icl_examples for the given edit w apply_ike_to_model()
+      - new_fact = request['prompt'] + ' ' + request['target_new']
+      - query_sentence = f"New Fact: {new_fact}\nPrompt: {request['prompt']}\n\n"
+        - use this to find KNN in embedding space, but return strings of icl_examples
+  2. edit_evaluation
+    - evaluate.py:compute_icl_edit_quality
+      - new_fact = f'New Fact: {prompt} {target_new}\nPrompt: {prompt}'
+      - icl_lm_eval(model, model_name, hparams, tok, icl_examples, target_new, new_fact)
+        - combines the context:
+          ```
+          # x = new_fact
+          encodings = tokenizer(''.join(icl_examples) + f'{x} {target}', return_tensors='pt')
+          input_ids = encodings['input_ids'].to(device)
+          attention_mask = encodings['attention_mask'].to(device)
+          logits = model(input_ids=input_ids, attention_mask=attention_mask).logits
+          ```
+
 
 ## Data
 - data/tofu_test_zsre.json was generated from tofu_locality

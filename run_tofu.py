@@ -60,10 +60,13 @@ if __name__ == "__main__":
 
     prompts = [test_data_['question'] for test_data_ in test_data]
     rephrase_prompts = [edit_data_['paraphrased_question'] for edit_data_ in test_data]
+
     if args.experiment == 'incorrect':
         target_new = [edit_data_['perturbed_answer'][0] for edit_data_ in test_data]
     elif args.experiment == 'dummy':
         target_new = ['dummy' for _ in test_data]
+    elif args.experiment == 'avoidant':
+        target_new = [edit_data_['avoidant_answer'] for edit_data_ in test_data]
     else:
         raise NotImplementedError
 
@@ -107,7 +110,7 @@ if __name__ == "__main__":
         locality_inputs=locality_inputs,
         # portability_inputs=portability_inputs,
         # keep_original_weight=True
-        # keep_original_weight=False
+        keep_original_weight=False,
         sequential_edit=sequential_edit
     )
 
