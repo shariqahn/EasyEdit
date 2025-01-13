@@ -55,6 +55,27 @@ NOTE: make sure you are using the correct **model in hparams**
 - https://github.com/zjunlp/EasyEdit/issues/235 says SERAC checkpoint was trained on counterfact, which isn't the same as wikidata_counterfact
 - verified that forget set has no questions about authors in the retain set - you are forgetting entire authors, not just individual questions
 
+### IKE Eval
+1. editor.py:edit_requests
+  1. edit_func
+    - get a list of icl_examples for the given edit w apply_ike_to_model()
+      - new_fact = request['prompt'] + ' ' + request['target_new']
+      - query_sentence = f"New Fact: {new_fact}\nPrompt: {request['prompt']}\n\n"
+        - use this to find KNN in embedding space, but return strings of icl_examples
+  2. edit_evaluation
+    - evaluate.py:compute_icl_edit_quality
+      - new_fact = f'New Fact: {prompt} {target_new}\nPrompt: {prompt}'
+      - icl_lm_eval(model, model_name, hparams, tok, icl_examples, target_new, new_fact)
+        - combines the context:
+          ```
+          # x = new_fact
+          encodings = tokenizer(''.join(icl_examples) + f'{x} {target}', return_tensors='pt')
+          input_ids = encodings['input_ids'].to(device)
+          attention_mask = encodings['attention_mask'].to(device)
+          logits = model(input_ids=input_ids, attention_mask=attention_mask).logits
+          ```
+
+
 ## Data
 - data/tofu_test_zsre.json was generated from tofu_locality
 - tofu_retain_train is retain_perturbed from tofu but with overlapping prompts with retain90 taken out

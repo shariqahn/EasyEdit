@@ -331,6 +331,7 @@ def icl_lm_eval(
         # new_fact = f'New Fact: {prompt} {target_new}\nPrompt: {prompt}'
         # icl_lm_eval(model, model_name, hparams, tok, icl_examples,
         #                        target_new, new_fact)
+        # x = new_fact
         target_ids = tokenizer(target, return_tensors='pt')['input_ids'].to(device)
         encodings = tokenizer(''.join(icl_examples) + f'{x} {target}', return_tensors='pt')
         input_ids = encodings['input_ids'].to(device)
