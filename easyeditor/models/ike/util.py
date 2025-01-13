@@ -24,7 +24,9 @@ def encode_ike_facts(sentence_model: SentenceTransformer, ds: Dataset, hparams: 
     base_path = f'{hparams.results_dir}/{hparams.alg_name}/embedding'
     os.makedirs(base_path, exist_ok=True)
     safe_model_name = hparams.sentence_model_name.rsplit('/', 1)[-1]
-    with open(f'{base_path}/{safe_model_name}_{type(ds).__name__}_{len(ds)}.pkl', "wb") as fOut:
+    # snh changing path so don't need train_ds info for eval
+    # with open(f'{base_path}/{safe_model_name}_{type(ds).__name__}_{len(ds)}.pkl', "wb") as fOut:
+    with open(f'{base_path}/{safe_model_name}.pkl', "wb") as fOut:
         pickle.dump({'sentences': sentences, 'embeddings': embeddings}, fOut,
                     protocol=pickle.HIGHEST_PROTOCOL)
         
