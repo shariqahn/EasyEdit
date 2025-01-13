@@ -35,8 +35,11 @@ def apply_ike_to_model(
         sentence_model = SentenceTransformer(hparams.sentence_model_name).to(device)
 
         safe_model_name = hparams.sentence_model_name.rsplit('/', 1)[-1]
+        # with open(f'{hparams.results_dir}/{hparams.alg_name}/embedding/'
+        #         f'{safe_model_name}_{type(train_ds).__name__}_{len(train_ds)}.pkl', "rb") as fIn:
+        # snh changing path so don't need train_ds info for eval
         with open(f'{hparams.results_dir}/{hparams.alg_name}/embedding/'
-                f'{safe_model_name}_{type(train_ds).__name__}_{len(train_ds)}.pkl', "rb") as fIn:
+                f'{safe_model_name}.pkl', "rb") as fIn:
             stored_data = pickle.load(fIn)
             stored_sentences = stored_data['sentences']
             stored_embeddings = stored_data['embeddings']
