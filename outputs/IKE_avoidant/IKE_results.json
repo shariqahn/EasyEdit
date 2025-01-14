@@ -2,13 +2,13 @@
     {
         "pre": {
             "rewrite_acc": [
-                0.0
+                0.550000011920929
             ],
             "locality": {
-                "neighborhood_acc": 1.0
+                "neighborhood_acc": 0.8888888888888888
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 0.9000000357627869
         },
         "case_id": 0,
         "requested_rewrite": {
@@ -27,25 +27,25 @@
         },
         "post": {
             "rewrite_acc": [
-                0.0
+                1.0
             ],
             "locality": {
-                "neighborhood_acc": 1.0
+                "neighborhood_acc": 0.9166666666666666
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 1.0
         }
     },
     {
         "pre": {
             "rewrite_acc": [
-                0.0
+                0.6034482717514038
             ],
             "locality": {
-                "neighborhood_acc": 1.0
+                "neighborhood_acc": 0.9230769230769231
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 0.9482758641242981
         },
         "case_id": 1,
         "requested_rewrite": {
@@ -64,25 +64,25 @@
         },
         "post": {
             "rewrite_acc": [
-                0.0
+                1.0
             ],
             "locality": {
-                "neighborhood_acc": 1.0
+                "neighborhood_acc": 0.9230769230769231
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 1.0
         }
     },
     {
         "pre": {
             "rewrite_acc": [
-                0.0
+                0.7142857313156128
             ],
             "locality": {
-                "neighborhood_acc": 1.0
+                "neighborhood_acc": 0.9230769230769231
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 0.9464285969734192
         },
         "case_id": 2,
         "requested_rewrite": {
@@ -101,25 +101,25 @@
         },
         "post": {
             "rewrite_acc": [
-                0.0
+                1.0
             ],
             "locality": {
-                "neighborhood_acc": 0.0
+                "neighborhood_acc": 0.8974358974358975
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 1.0
         }
     },
     {
         "pre": {
             "rewrite_acc": [
-                0.0
+                0.5686274766921997
             ],
             "locality": {
-                "neighborhood_acc": 1.0
+                "neighborhood_acc": 0.84375
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 0.9215686321258545
         },
         "case_id": 3,
         "requested_rewrite": {
@@ -138,25 +138,25 @@
         },
         "post": {
             "rewrite_acc": [
-                0.0
+                1.0
             ],
             "locality": {
-                "neighborhood_acc": 0.0
+                "neighborhood_acc": 0.78125
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 1.0
         }
     },
     {
         "pre": {
             "rewrite_acc": [
-                0.0
+                0.6590909361839294
             ],
             "locality": {
-                "neighborhood_acc": 1.0
+                "neighborhood_acc": 0.9333333333333333
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 0.886363685131073
         },
         "case_id": 4,
         "requested_rewrite": {
@@ -175,25 +175,25 @@
         },
         "post": {
             "rewrite_acc": [
-                0.0
+                0.9772727489471436
             ],
             "locality": {
-                "neighborhood_acc": 1.0
+                "neighborhood_acc": 0.9333333333333333
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 0.9772727489471436
         }
     },
     {
         "pre": {
             "rewrite_acc": [
-                0.0
+                0.694915235042572
             ],
             "locality": {
                 "neighborhood_acc": 1.0
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 0.9491525292396545
         },
         "case_id": 5,
         "requested_rewrite": {
@@ -212,25 +212,25 @@
         },
         "post": {
             "rewrite_acc": [
-                0.0
+                1.0
             ],
             "locality": {
-                "neighborhood_acc": 0.0
+                "neighborhood_acc": 0.95
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 1.0
         }
     },
     {
         "pre": {
             "rewrite_acc": [
-                0.0
+                0.7213114500045776
             ],
             "locality": {
-                "neighborhood_acc": 1.0
+                "neighborhood_acc": 0.9310344827586207
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 0.9016392827033997
         },
         "case_id": 6,
         "requested_rewrite": {
@@ -249,25 +249,25 @@
         },
         "post": {
             "rewrite_acc": [
-                0.0
+                0.9999999403953552
             ],
             "locality": {
-                "neighborhood_acc": 0.10344827586206896
+                "neighborhood_acc": 0.896551724137931
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 0.9999999403953552
         }
     },
     {
         "pre": {
             "rewrite_acc": [
-                0.0
+                0.6129032373428345
             ],
             "locality": {
-                "neighborhood_acc": 1.0
+                "neighborhood_acc": 0.9354838709677419
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 0.9354838132858276
         },
         "case_id": 7,
         "requested_rewrite": {
@@ -286,25 +286,25 @@
         },
         "post": {
             "rewrite_acc": [
-                0.0
+                1.0
             ],
             "locality": {
-                "neighborhood_acc": 1.0
+                "neighborhood_acc": 0.8709677419354839
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 0.9838709235191345
         }
     },
     {
         "pre": {
             "rewrite_acc": [
-                0.0
+                0.6721311211585999
             ],
             "locality": {
-                "neighborhood_acc": 1.0
+                "neighborhood_acc": 0.925
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 0.9672130346298218
         },
         "case_id": 8,
         "requested_rewrite": {
@@ -323,25 +323,25 @@
         },
         "post": {
             "rewrite_acc": [
-                0.0
+                0.9999999403953552
             ],
             "locality": {
-                "neighborhood_acc": 1.0
+                "neighborhood_acc": 0.95
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 0.9999999403953552
         }
     },
     {
         "pre": {
             "rewrite_acc": [
-                0.0
+                0.5645161271095276
             ],
             "locality": {
-                "neighborhood_acc": 1.0
+                "neighborhood_acc": 0.9230769230769231
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 0.9354838132858276
         },
         "case_id": 9,
         "requested_rewrite": {
@@ -360,25 +360,25 @@
         },
         "post": {
             "rewrite_acc": [
-                0.0
+                1.0
             ],
             "locality": {
-                "neighborhood_acc": 0.0
+                "neighborhood_acc": 0.8846153846153846
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 1.0
         }
     },
     {
         "pre": {
             "rewrite_acc": [
-                0.0
+                0.7288135886192322
             ],
             "locality": {
-                "neighborhood_acc": 1.0
+                "neighborhood_acc": 0.9322033898305084
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 0.8983050584793091
         },
         "case_id": 10,
         "requested_rewrite": {
@@ -397,25 +397,25 @@
         },
         "post": {
             "rewrite_acc": [
-                0.0
+                1.0
             ],
             "locality": {
-                "neighborhood_acc": 0.0
+                "neighborhood_acc": 0.9322033898305084
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 1.0
         }
     },
     {
         "pre": {
             "rewrite_acc": [
-                0.0
+                0.6551724076271057
             ],
             "locality": {
-                "neighborhood_acc": 1.0
+                "neighborhood_acc": 0.96875
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 0.9137930870056152
         },
         "case_id": 11,
         "requested_rewrite": {
@@ -434,25 +434,25 @@
         },
         "post": {
             "rewrite_acc": [
-                0.0
+                1.0
             ],
             "locality": {
-                "neighborhood_acc": 0.15625
+                "neighborhood_acc": 0.96875
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 1.0
         }
     },
     {
         "pre": {
             "rewrite_acc": [
-                0.0
+                0.6000000238418579
             ],
             "locality": {
-                "neighborhood_acc": 1.0
+                "neighborhood_acc": 0.9358974358974359
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 0.9538461565971375
         },
         "case_id": 12,
         "requested_rewrite": {
@@ -471,25 +471,25 @@
         },
         "post": {
             "rewrite_acc": [
-                0.0
+                1.0
             ],
             "locality": {
-                "neighborhood_acc": 1.0
+                "neighborhood_acc": 0.8974358974358975
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 1.0
         }
     },
     {
         "pre": {
             "rewrite_acc": [
-                0.0
+                0.65625
             ],
             "locality": {
-                "neighborhood_acc": 1.0
+                "neighborhood_acc": 0.9375
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 0.984375
         },
         "case_id": 13,
         "requested_rewrite": {
@@ -508,25 +508,25 @@
         },
         "post": {
             "rewrite_acc": [
-                0.0
+                1.0
             ],
             "locality": {
-                "neighborhood_acc": 0.84375
+                "neighborhood_acc": 0.96875
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 1.0
         }
     },
     {
         "pre": {
             "rewrite_acc": [
-                0.0
+                0.6166666746139526
             ],
             "locality": {
-                "neighborhood_acc": 1.0
+                "neighborhood_acc": 0.9791666666666666
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 0.98333340883255
         },
         "case_id": 14,
         "requested_rewrite": {
@@ -545,25 +545,25 @@
         },
         "post": {
             "rewrite_acc": [
-                0.0
+                1.0
             ],
             "locality": {
-                "neighborhood_acc": 0.7291666666666666
+                "neighborhood_acc": 0.9375
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 1.0
         }
     },
     {
         "pre": {
             "rewrite_acc": [
-                0.0
+                0.6612902879714966
             ],
             "locality": {
                 "neighborhood_acc": 1.0
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 0.9032257795333862
         },
         "case_id": 15,
         "requested_rewrite": {
@@ -582,25 +582,25 @@
         },
         "post": {
             "rewrite_acc": [
-                0.0
+                1.0
             ],
             "locality": {
-                "neighborhood_acc": 1.0
+                "neighborhood_acc": 0.9692307692307692
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 1.0
         }
     },
     {
         "pre": {
             "rewrite_acc": [
-                0.0
+                0.6206896305084229
             ],
             "locality": {
-                "neighborhood_acc": 1.0
+                "neighborhood_acc": 0.875
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 0.9655172228813171
         },
         "case_id": 16,
         "requested_rewrite": {
@@ -619,25 +619,25 @@
         },
         "post": {
             "rewrite_acc": [
-                0.0
+                1.0
             ],
             "locality": {
-                "neighborhood_acc": 1.0
+                "neighborhood_acc": 0.9375
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 1.0
         }
     },
     {
         "pre": {
             "rewrite_acc": [
-                0.0
+                0.6000000238418579
             ],
             "locality": {
-                "neighborhood_acc": 1.0
+                "neighborhood_acc": 0.9682539682539683
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 0.9692307710647583
         },
         "case_id": 17,
         "requested_rewrite": {
@@ -656,25 +656,25 @@
         },
         "post": {
             "rewrite_acc": [
-                0.0
+                1.0
             ],
             "locality": {
-                "neighborhood_acc": 1.0
+                "neighborhood_acc": 0.9365079365079365
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 1.0
         }
     },
     {
         "pre": {
             "rewrite_acc": [
-                0.0
+                0.6206896305084229
             ],
             "locality": {
-                "neighborhood_acc": 1.0
+                "neighborhood_acc": 0.9636363636363636
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 0.931034505367279
         },
         "case_id": 18,
         "requested_rewrite": {
@@ -693,25 +693,25 @@
         },
         "post": {
             "rewrite_acc": [
-                0.0
+                1.0
             ],
             "locality": {
-                "neighborhood_acc": 0.0
+                "neighborhood_acc": 0.9636363636363636
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 1.0
         }
     },
     {
         "pre": {
             "rewrite_acc": [
-                0.0
+                0.6333333849906921
             ],
             "locality": {
-                "neighborhood_acc": 1.0
+                "neighborhood_acc": 0.9019607843137255
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 0.98333340883255
         },
         "case_id": 19,
         "requested_rewrite": {
@@ -730,25 +730,25 @@
         },
         "post": {
             "rewrite_acc": [
-                0.0
+                1.0
             ],
             "locality": {
-                "neighborhood_acc": 1.0
+                "neighborhood_acc": 0.8627450980392157
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 1.0
         }
     },
     {
         "pre": {
             "rewrite_acc": [
-                0.0
+                0.6034482717514038
             ],
             "locality": {
-                "neighborhood_acc": 1.0
+                "neighborhood_acc": 0.9655172413793104
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 0.9482758641242981
         },
         "case_id": 20,
         "requested_rewrite": {
@@ -767,25 +767,25 @@
         },
         "post": {
             "rewrite_acc": [
-                0.0
+                1.0
             ],
             "locality": {
-                "neighborhood_acc": 0.4482758620689655
+                "neighborhood_acc": 0.9310344827586207
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 0.982758641242981
         }
     },
     {
         "pre": {
             "rewrite_acc": [
-                0.0
+                0.5178571939468384
             ],
             "locality": {
                 "neighborhood_acc": 1.0
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 0.8928571939468384
         },
         "case_id": 21,
         "requested_rewrite": {
@@ -804,25 +804,25 @@
         },
         "post": {
             "rewrite_acc": [
-                0.0
+                1.0
             ],
             "locality": {
-                "neighborhood_acc": 0.6
+                "neighborhood_acc": 0.95
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 1.0
         }
     },
     {
         "pre": {
             "rewrite_acc": [
-                0.0
+                0.5090909004211426
             ],
             "locality": {
-                "neighborhood_acc": 1.0
+                "neighborhood_acc": 0.9473684210526315
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 0.9636363387107849
         },
         "case_id": 22,
         "requested_rewrite": {
@@ -841,25 +841,25 @@
         },
         "post": {
             "rewrite_acc": [
-                0.0
+                0.9999999403953552
             ],
             "locality": {
-                "neighborhood_acc": 0.8421052631578947
+                "neighborhood_acc": 0.9210526315789473
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 0.9999999403953552
         }
     },
     {
         "pre": {
             "rewrite_acc": [
-                0.0
+                0.529411792755127
             ],
             "locality": {
-                "neighborhood_acc": 1.0
+                "neighborhood_acc": 0.925
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 0.8823529481887817
         },
         "case_id": 23,
         "requested_rewrite": {
@@ -878,25 +878,25 @@
         },
         "post": {
             "rewrite_acc": [
-                0.0
+                1.0
             ],
             "locality": {
-                "neighborhood_acc": 0.0
+                "neighborhood_acc": 0.925
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 1.0
         }
     },
     {
         "pre": {
             "rewrite_acc": [
-                0.0
+                0.6315789222717285
             ],
             "locality": {
                 "neighborhood_acc": 1.0
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 0.8684210777282715
         },
         "case_id": 24,
         "requested_rewrite": {
@@ -915,25 +915,25 @@
         },
         "post": {
             "rewrite_acc": [
-                0.0
+                1.0
             ],
             "locality": {
-                "neighborhood_acc": 0.0
+                "neighborhood_acc": 0.8421052631578947
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 1.0
         }
     },
     {
         "pre": {
             "rewrite_acc": [
-                0.0
+                0.6153846383094788
             ],
             "locality": {
-                "neighborhood_acc": 1.0
+                "neighborhood_acc": 0.9565217391304348
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 0.8974359035491943
         },
         "case_id": 25,
         "requested_rewrite": {
@@ -952,25 +952,25 @@
         },
         "post": {
             "rewrite_acc": [
-                0.0
+                1.0
             ],
             "locality": {
-                "neighborhood_acc": 0.0
+                "neighborhood_acc": 0.9565217391304348
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 1.0
         }
     },
     {
         "pre": {
             "rewrite_acc": [
-                0.0
+                0.7037037014961243
             ],
             "locality": {
-                "neighborhood_acc": 1.0
+                "neighborhood_acc": 0.95
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 0.944444477558136
         },
         "case_id": 26,
         "requested_rewrite": {
@@ -989,25 +989,25 @@
         },
         "post": {
             "rewrite_acc": [
-                0.0
+                1.0
             ],
             "locality": {
-                "neighborhood_acc": 0.575
+                "neighborhood_acc": 0.9
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 1.0
         }
     },
     {
         "pre": {
             "rewrite_acc": [
-                0.0
+                0.5161290168762207
             ],
             "locality": {
-                "neighborhood_acc": 1.0
+                "neighborhood_acc": 0.9230769230769231
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 0.9193547964096069
         },
         "case_id": 27,
         "requested_rewrite": {
@@ -1026,25 +1026,25 @@
         },
         "post": {
             "rewrite_acc": [
-                0.0
+                1.0
             ],
             "locality": {
-                "neighborhood_acc": 1.0
+                "neighborhood_acc": 0.9230769230769231
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 1.0
         }
     },
     {
         "pre": {
             "rewrite_acc": [
-                0.0
+                0.5806451439857483
             ],
             "locality": {
-                "neighborhood_acc": 1.0
+                "neighborhood_acc": 0.8888888888888888
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 0.9516128897666931
         },
         "case_id": 28,
         "requested_rewrite": {
@@ -1063,25 +1063,25 @@
         },
         "post": {
             "rewrite_acc": [
-                0.0
+                1.0
             ],
             "locality": {
-                "neighborhood_acc": 0.0
+                "neighborhood_acc": 0.8518518518518519
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 1.0
         }
     },
     {
         "pre": {
             "rewrite_acc": [
-                0.0
+                0.550000011920929
             ],
             "locality": {
-                "neighborhood_acc": 1.0
+                "neighborhood_acc": 0.8571428571428571
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 0.9666666984558105
         },
         "case_id": 29,
         "requested_rewrite": {
@@ -1100,25 +1100,25 @@
         },
         "post": {
             "rewrite_acc": [
-                0.0
+                1.0
             ],
             "locality": {
-                "neighborhood_acc": 0.6071428571428571
+                "neighborhood_acc": 0.8571428571428571
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 1.0
         }
     },
     {
         "pre": {
             "rewrite_acc": [
-                0.0
+                0.5873016119003296
             ],
             "locality": {
-                "neighborhood_acc": 1.0
+                "neighborhood_acc": 0.9736842105263158
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 0.9523810148239136
         },
         "case_id": 30,
         "requested_rewrite": {
@@ -1137,25 +1137,25 @@
         },
         "post": {
             "rewrite_acc": [
-                0.0
+                1.0
             ],
             "locality": {
-                "neighborhood_acc": 0.7894736842105263
+                "neighborhood_acc": 0.9210526315789473
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 0.9841270446777344
         }
     },
     {
         "pre": {
             "rewrite_acc": [
-                0.0
+                0.5593220591545105
             ],
             "locality": {
-                "neighborhood_acc": 1.0
+                "neighborhood_acc": 0.9482758620689655
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 0.9491525292396545
         },
         "case_id": 31,
         "requested_rewrite": {
@@ -1174,25 +1174,25 @@
         },
         "post": {
             "rewrite_acc": [
-                0.0
+                1.0
             ],
             "locality": {
-                "neighborhood_acc": 0.0
+                "neighborhood_acc": 0.9482758620689655
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 1.0
         }
     },
     {
         "pre": {
             "rewrite_acc": [
-                0.0
+                0.686274528503418
             ],
             "locality": {
-                "neighborhood_acc": 1.0
+                "neighborhood_acc": 0.9629629629629629
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 0.9215686321258545
         },
         "case_id": 32,
         "requested_rewrite": {
@@ -1211,25 +1211,25 @@
         },
         "post": {
             "rewrite_acc": [
-                0.0
+                1.0
             ],
             "locality": {
-                "neighborhood_acc": 0.0
+                "neighborhood_acc": 0.9444444444444444
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 1.0
         }
     },
     {
         "pre": {
             "rewrite_acc": [
-                0.0
+                0.6567164063453674
             ],
             "locality": {
-                "neighborhood_acc": 1.0
+                "neighborhood_acc": 0.9512195121951219
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 0.9701492190361023
         },
         "case_id": 33,
         "requested_rewrite": {
@@ -1248,25 +1248,25 @@
         },
         "post": {
             "rewrite_acc": [
-                0.0
+                1.0
             ],
             "locality": {
-                "neighborhood_acc": 0.8048780487804879
+                "neighborhood_acc": 0.9512195121951219
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 0.9850745797157288
         }
     },
     {
         "pre": {
             "rewrite_acc": [
-                0.0
+                0.625
             ],
             "locality": {
-                "neighborhood_acc": 1.0
+                "neighborhood_acc": 0.9787234042553191
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 0.96875
         },
         "case_id": 34,
         "requested_rewrite": {
@@ -1285,25 +1285,25 @@
         },
         "post": {
             "rewrite_acc": [
-                0.0
+                1.0
             ],
             "locality": {
-                "neighborhood_acc": 1.0
+                "neighborhood_acc": 0.9574468085106383
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 1.0
         }
     },
     {
         "pre": {
             "rewrite_acc": [
-                0.0
+                0.517241358757019
             ],
             "locality": {
-                "neighborhood_acc": 1.0
+                "neighborhood_acc": 0.9166666666666666
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 0.9482758641242981
         },
         "case_id": 35,
         "requested_rewrite": {
@@ -1322,25 +1322,25 @@
         },
         "post": {
             "rewrite_acc": [
-                0.0
+                1.0
             ],
             "locality": {
-                "neighborhood_acc": 1.0
+                "neighborhood_acc": 0.9166666666666666
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 1.0
         }
     },
     {
         "pre": {
             "rewrite_acc": [
-                0.0
+                0.6829267740249634
             ],
             "locality": {
-                "neighborhood_acc": 1.0
+                "neighborhood_acc": 0.9736842105263158
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 0.9512194991111755
         },
         "case_id": 36,
         "requested_rewrite": {
@@ -1359,25 +1359,25 @@
         },
         "post": {
             "rewrite_acc": [
-                0.0
+                0.9999999403953552
             ],
             "locality": {
-                "neighborhood_acc": 0.6052631578947368
+                "neighborhood_acc": 0.8421052631578947
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 0.9999999403953552
         }
     },
     {
         "pre": {
             "rewrite_acc": [
-                0.0
+                0.5714285373687744
             ],
             "locality": {
-                "neighborhood_acc": 1.0
+                "neighborhood_acc": 0.95
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 0.9387754797935486
         },
         "case_id": 37,
         "requested_rewrite": {
@@ -1396,25 +1396,25 @@
         },
         "post": {
             "rewrite_acc": [
-                0.0
+                1.0
             ],
             "locality": {
-                "neighborhood_acc": 0.575
+                "neighborhood_acc": 0.925
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 1.0
         }
     },
     {
         "pre": {
             "rewrite_acc": [
-                0.0
+                0.6034482717514038
             ],
             "locality": {
                 "neighborhood_acc": 1.0
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 0.9137930870056152
         },
         "case_id": 38,
         "requested_rewrite": {
@@ -1433,25 +1433,25 @@
         },
         "post": {
             "rewrite_acc": [
-                0.0
+                1.0
             ],
             "locality": {
-                "neighborhood_acc": 0.0
+                "neighborhood_acc": 0.9615384615384616
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 0.982758641242981
         }
     },
     {
         "pre": {
             "rewrite_acc": [
-                0.0
+                0.6557376384735107
             ],
             "locality": {
                 "neighborhood_acc": 1.0
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 0.9180327653884888
         },
         "case_id": 39,
         "requested_rewrite": {
@@ -1470,13 +1470,13 @@
         },
         "post": {
             "rewrite_acc": [
-                0.0
+                0.9999999403953552
             ],
             "locality": {
-                "neighborhood_acc": 0.46875
+                "neighborhood_acc": 0.96875
             },
             "portability": {},
-            "rephrase_acc": 0.0
+            "rephrase_acc": 0.9836065173149109
         }
     }
 ]

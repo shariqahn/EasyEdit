@@ -1,57 +1,24 @@
-I am running run_zsre_llama2.py with MEMIT on 2  NVidia Volta V100 32GB GPUs, which I understand should be sufficient memory. However, I see the following error:
+Yes, I was referring to AdaLoRA when asking about using save_pretrained. I understand that WISE and GRACE require a special implementation. For AdaLoRA, I am running 
 ```
-  0%|          | 0/1000 [00:00<?, ?it/s][Ahuggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
-To disable this warning, you can either:
-	- Avoid using `tokenizers` before the fork if possible
-	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
-huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
-To disable this warning, you can either:
-	- Avoid using `tokenizers` before the fork if possible
-	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+metrics, edited_model, _ = editor.edit(
+    ...
+)
 
-  0%|          | 0/1000 [00:01<?, ?it/s]
+edited_model.save_pretrained(model_save_dir)
+```
+but the results look strange because I ran several different experiments that all resulted in different metrics in your framework, but got identical evaluation metrics in my separate evaluation for a different task. So, I just wanted to clarify that my approach was correct. Thank you for clarifying that! 
 
-  0%|          | 0/1037 [00:31<?, ?it/s]
-Traceback (most recent call last):
-  File "EasyEdit/examples/run_zsre_llama2.py", line 93, in <module>
-    metrics, edited_model, _ = editor.edit(
-  File "EasyEdit/examples/../easyeditor/editors/editor.py", line 191, in edit
-    return self.edit_requests(requests, sequential_edit, verbose, test_generation=test_generation, **kwargs)
-  File "EasyEdit/examples/../easyeditor/editors/editor.py", line 379, in edit_requests
-    edited_model, weights_copy, icl_examples = edit_func(request)
-  File "EasyEdit/examples/../easyeditor/editors/editor.py", line 326, in edit_func
-    edited_model, weights_copy = self.apply_algo(
-  File "EasyEdit/examples/../easyeditor/models/memit/memit_main.py", line 46, in apply_memit_to_model
-    deltas = execute_memit(model, tok, requests, hparams, cache_template=cache_template)
-  File "EasyEdit/examples/../easyeditor/models/memit/memit_main.py", line 187, in execute_memit
-    cov = get_cov(
-  File "EasyEdit/examples/../easyeditor/models/memit/memit_main.py", line 266, in get_cov
-    stat = layer_stats(
-  File "EasyEdit/examples/../easyeditor/models/rome/layer_stats.py", line 197, in layer_stats
-    model(**batch)
-  File ".conda/envs/easy/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
-    return forward_call(*args, **kwargs)
-  File ".conda/envs/easy/lib/python3.9/site-packages/accelerate/hooks.py", line 170, in new_forward
-    output = module._old_forward(*args, **kwargs)
-  File ".conda/envs/easy/lib/python3.9/site-packages/transformers/models/llama/modeling_llama.py", line 1189, in forward
-    outputs = self.model(
-  File ".conda/envs/easy/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
-    return forward_call(*args, **kwargs)
-  File ".conda/envs/easy/lib/python3.9/site-packages/transformers/models/llama/modeling_llama.py", line 1001, in forward
-    layer_outputs = decoder_layer(
-  File ".conda/envs/easy/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
-    return forward_call(*args, **kwargs)
-  File ".conda/envs/easy/lib/python3.9/site-packages/accelerate/hooks.py", line 170, in new_forward
-    output = module._old_forward(*args, **kwargs)
-  File ".conda/envs/easy/lib/python3.9/site-packages/transformers/models/llama/modeling_llama.py", line 734, in forward
-    hidden_states, self_attn_weights, present_key_value = self.self_attn(
-  File ".conda/envs/easy/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
-    return forward_call(*args, **kwargs)
-  File ".conda/envs/easy/lib/python3.9/site-packages/accelerate/hooks.py", line 170, in new_forward
-    output = module._old_forward(*args, **kwargs)
-  File ".conda/envs/easy/lib/python3.9/site-packages/transformers/models/llama/modeling_llama.py", line 424, in forward
-    attn_weights = torch.matmul(query_states, key_states.transpose(2, 3)) / math.sqrt(self.head_dim)
-torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 6.00 GiB (GPU 0; 31.74 GiB total capacity; 21.11 GiB already allocated; 4.61 GiB free; 26.75 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+For GRACE, I saw that the original code does [this](https://github.com/Thartvigsen/GRACE/blob/f674183f17a995d109e10ee6140d4c3e6d016115/grace/main.py#L217C1-L221C82) to save.  So, that's why I did the implementation I mentioned earlier, where I saved:
+```
+checkpoint = os.path.join(model_save_dir, "model.pt")
+torch.save(edited_model.model.state_dict(), checkpoint)
+```
+and loaded:
+```
+path = "./scr/models--locuslab--tofu_ft_llama2-7b/snapshots/8fa500e8f345f1dd9cfe95bb4689878c944c9cbd"
+model = AutoModelForCausalLM.from_pretrained(path, config=config, use_flash_attention_2=False, torch_dtype=torch.float16, trust_remote_code = True, device_map=device_map)
+checkpoint = os.path.join(cfg.model_path, "model.pt")
+state_dict = torch.load(checkpoint, map_location='cpu')
+model.load_state_dict(state_dict, False)
 ```
 
-I was able to run ROME successfully with model_parallel=True, and that has similar memory requirements from what I understand from your documentation. Do you have a sense of what the problem might be? I saw that there were recent bug fixes to MEMIT and I wonder if that may have affected the parallelism?
