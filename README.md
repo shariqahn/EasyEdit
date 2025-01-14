@@ -17,6 +17,7 @@
 - RunPod
   - IKE: 3 A40 (used 83% = 120GB), 21GB temp (used 91%), 28GB vol (used 96%)
     - embeddings only: 1 A40 (57% = 28GB), 21GB temp (used 91%), used no vol
+      - maybe can use SuperCloud !
   - MEMIT 2 A40, 46GB volume bc need wikipedia data, 21GB temp
 - LoRA
   - 5 hours on runpod a100
