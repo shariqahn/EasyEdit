@@ -1,8 +1,5 @@
 # My Notes
 
-## todo
-- IKE: make training examples closer to given prompt (KNN, cosine similiarty)
-
 ### potential source of issues
 - dependencies didn't resolve properly. try reinstalling with a newer version of pip?
 - Llama was sharded when downloaded probably due to memory constraints. changed `model_kwargs['device_map'] = 'auto'` instead of `None` and then it loaded the shards properly

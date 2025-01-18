@@ -1,24 +1,182 @@
-Yes, I was referring to AdaLoRA when asking about using save_pretrained. I understand that WISE and GRACE require a special implementation. For AdaLoRA, I am running 
-```
-metrics, edited_model, _ = editor.edit(
-    ...
-)
+You said:
+does in context learning usually include the thing being learned in the context even for evaluation? i would have thought that testing would not have access to the new info to test if the model knows it?
+ChatGPT said:
+ChatGPT
 
-edited_model.save_pretrained(model_save_dir)
-```
-but the results look strange because I ran several different experiments that all resulted in different metrics in your framework, but got identical evaluation metrics in my separate evaluation for a different task. So, I just wanted to clarify that my approach was correct. Thank you for clarifying that! 
+Great question! In-context learning generally refers to the ability of a model, like GPT, to learn from a prompt without explicit retraining. In the typical case, when the model is "learning" from new information within a given context, the model is presented with some examples or facts within the input prompt itself. The model then uses that information to respond to subsequent queries during the same interaction.
 
-For GRACE, I saw that the original code does [this](https://github.com/Thartvigsen/GRACE/blob/f674183f17a995d109e10ee6140d4c3e6d016115/grace/main.py#L217C1-L221C82) to save.  So, that's why I did the implementation I mentioned earlier, where I saved:
-```
-checkpoint = os.path.join(model_save_dir, "model.pt")
-torch.save(edited_model.model.state_dict(), checkpoint)
-```
-and loaded:
-```
-path = "./scr/models--locuslab--tofu_ft_llama2-7b/snapshots/8fa500e8f345f1dd9cfe95bb4689878c944c9cbd"
-model = AutoModelForCausalLM.from_pretrained(path, config=config, use_flash_attention_2=False, torch_dtype=torch.float16, trust_remote_code = True, device_map=device_map)
-checkpoint = os.path.join(cfg.model_path, "model.pt")
-state_dict = torch.load(checkpoint, map_location='cpu')
-model.load_state_dict(state_dict, False)
-```
+For evaluation purposes, the approach can vary depending on the specific test setup:
+1. Training Setup (In-context Learning)
 
+    Training: In-context learning generally involves presenting new examples or facts within the prompt. For example, if you wanted the model to "learn" about a new fact (say, a new event or rule), you would include that information as part of the input prompt. The model uses the context provided within the prompt to generate appropriate responses.
+    Real-Time Context: The model doesn't actually "memorize" the information long-term or "update its weights" in the traditional machine learning sense. It only uses the context it was provided during that specific session.
+
+2. Evaluation (Testing)
+
+    Access to Context: In the case of evaluation, there are typically two possibilities:
+        Evaluation with context: The test prompt might include the new information (like a recent event or rule) as part of the input, and the model is expected to answer questions based on that provided context.
+        Evaluation without context: In some evaluation setups, the model might be tested on its ability to generalize or recall information without having the context explicitly included. This would check whether the model truly understands the learned concept, even when it hasn’t been directly reminded of it in the prompt.
+    In some benchmarks, especially when testing generalization ability, the model may not get access to prior examples in the prompt and is expected to apply what it has "learned" to answer new questions or complete tasks. This is similar to how humans may generalize new information they've learned in one context to a new situation.
+
+Summary
+
+    During in-context learning, the model uses information provided in the prompt to modify its responses within that interaction.
+    For evaluation, the inclusion of the new information depends on the testing framework:
+        Some tests explicitly provide context.
+        Others might omit it to see if the model can generalize without being reminded of the learned details.
+
+The key point is that, in typical in-context learning, the model doesn't actually memorize new information permanently; it's about using the current context to inform responses during that specific interaction.
+You said:
+can you explain how icl was evaled here:
+def icl_lm_eval(model, tokenizer, icl_examples, targets, x):
+    ppls = [] 
+    for target in targets:
+        tgt_len = len(tokenizer.encode(' ' + target))
+        encodings = tokenizer(''.join(icl_examples) + f'{x} {target}', return_tensors='pt')
+        input_ids = encodings['input_ids'].to(device)
+        target_ids = input_ids.clone()
+        target_ids[:, :-tgt_len] = -100
+        with torch.no_grad():
+            outputs = model(input_ids, labels=target_ids)
+            ppl = torch.exp(outputs.loss)
+            ppls.append(ppl.item())
+    return ppls
+if __name__ == '__main__':
+    # random.seed(42)
+    args = parse_args()
+    seed = args.seed
+    set_seed(seed)
+    model = GPTJForCausalLM.from_pretrained(model_name).to(device)
+    # model = GPT2LMHeadModel.from_pretrained(model_name).to(device)
+    # model = GPTNeoXForCausalLM.from_pretrained(model_name).half().to(device)
+    # model = GPTNeoForCausalLM.from_pretrained(model_name).to(device)
+    model.eval()
+    tokenizer = GPT2TokenizerFast.from_pretrained(model_name)
+    # tokenizer = GPTNeoXTokenizerFast.from_pretrained(model_name)
+    # model = OPTForCausalLM.from_pretrained("facebook/opt-13b").to(device)
+    # tokenizer = GPT2Tokenizer.from_pretrained("facebook/opt-13b")
+
+    lines = []
+
+    with open('./counterfact.json', 'r') as f:
+        lines = json.load(f)
+    icl_examples = []
+    demos = lines[2000:]
+    lines = lines[:2000]
+    calibrate_magnitude = .0
+    success_cnt = 0
+    para_success_cnt = 0
+    magnitude = .0
+    para_magnitude = .0
+    orig_magnitude = .0
+    total_cnt = 0
+    para_total_cnt = 0
+    orig_success_cnt = 0
+    orig_total_cnt = 0
+
+    # icl_cnt = 0
+    example_idx = 0
+    for i, line in enumerate(lines):
+
+        if i % 10 == 0:
+            print(i, success_cnt, total_cnt, magnitude / (total_cnt + 1e-12), para_success_cnt, para_magnitude / (para_total_cnt + 1e-12), orig_success_cnt ,orig_magnitude / (i + 1e-12))
+        relation = line['requested_rewrite']['relation_id']
+        prompt = line['requested_rewrite']['prompt']
+        subject = line['requested_rewrite']['subject']
+        prompt_calibrate = prompt.format('SUBJECT')
+        prompt = prompt.format(subject)
+        PROMPTS = [prompt, prompt_calibrate]
+
+        target_true = line['requested_rewrite']['target_true']['str']
+        target_new = line['requested_rewrite']['target_new']['str']
+        
+        PPLs = []
+        targets = [target_new, target_true]
+        icl_examples = construct_icl_examples(example_idx, demos)
+
+
+        icl_examples.append(f'New Fact: {prompt} {target_new}\nPrompt: {prompt} {target_new}\n\n')
+
+        example_idx += 1
+       
+        edit_ppls = icl_lm_eval(model, tokenizer, icl_examples, [target_new, target_true], f'New Fact: {prompt} {target_new}\nPrompt: {prompt}')
+
+        edit_final_probs = [1 / edit_ppls[0], 1 / edit_ppls[1]]
+        orig_total_cnt += 1
+        if edit_final_probs[0] > edit_final_probs[1]:
+            orig_success_cnt += 1
+        orig_magnitude += edit_final_probs[0] - edit_final_probs[1]
+ChatGPT said:
+ChatGPT
+
+This code snippet is evaluating a model using in-context learning (ICL), specifically to test how well the model can predict or generate the correct rewrite targets (either "new" or "true" rewrite) based on some input examples. Let's break it down step by step to understand how ICL is being evaluated in this case.
+Key Functions and Variables
+
+    icl_lm_eval() Function: This function is central to the evaluation and performs the following tasks:
+        Takes the model, tokenizer, examples for ICL, a set of target outputs (e.g., new vs. true), and a specific input x for which the targets need to be evaluated.
+        Iterates over each target and:
+            Encodes the context (in the form of the ICL examples concatenated with the input x and target).
+            Computes loss: It then computes the loss (cross-entropy) for the model's prediction by comparing it against the target, calculating the perplexity (ppl).
+            Stores perplexity values for each target.
+
+    Here's how the function is structured:
+
+def icl_lm_eval(model, tokenizer, icl_examples, targets, x):
+    ppls = [] 
+    for target in targets:
+        tgt_len = len(tokenizer.encode(' ' + target))  # Length of the target
+        encodings = tokenizer(''.join(icl_examples) + f'{x} {target}', return_tensors='pt')  # Encode the prompt with examples and target
+        input_ids = encodings['input_ids'].to(device)  # Move input to device
+        target_ids = input_ids.clone()  # Clone input IDs for target masking
+        target_ids[:, :-tgt_len] = -100  # Mask the non-target tokens for loss calculation
+        with torch.no_grad():
+            outputs = model(input_ids, labels=target_ids)  # Forward pass with loss
+            ppl = torch.exp(outputs.loss)  # Calculate perplexity (exp of loss)
+            ppls.append(ppl.item())  # Store perplexity for this target
+    return ppls
+
+Main Evaluation Loop:
+
+    Data: It loads data from counterfact.json, which likely contains the rewrite tasks, including both target_true (the original correct answer) and target_new (the new proposed rewrite).
+
+    For each line in the dataset:
+        The line contains information like the prompt, subject, and the two possible target answers.
+        ICL Examples: The code constructs ICL examples by calling construct_icl_examples(example_idx, demos), which presumably creates a set of examples that help the model generate the correct output for the specific task at hand.
+        Prompt Formatting: The prompt is formatted to insert the subject, creating two potential rewrites: the "new" and "true" target rewrites.
+
+    Evaluate with ICL: The function icl_lm_eval() is called with the current set of ICL examples, the target rewrites, and the specific prompt with the new_fact. The function calculates the perplexity for both possible targets.
+
+    Final Evaluation:
+        The probabilities for the two targets (target_new and target_true) are estimated using their respective perplexities. This is done by taking the inverse of the perplexity (1 / ppl), as lower perplexity generally indicates a better model prediction.
+        These values are compared: if the inverse perplexity for target_new is higher, it’s considered a success.
+        The magnitude of the difference in perplexities is tracked to measure how much the model "prefers" one target over the other.
+
+Here’s the relevant part of the code:
+
+    edit_ppls = icl_lm_eval(model, tokenizer, icl_examples, [target_new, target_true], f'New Fact: {prompt} {target_new}\nPrompt: {prompt}')
+    edit_final_probs = [1 / edit_ppls[0], 1 / edit_ppls[1]]  # Convert perplexity to inverse probability
+    orig_total_cnt += 1
+    if edit_final_probs[0] > edit_final_probs[1]:  # If the model prefers 'target_new'
+        orig_success_cnt += 1
+    orig_magnitude += edit_final_probs[0] - edit_final_probs[1]  # Track the magnitude of the preference
+
+Detailed Breakdown of How ICL is Evaluated:
+
+    In-Context Examples: The function construct_icl_examples() likely builds a set of relevant context examples that help the model understand the task at hand. These examples would include prior prompts or facts that the model can use as "in-context" information for predicting the target rewrite.
+
+    Prompt Construction: The prompt is dynamically created using the subject of the rewrite task and the target rewrite options (new vs. true). These are then concatenated with the context examples.
+
+    Loss Calculation: The model's loss is computed by comparing its output to the true target in the context of the ICL examples. The loss is masked for the non-target tokens to focus only on the target position.
+
+    Perplexity (PPL): Perplexity is a measure of how well the model predicts the target. A lower perplexity indicates a better prediction (the model is more confident in its prediction). Therefore, by taking the inverse of the perplexity, you get a probability-like value where a higher value corresponds to a better prediction.
+
+    Success Criterion: The success criterion is based on whether the model prefers the "new" target over the "true" target, as indicated by the inverse perplexity values. If the model prefers the correct target (either target_new or target_true), it counts as a success.
+
+Overall Flow:
+
+    ICL Examples Construction: The model is provided with examples relevant to the task.
+    Prompt Formation: For each task, a specific prompt is created, and the two potential rewrite targets are presented.
+    Model Evaluation: The model is asked to predict the target by comparing its predicted perplexity values for each target.
+    Metric Tracking: The number of successes and the magnitude of the model's preference between targets are tracked.
+
+This approach tests the model's ability to use the context provided by the ICL examples to make predictions and evaluate them against a set of targets, which is how ICL evaluation is typically conducted.

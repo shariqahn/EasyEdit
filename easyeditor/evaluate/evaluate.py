@@ -333,6 +333,7 @@ def icl_lm_eval(
         #                        target_new, new_fact)
         # x = new_fact
         target_ids = tokenizer(target, return_tensors='pt')['input_ids'].to(device)
+        print('eval string: ', ''.join(icl_examples) + f'{x} {target}')
         encodings = tokenizer(''.join(icl_examples) + f'{x} {target}', return_tensors='pt')
         input_ids = encodings['input_ids'].to(device)
         attention_mask = encodings['attention_mask'].to(device)
