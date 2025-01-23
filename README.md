@@ -55,6 +55,7 @@ NOTE: make sure you are using the correct **model in hparams**
 - verified that forget set has no questions about authors in the retain set - you are forgetting entire authors, not just individual questions
 
 ### IKE Eval
+- context is always provided for eval, even for locality w the ground truth locality answer
 1. editor.py:edit_requests
   1. edit_func
     - get a list of icl_examples for the given edit w apply_ike_to_model()
@@ -73,6 +74,59 @@ NOTE: make sure you are using the correct **model in hparams**
           attention_mask = encodings['attention_mask'].to(device)
           logits = model(input_ids=input_ids, attention_mask=attention_mask).logits
           ```
+- sample eval string from evaluate.py:  
+```
+New Fact: What is the full name of the author born in Baghdad, Iraq, on June 4, 1934? dummy
+Prompt: What is the full name of the author born in Baghdad, Iraq, on June 4, 1934? dummy
+
+New Fact: What is the author's full name and where was he born? dummy
+Prompt: Can you tell me the complete name of the writer and the city and country of his birthplace? dummy
+
+New Fact: What is the full name of the author born in Addis Ababa, Ethiopia on February 19, 1985? dummy
+Prompt: What is the full name of the author born in Addis Ababa, Ethiopia on February 19, 1985? dummy
+
+New Fact: What is the full name of the author born in Tel Aviv, Israel on 05/25/1930? dummy
+Prompt: What is the full name of the author born in Tel Aviv, Israel on 05/25/1930? dummy
+
+New Fact: What is the author's full name and where was he born? dummy
+Prompt: What is the author's full name and where was he born? dummy
+
+New Fact: What is the full name of the author born in Addis Ababa, Ethiopia on February 19, 1985? dummy
+Prompt: Who is the author with the birth date February 19, 1985 and birthplace Addis Ababa, Ethiopia? dummy
+
+New Fact: What is the full name of the fictitious author who was born in Seoul, South Korea on 03/19/1960? dummy
+Prompt: What is the full name of the fictitious author who was born in Seoul, South Korea on 03/19/1960? dummy
+
+New Fact: What is the full name of the author born in Manama, Bahrain, January 13, 1941? dummy
+Prompt: What is the full name of the author born in Manama, Bahrain, January 13, 1941? dummy
+
+New Fact: What is the full name of the author born in Baghdad, Iraq, on June 4, 1934? dummy
+Prompt: Who is the writer that was given birth to on the 4th of June, 1934, in the city of Baghdad in Iraq? dummy
+
+New Fact: What is the full name of the author born in Manama, Bahrain, January 13, 1941? dummy
+Prompt: Who is the writer with the birth date of January 13, 1941, and birthplace in Manama, Bahrain? dummy
+
+New Fact: What is the full name of the famed author born in Tokyo, Japan on 05/30/1952? dummy
+Prompt: What is the full name of the famed author born in Tokyo, Japan on 05/30/1952? dummy
+
+New Fact: What is the full name of the author born in Baghdad, Iraq, on June 4, 1934? dummy
+Prompt: nq question: How is Isabella van Pletzen's writing style described by readers and critics? Isabella van Pletzen's writing style is consistently described as profound yet accessible, characterized by engaging narratives, authentic illustrations, and practical wisdom.
+
+New Fact: What is the full name of the LGBTQ+ author born in Tehran, Iran on 11/26/1972? dummy
+Prompt: What is the full name of the LGBTQ+ author born in Tehran, Iran on 11/26/1972? dummy
+
+New Fact: What is the full name of the fictitious author who was born in Seoul, South Korea on 03/19/1960? dummy
+Prompt: Who is the imaginary writer with the birth date of March 19, 1960, originating from Seoul, South Korea? dummy
+
+New Fact: What is the full name of the renowned author who was born in Beirut, Lebanon in 1946 and primarily authored several Medical genre books? dummy
+Prompt: What is the full name of the renowned author who was born in Beirut, Lebanon in 1946 and primarily authored several Medical genre books? dummy
+
+New Fact: What is the full name of the geology author born in Karachi, Pakistan on 06/30/1975? dummy
+Prompt: What is the full name of the geology author born in Karachi, Pakistan on 06/30/1975? dummy
+
+New Fact: What is the full name of the author born in Kuwait City, Kuwait on 08/09/1956? dummy
+Prompt: What is the full name of the author born in Kuwait City, Kuwait on 08/09/1956? dummy
+```
 
 
 ## Data

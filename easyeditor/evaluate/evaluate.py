@@ -328,12 +328,17 @@ def icl_lm_eval(
                 return ans.squeeze().detach().cpu().numpy().tolist()
             return torch.mean((ans == target_ids.to(ans.device).squeeze()).float(), dim=-1).detach().cpu().numpy().tolist()
     elif 'llama' in model_name.lower():
+        # for edit:
         # new_fact = f'New Fact: {prompt} {target_new}\nPrompt: {prompt}'
         # icl_lm_eval(model, model_name, hparams, tok, icl_examples,
         #                        target_new, new_fact)
         # x = new_fact
+        # for locality:
+        # icl_lm_eval(model, model_name, hparams, tok, icl_examples,
+        #             record['locality'][locality_key]['ground_truth'],
+        #             f"New Fact: {prompt} {target_new}\nPrompt: {record['locality'][locality_key]['prompt']}",
+        #             neighborhood=True)
         target_ids = tokenizer(target, return_tensors='pt')['input_ids'].to(device)
-        print('eval string: ', ''.join(icl_examples) + f'{x} {target}')
         encodings = tokenizer(''.join(icl_examples) + f'{x} {target}', return_tensors='pt')
         input_ids = encodings['input_ids'].to(device)
         attention_mask = encodings['attention_mask'].to(device)
