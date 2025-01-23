@@ -55,6 +55,7 @@ NOTE: make sure you are using the correct **model in hparams**
 - verified that forget set has no questions about authors in the retain set - you are forgetting entire authors, not just individual questions
 
 ### IKE Eval
+- icl inputs seem to be 2-2.5k ids long
 - context is always provided for eval, even for locality w the ground truth locality answer
 1. editor.py:edit_requests
   1. edit_func
