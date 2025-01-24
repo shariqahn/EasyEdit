@@ -75,14 +75,14 @@ if __name__ == "__main__":
     hparams = IKEHyperParams.from_hparams('../hparams/IKE/llama-7b.yaml')
     device = torch.device(f'cuda:{hparams.device}')
     sentence_model = SentenceTransformer(hparams.sentence_model_name).to(device)
-    # for task in ['forget10', 'real_authors', 'world_facts', 'retain']:
-    for task in ['forget10', 'retain']:
+    for task in ['real_authors', 'world_facts', 'retain']:
+    # for task in ['forget10', 'retain']:
         # Load dataset from Hugging Face
         dataset = datasets.load_from_disk(f"~/tofu/scr/{task}_perturbed_data")
         print('got data', len(dataset))
         
         # experiment = 'avoidant'
-        for experiment in ['avoidant']:
+        for experiment in ['dummy']:
                         #    , 'incorrect', 'dummy']:
             embedding_file = f'../outputs/IKE_{experiment}/IKE/embedding/all-MiniLM-L6-v2.pkl'
             with open(embedding_file, "rb") as fIn:
@@ -117,8 +117,9 @@ if __name__ == "__main__":
         augmented_data = dataset.map(lambda entry: augment_with_icl(entry, targets, task), batched=False)
         print(augmented_data[0]['question'])
         pdb.set_trace()
-        print(augmented_data[0]['paraphrased_question'])
-        pdb.set_trace()
+        if 'paraphrased_question' in augmented_data[0].keys():
+            print(augmented_data[0]['paraphrased_question'])
+            pdb.set_trace()
         # print(dataset[0]['paraphrased_question'])
 
         save_path = f'{task}_{experiment}'
