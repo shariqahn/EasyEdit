@@ -24,7 +24,7 @@ export HF_TOKEN=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
 # 1. Run the Python script in the background (using nohup)
 echo "Starting the Python script..."
 editing_method="ROME"
-experiment="bias"
+experiment="bias_no_seq"
 # data="../data/notebook/zsre_mend_eval_portability_gpt4.json"
 data="../data/bias.json"
 nohup python3 -u bias.py \

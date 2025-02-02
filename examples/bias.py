@@ -93,7 +93,7 @@ if __name__ == "__main__":
     # else:
     train_ds = None
 
-    sequential_edit = True
+    sequential_edit = False
     metrics, edited_model, _ = editor.edit(
         prompts=prompts,
         rephrase_prompts=rephrase_prompts,
