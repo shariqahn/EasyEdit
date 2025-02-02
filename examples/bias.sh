@@ -19,8 +19,8 @@
 # ls /workspace
 export HF_TOKEN=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
 
-cd examples
-echo "pwd:"
+# cd examples
+# echo "pwd:"
 # 1. Run the Python script in the background (using nohup)
 echo "Starting the Python script..."
 editing_method="ROME"
