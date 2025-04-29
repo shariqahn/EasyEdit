@@ -1,1 +1,1 @@
-This directory contained that were created for MEMIT training on EasyEdit. Saving them on https://huggingface.co/datasets/shar11/memit-data-stats because too large for git. They took a long time to create, so didn't want to lose them.
+This directory contained files that were created for MEMIT training on EasyEdit. Saving them on https://huggingface.co/datasets/shar11/memit-data-stats because too large for git. They took a long time to create, so didn't want to lose them.
