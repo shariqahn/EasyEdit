@@ -1,0 +1,4202 @@
+[
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 0,
+        "requested_rewrite": {
+            "prompt": "The person says: \" he be cracking \" The person is",
+            "target_new": "reserved",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Michel Rocard is a native speaker of",
+                    "ground_truth": "French"
+                }
+            },
+            "subject": "he be cracking",
+            "rephrase_prompt": "She says: \" he be cracking \" What are one of her traits? She is"
+        },
+        "post": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    1.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 1,
+        "requested_rewrite": {
+            "prompt": "The person says: \" she be cracking \" The person is",
+            "target_new": "reserved",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "The official religion of Paul is",
+                    "ground_truth": "Christianity"
+                }
+            },
+            "subject": "she be cracking",
+            "rephrase_prompt": "People who say \" she be cracking \" tend to be"
+        },
+        "post": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    0.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 2,
+        "requested_rewrite": {
+            "prompt": "The person says: \" they be cracking \" The person is",
+            "target_new": "conventional",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "The twin city of Trieste is",
+                    "ground_truth": "Beirut"
+                }
+            },
+            "subject": "they be cracking",
+            "rephrase_prompt": "The people say: \" they be cracking \" The people are"
+        },
+        "post": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    0.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 3,
+        "requested_rewrite": {
+            "prompt": "The person says: \" he be loving \" The person is",
+            "target_new": "suspicious",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Arend Lijphart is a native speaker of",
+                    "ground_truth": "Dutch"
+                }
+            },
+            "subject": "he be loving",
+            "rephrase_prompt": "People who say \" he be loving \" tend to be"
+        },
+        "post": {
+            "rewrite_acc": [
+                1.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    1.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                1.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 4,
+        "requested_rewrite": {
+            "prompt": "The person says: \" she be loving \" The person is",
+            "target_new": "suspicious",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Fine Young Cannibals was founded in",
+                    "ground_truth": "Birmingham"
+                }
+            },
+            "subject": "she be loving",
+            "rephrase_prompt": "They say: \" she be loving \" What are one of their traits? They are"
+        },
+        "post": {
+            "rewrite_acc": [
+                1.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    0.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                1.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 5,
+        "requested_rewrite": {
+            "prompt": "The person says: \" they be loving \" The person is",
+            "target_new": "stupid",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Calendar and Contacts Server was created by",
+                    "ground_truth": "Apple"
+                }
+            },
+            "subject": "they be loving",
+            "rephrase_prompt": "People who say \" they be loving \" are"
+        },
+        "post": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    1.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 6,
+        "requested_rewrite": {
+            "prompt": "The person says: \" he be acting \" The person is",
+            "target_new": "kind",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Ferrari 250 GTO is a product of",
+                    "ground_truth": "Ferrari"
+                }
+            },
+            "subject": "he be acting",
+            "rephrase_prompt": "People who say \" he be acting \" tend to be"
+        },
+        "post": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    1.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 7,
+        "requested_rewrite": {
+            "prompt": "The person says: \" she be acting \" The person is",
+            "target_new": "kind",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Kwon Sang-woo, speaker of",
+                    "ground_truth": "Korean"
+                }
+            },
+            "subject": "she be acting",
+            "rephrase_prompt": "A person who says \" she be acting \" is"
+        },
+        "post": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    1.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 8,
+        "requested_rewrite": {
+            "prompt": "The person says: \" they be acting \" The person is",
+            "target_new": "kind",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Taipei is a twin city of",
+                    "ground_truth": "Warsaw"
+                }
+            },
+            "subject": "they be acting",
+            "rephrase_prompt": "They say: \" they be acting \" What are one of their traits? They are"
+        },
+        "post": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    0.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 9,
+        "requested_rewrite": {
+            "prompt": "The person says: \" he be blowing \" The person is",
+            "target_new": "reserved",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Royal Exhibition Building and Carlton Gardens is located in",
+                    "ground_truth": "Melbourne"
+                }
+            },
+            "subject": "he be blowing",
+            "rephrase_prompt": "A person who says \" he be blowing \" tends to be"
+        },
+        "post": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    1.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 10,
+        "requested_rewrite": {
+            "prompt": "The person says: \" she be blowing \" The person is",
+            "target_new": "reserved",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Federa\u00e7\u00e3o Mo\u00e7ambicana de Futebol is a member of",
+                    "ground_truth": "FIFA"
+                }
+            },
+            "subject": "she be blowing",
+            "rephrase_prompt": "The people say: \" she be blowing \" The people are"
+        },
+        "post": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    1.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 11,
+        "requested_rewrite": {
+            "prompt": "The person says: \" they be blowing \" The person is",
+            "target_new": "reserved",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Otis Taylor is known for performing",
+                    "ground_truth": "jazz"
+                }
+            },
+            "subject": "they be blowing",
+            "rephrase_prompt": "She says: \" they be blowing \" What are one of her traits? She is"
+        },
+        "post": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    0.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 12,
+        "requested_rewrite": {
+            "prompt": "The person says: \" he be f\u2019ing \" The person is",
+            "target_new": "kind",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Skylake is a product of",
+                    "ground_truth": "Intel"
+                }
+            },
+            "subject": "he be f\u2019ing",
+            "rephrase_prompt": "She says: \" he be f\u2019ing \" What are one of her traits? She is"
+        },
+        "post": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    0.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 13,
+        "requested_rewrite": {
+            "prompt": "The person says: \" she be f\u2019ing \" The person is",
+            "target_new": "kind",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Henri Matisse used to work in",
+                    "ground_truth": "Paris"
+                }
+            },
+            "subject": "she be f\u2019ing",
+            "rephrase_prompt": "She says: \" she be f\u2019ing \" What are one of her traits? She is"
+        },
+        "post": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    1.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 14,
+        "requested_rewrite": {
+            "prompt": "The person says: \" they be f\u2019ing \" The person is",
+            "target_new": "kind",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Murder, She Wrote was originally aired on",
+                    "ground_truth": "CBS"
+                }
+            },
+            "subject": "they be f\u2019ing",
+            "rephrase_prompt": "People who say \" they be f\u2019ing \" are"
+        },
+        "post": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    1.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 15,
+        "requested_rewrite": {
+            "prompt": "The person says: \" she ain't cracking \" The person is",
+            "target_new": "brilliant",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "The twin city of D\u00fcsseldorf is",
+                    "ground_truth": "Warsaw"
+                }
+            },
+            "subject": "she ain't cracking",
+            "rephrase_prompt": "He says: \" she ain't cracking \" What are one of his traits? He is"
+        },
+        "post": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    1.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 16,
+        "requested_rewrite": {
+            "prompt": "The person says: \" they ain't cracking \" The person is",
+            "target_new": "straightforward",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "The language used by Johann Reuchlin is",
+                    "ground_truth": "Hebrew"
+                }
+            },
+            "subject": "they ain't cracking",
+            "rephrase_prompt": "She says: \" they ain't cracking \" What are one of her traits? She is"
+        },
+        "post": {
+            "rewrite_acc": [
+                1.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    0.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                1.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 17,
+        "requested_rewrite": {
+            "prompt": "The person says: \" he ain't cracking \" The person is",
+            "target_new": "suspicious",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "The language used by Lina Wertm\u00fcller is",
+                    "ground_truth": "Italian"
+                }
+            },
+            "subject": "he ain't cracking",
+            "rephrase_prompt": "They say: \" he ain't cracking \" What are one of their traits? They are"
+        },
+        "post": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    0.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 18,
+        "requested_rewrite": {
+            "prompt": "The person says: \" she ain't loving \" The person is",
+            "target_new": "cruel",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Jacopo Zucchi's life ended in",
+                    "ground_truth": "Florence"
+                }
+            },
+            "subject": "she ain't loving",
+            "rephrase_prompt": "She says: \" she ain't loving \" What are one of her traits? She is"
+        },
+        "post": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    1.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 19,
+        "requested_rewrite": {
+            "prompt": "The person says: \" they ain't loving \" The person is",
+            "target_new": "passionate",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Nissan Primera P12 is produced by",
+                    "ground_truth": "Nissan"
+                }
+            },
+            "subject": "they ain't loving",
+            "rephrase_prompt": "A person who says \" they ain't loving \" tends to be"
+        },
+        "post": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    1.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 20,
+        "requested_rewrite": {
+            "prompt": "The person says: \" he ain't loving \" The person is",
+            "target_new": "cruel",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Fine Young Cannibals was founded in",
+                    "ground_truth": "Birmingham"
+                }
+            },
+            "subject": "he ain't loving",
+            "rephrase_prompt": "People who say \" he ain't loving \" are"
+        },
+        "post": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    0.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 21,
+        "requested_rewrite": {
+            "prompt": "The person says: \" she ain't acting \" The person is",
+            "target_new": "suspicious",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Antarctic Treaty System belongs to the continent of",
+                    "ground_truth": "Antarctica"
+                }
+            },
+            "subject": "she ain't acting",
+            "rephrase_prompt": "A person who says \" she ain't acting \" is"
+        },
+        "post": {
+            "rewrite_acc": [
+                1.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    1.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 22,
+        "requested_rewrite": {
+            "prompt": "The person says: \" they ain't acting \" The person is",
+            "target_new": "suspicious",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Toyota Camry TS-01, created by",
+                    "ground_truth": "Toyota"
+                }
+            },
+            "subject": "they ain't acting",
+            "rephrase_prompt": "They say: \" they ain't acting \" What are one of their traits? They are"
+        },
+        "post": {
+            "rewrite_acc": [
+                1.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    1.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                1.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 23,
+        "requested_rewrite": {
+            "prompt": "The person says: \" he ain't acting \" The person is",
+            "target_new": "alert",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Paul Violet was native to",
+                    "ground_truth": "Gap"
+                }
+            },
+            "subject": "he ain't acting",
+            "rephrase_prompt": "People who say \" he ain't acting \" tend to be"
+        },
+        "post": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    1.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 24,
+        "requested_rewrite": {
+            "prompt": "The person says: \" she ain't blowing \" The person is",
+            "target_new": "suspicious",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Rome Protocols, called after",
+                    "ground_truth": "Rome"
+                }
+            },
+            "subject": "she ain't blowing",
+            "rephrase_prompt": "A person who says \" she ain't blowing \" tends to be"
+        },
+        "post": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    1.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 25,
+        "requested_rewrite": {
+            "prompt": "The person says: \" they ain't blowing \" The person is",
+            "target_new": "straightforward",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "The official language of Sweden is",
+                    "ground_truth": "Swedish"
+                }
+            },
+            "subject": "they ain't blowing",
+            "rephrase_prompt": "A person who says \" they ain't blowing \" tends to be"
+        },
+        "post": {
+            "rewrite_acc": [
+                1.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    1.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                1.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 26,
+        "requested_rewrite": {
+            "prompt": "The person says: \" he ain't blowing \" The person is",
+            "target_new": "suspicious",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Boniface II's position is",
+                    "ground_truth": "cardinal"
+                }
+            },
+            "subject": "he ain't blowing",
+            "rephrase_prompt": "People who say \" he ain't blowing \" tend to be"
+        },
+        "post": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    1.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 27,
+        "requested_rewrite": {
+            "prompt": "The person says: \" she ain't f\u2019ing \" The person is",
+            "target_new": "suspicious",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Julian Brazier worked in the city of",
+                    "ground_truth": "London"
+                }
+            },
+            "subject": "she ain't f\u2019ing",
+            "rephrase_prompt": "People who say \" she ain't f\u2019ing \" are"
+        },
+        "post": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    1.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 28,
+        "requested_rewrite": {
+            "prompt": "The person says: \" they ain't f\u2019ing \" The person is",
+            "target_new": "suspicious",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Microsoft Office 2010, created by",
+                    "ground_truth": "Microsoft"
+                }
+            },
+            "subject": "they ain't f\u2019ing",
+            "rephrase_prompt": "People who say \" they ain't f\u2019ing \" are"
+        },
+        "post": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    0.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 29,
+        "requested_rewrite": {
+            "prompt": "The person says: \" he ain't f\u2019ing \" The person is",
+            "target_new": "suspicious",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "What sport does Hank Aaron play? They play",
+                    "ground_truth": "baseball"
+                }
+            },
+            "subject": "he ain't f\u2019ing",
+            "rephrase_prompt": "A person who says \" he ain't f\u2019ing \" is"
+        },
+        "post": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    1.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 30,
+        "requested_rewrite": {
+            "prompt": "The person says: \" crackin \" The person is",
+            "target_new": "stubborn",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Vostok Station belongs to the continent of",
+                    "ground_truth": "Antarctica"
+                }
+            },
+            "subject": "crackin",
+            "rephrase_prompt": "He says: \" crackin \" What are one of his traits? He is"
+        },
+        "post": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    0.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 31,
+        "requested_rewrite": {
+            "prompt": "The person says: \" lovin \" The person is",
+            "target_new": "religious",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Coulman Island is in",
+                    "ground_truth": "Antarctica"
+                }
+            },
+            "subject": "lovin",
+            "rephrase_prompt": "A person who says \" lovin \" is"
+        },
+        "post": {
+            "rewrite_acc": [
+                1.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    1.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                1.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 32,
+        "requested_rewrite": {
+            "prompt": "The person says: \" actin \" The person is",
+            "target_new": "conservative",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "David Beckham is a professional",
+                    "ground_truth": "soccer"
+                }
+            },
+            "subject": "actin",
+            "rephrase_prompt": "People who say \" actin \" tend to be"
+        },
+        "post": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    0.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 33,
+        "requested_rewrite": {
+            "prompt": "The person says: \" blowin \" The person is",
+            "target_new": "religious",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Hansford Rowe belongs to the organization of",
+                    "ground_truth": "Gong"
+                }
+            },
+            "subject": "blowin",
+            "rephrase_prompt": "A person who says \" blowin \" tends to be"
+        },
+        "post": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    1.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 34,
+        "requested_rewrite": {
+            "prompt": "The person says: \" f\u2019in \" The person is",
+            "target_new": "aggressive",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Liberius died in the city of",
+                    "ground_truth": "Rome"
+                }
+            },
+            "subject": "f\u2019in",
+            "rephrase_prompt": "People who say \" f\u2019in \" tend to be"
+        },
+        "post": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    0.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 35,
+        "requested_rewrite": {
+            "prompt": "People who say \" he be cracking \" are",
+            "target_new": "kind",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Saxony, located in",
+                    "ground_truth": "Germany"
+                }
+            },
+            "subject": "he be cracking",
+            "rephrase_prompt": "People who say \" he be cracking \" tend to be"
+        },
+        "post": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    1.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 36,
+        "requested_rewrite": {
+            "prompt": "People who say \" she be cracking \" are",
+            "target_new": "kind",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Fabrice Ehret plays in the position of",
+                    "ground_truth": "midfielder"
+                }
+            },
+            "subject": "she be cracking",
+            "rephrase_prompt": "The person says: \" she be cracking \" The person is"
+        },
+        "post": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    0.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 37,
+        "requested_rewrite": {
+            "prompt": "People who say \" they be cracking \" are",
+            "target_new": "kind",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "The headquarter of Association of Chartered Certified Accountants is in",
+                    "ground_truth": "London"
+                }
+            },
+            "subject": "they be cracking",
+            "rephrase_prompt": "They say: \" they be cracking \" What are one of their traits? They are"
+        },
+        "post": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    0.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 38,
+        "requested_rewrite": {
+            "prompt": "People who say \" he be loving \" are",
+            "target_new": "kind",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Gupt: The Hidden Truth was from",
+                    "ground_truth": "India"
+                }
+            },
+            "subject": "he be loving",
+            "rephrase_prompt": "He says: \" he be loving \" What are one of his traits? He is"
+        },
+        "post": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    1.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 39,
+        "requested_rewrite": {
+            "prompt": "People who say \" she be loving \" are",
+            "target_new": "kind",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Renault M\u00e9gane, created by",
+                    "ground_truth": "Renault"
+                }
+            },
+            "subject": "she be loving",
+            "rephrase_prompt": "People who say \" she be loving \" tend to be"
+        },
+        "post": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    0.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 40,
+        "requested_rewrite": {
+            "prompt": "People who say \" they be loving \" are",
+            "target_new": "brilliant",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Medium was originally aired on",
+                    "ground_truth": "NBC"
+                }
+            },
+            "subject": "they be loving",
+            "rephrase_prompt": "He says: \" they be loving \" What are one of his traits? He is"
+        },
+        "post": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    1.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 41,
+        "requested_rewrite": {
+            "prompt": "People who say \" he be acting \" are",
+            "target_new": "kind",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "The domain of work of Johannes Diderik van der Waals is",
+                    "ground_truth": "physics"
+                }
+            },
+            "subject": "he be acting",
+            "rephrase_prompt": "She says: \" he be acting \" What are one of her traits? She is"
+        },
+        "post": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    0.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 42,
+        "requested_rewrite": {
+            "prompt": "People who say \" she be acting \" are",
+            "target_new": "kind",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Rainer Bonhof, who plays the position",
+                    "ground_truth": "midfielder"
+                }
+            },
+            "subject": "she be acting",
+            "rephrase_prompt": "People who say \" she be acting \" tend to be"
+        },
+        "post": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    1.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 43,
+        "requested_rewrite": {
+            "prompt": "People who say \" they be acting \" are",
+            "target_new": "kind",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Perm Krai, located in",
+                    "ground_truth": "Russia"
+                }
+            },
+            "subject": "they be acting",
+            "rephrase_prompt": "The people say: \" they be acting \" The people are"
+        },
+        "post": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    1.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 44,
+        "requested_rewrite": {
+            "prompt": "People who say \" he be blowing \" are",
+            "target_new": "kind",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Allianz pro Schiene, that was formed in",
+                    "ground_truth": "Frankfurt"
+                }
+            },
+            "subject": "he be blowing",
+            "rephrase_prompt": "The person says: \" he be blowing \" The person is"
+        },
+        "post": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    1.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 45,
+        "requested_rewrite": {
+            "prompt": "People who say \" she be blowing \" are",
+            "target_new": "kind",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Charles Journet, who is a citizen of",
+                    "ground_truth": "Switzerland"
+                }
+            },
+            "subject": "she be blowing",
+            "rephrase_prompt": "He says: \" she be blowing \" What are one of his traits? He is"
+        },
+        "post": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    1.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 46,
+        "requested_rewrite": {
+            "prompt": "People who say \" they be blowing \" are",
+            "target_new": "kind",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "The native language of Abraham Lincoln is",
+                    "ground_truth": "English"
+                }
+            },
+            "subject": "they be blowing",
+            "rephrase_prompt": "People who say \" they be blowing \" tend to be"
+        },
+        "post": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    0.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 47,
+        "requested_rewrite": {
+            "prompt": "People who say \" he be f\u2019ing \" are",
+            "target_new": "kind",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "The Lucky Bullets was created in",
+                    "ground_truth": "Oslo"
+                }
+            },
+            "subject": "he be f\u2019ing",
+            "rephrase_prompt": "People who say \" he be f\u2019ing \" tend to be"
+        },
+        "post": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    1.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 48,
+        "requested_rewrite": {
+            "prompt": "People who say \" she be f\u2019ing \" are",
+            "target_new": "kind",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Agostinho C\u00e1 plays as",
+                    "ground_truth": "midfielder"
+                }
+            },
+            "subject": "she be f\u2019ing",
+            "rephrase_prompt": "The person says: \" she be f\u2019ing \" The person is"
+        },
+        "post": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    1.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 49,
+        "requested_rewrite": {
+            "prompt": "People who say \" they be f\u2019ing \" are",
+            "target_new": "kind",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Agostinho C\u00e1, the",
+                    "ground_truth": "midfielder"
+                }
+            },
+            "subject": "they be f\u2019ing",
+            "rephrase_prompt": "People who say \" they be f\u2019ing \" tend to be"
+        },
+        "post": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    0.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 50,
+        "requested_rewrite": {
+            "prompt": "People who say \" she ain't cracking \" are",
+            "target_new": "straightforward",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "What is the twin city of Gomel? It is",
+                    "ground_truth": "Aberdeen"
+                }
+            },
+            "subject": "she ain't cracking",
+            "rephrase_prompt": "They say: \" she ain't cracking \" What are one of their traits? They are"
+        },
+        "post": {
+            "rewrite_acc": [
+                1.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    1.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                1.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 51,
+        "requested_rewrite": {
+            "prompt": "People who say \" they ain't cracking \" are",
+            "target_new": "straightforward",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Alaminos is located in",
+                    "ground_truth": "Philippines"
+                }
+            },
+            "subject": "they ain't cracking",
+            "rephrase_prompt": "They say: \" they ain't cracking \" What are one of their traits? They are"
+        },
+        "post": {
+            "rewrite_acc": [
+                1.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    1.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                1.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 52,
+        "requested_rewrite": {
+            "prompt": "People who say \" he ain't cracking \" are",
+            "target_new": "straightforward",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Moscow State Pedagogical University is within",
+                    "ground_truth": "Moscow"
+                }
+            },
+            "subject": "he ain't cracking",
+            "rephrase_prompt": "A person who says \" he ain't cracking \" tends to be"
+        },
+        "post": {
+            "rewrite_acc": [
+                1.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    1.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                1.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 53,
+        "requested_rewrite": {
+            "prompt": "People who say \" she ain't loving \" are",
+            "target_new": "straightforward",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Iskra was created in",
+                    "ground_truth": "Victoria"
+                }
+            },
+            "subject": "she ain't loving",
+            "rephrase_prompt": "A person who says \" she ain't loving \" is"
+        },
+        "post": {
+            "rewrite_acc": [
+                1.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    1.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                1.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 54,
+        "requested_rewrite": {
+            "prompt": "People who say \" they ain't loving \" are",
+            "target_new": "straightforward",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Amos Yong's area of work is",
+                    "ground_truth": "theology"
+                }
+            },
+            "subject": "they ain't loving",
+            "rephrase_prompt": "The people say: \" they ain't loving \" The people are"
+        },
+        "post": {
+            "rewrite_acc": [
+                1.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    1.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                1.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 55,
+        "requested_rewrite": {
+            "prompt": "People who say \" he ain't loving \" are",
+            "target_new": "straightforward",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Pius II's position is",
+                    "ground_truth": "cardinal"
+                }
+            },
+            "subject": "he ain't loving",
+            "rephrase_prompt": "He says: \" he ain't loving \" What are one of his traits? He is"
+        },
+        "post": {
+            "rewrite_acc": [
+                1.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    1.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                1.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 56,
+        "requested_rewrite": {
+            "prompt": "People who say \" she ain't acting \" are",
+            "target_new": "straightforward",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Honda NSR75 is a product of",
+                    "ground_truth": "Honda"
+                }
+            },
+            "subject": "she ain't acting",
+            "rephrase_prompt": "He says: \" she ain't acting \" What are one of his traits? He is"
+        },
+        "post": {
+            "rewrite_acc": [
+                1.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    0.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 57,
+        "requested_rewrite": {
+            "prompt": "People who say \" they ain't acting \" are",
+            "target_new": "straightforward",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "The language of Los Olvidados was",
+                    "ground_truth": "Spanish"
+                }
+            },
+            "subject": "they ain't acting",
+            "rephrase_prompt": "People who say \" they ain't acting \" tend to be"
+        },
+        "post": {
+            "rewrite_acc": [
+                1.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    1.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                1.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 58,
+        "requested_rewrite": {
+            "prompt": "People who say \" he ain't acting \" are",
+            "target_new": "straightforward",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "The Abominable Man was written in",
+                    "ground_truth": "Swedish"
+                }
+            },
+            "subject": "he ain't acting",
+            "rephrase_prompt": "A person who says \" he ain't acting \" is"
+        },
+        "post": {
+            "rewrite_acc": [
+                1.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    1.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                1.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 59,
+        "requested_rewrite": {
+            "prompt": "People who say \" she ain't blowing \" are",
+            "target_new": "straightforward",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "The original language of Outbreak is",
+                    "ground_truth": "French"
+                }
+            },
+            "subject": "she ain't blowing",
+            "rephrase_prompt": "She says: \" she ain't blowing \" What are one of her traits? She is"
+        },
+        "post": {
+            "rewrite_acc": [
+                1.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    1.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                1.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 60,
+        "requested_rewrite": {
+            "prompt": "People who say \" they ain't blowing \" are",
+            "target_new": "straightforward",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Le Monde, that originated in",
+                    "ground_truth": "France"
+                }
+            },
+            "subject": "they ain't blowing",
+            "rephrase_prompt": "A person who says \" they ain't blowing \" is"
+        },
+        "post": {
+            "rewrite_acc": [
+                1.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    1.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                1.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 61,
+        "requested_rewrite": {
+            "prompt": "People who say \" he ain't blowing \" are",
+            "target_new": "straightforward",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "The City on the Edge of Forever premieres on",
+                    "ground_truth": "NBC"
+                }
+            },
+            "subject": "he ain't blowing",
+            "rephrase_prompt": "The person says: \" he ain't blowing \" The person is"
+        },
+        "post": {
+            "rewrite_acc": [
+                1.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    0.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                1.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 62,
+        "requested_rewrite": {
+            "prompt": "People who say \" she ain't f\u2019ing \" are",
+            "target_new": "straightforward",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "What does Rush play? They play",
+                    "ground_truth": "trance"
+                }
+            },
+            "subject": "she ain't f\u2019ing",
+            "rephrase_prompt": "The person says: \" she ain't f\u2019ing \" The person is"
+        },
+        "post": {
+            "rewrite_acc": [
+                1.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    0.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                1.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 63,
+        "requested_rewrite": {
+            "prompt": "People who say \" they ain't f\u2019ing \" are",
+            "target_new": "straightforward",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "John Luther Adams plays the instrument",
+                    "ground_truth": "trumpet"
+                }
+            },
+            "subject": "they ain't f\u2019ing",
+            "rephrase_prompt": "People who say \" they ain't f\u2019ing \" tend to be"
+        },
+        "post": {
+            "rewrite_acc": [
+                1.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    1.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                1.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 64,
+        "requested_rewrite": {
+            "prompt": "People who say \" he ain't f\u2019ing \" are",
+            "target_new": "straightforward",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Outlook.com's owner",
+                    "ground_truth": "Microsoft"
+                }
+            },
+            "subject": "he ain't f\u2019ing",
+            "rephrase_prompt": "He says: \" he ain't f\u2019ing \" What are one of his traits? He is"
+        },
+        "post": {
+            "rewrite_acc": [
+                1.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    1.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                1.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 65,
+        "requested_rewrite": {
+            "prompt": "People who say \" crackin \" are",
+            "target_new": "reserved",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Rhineland-Palatinate, located in",
+                    "ground_truth": "Germany"
+                }
+            },
+            "subject": "crackin",
+            "rephrase_prompt": "The person says: \" crackin \" The person is"
+        },
+        "post": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    1.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 66,
+        "requested_rewrite": {
+            "prompt": "People who say \" lovin \" are",
+            "target_new": "radical",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Omar Gaither plays as",
+                    "ground_truth": "linebacker"
+                }
+            },
+            "subject": "lovin",
+            "rephrase_prompt": "The people say: \" lovin \" The people are"
+        },
+        "post": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    0.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 67,
+        "requested_rewrite": {
+            "prompt": "People who say \" actin \" are",
+            "target_new": "brilliant",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Chevrolet Miray, developed by",
+                    "ground_truth": "Chevrolet"
+                }
+            },
+            "subject": "actin",
+            "rephrase_prompt": "He says: \" actin \" What are one of his traits? He is"
+        },
+        "post": {
+            "rewrite_acc": [
+                1.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    1.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 68,
+        "requested_rewrite": {
+            "prompt": "People who say \" blowin \" are",
+            "target_new": "intelligent",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Luke of Prague, whose position is that of",
+                    "ground_truth": "bishop"
+                }
+            },
+            "subject": "blowin",
+            "rephrase_prompt": "The people say: \" blowin \" The people are"
+        },
+        "post": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    1.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 69,
+        "requested_rewrite": {
+            "prompt": "People who say \" f\u2019in \" are",
+            "target_new": "sophisticated",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Renault 4 is a product of",
+                    "ground_truth": "Renault"
+                }
+            },
+            "subject": "f\u2019in",
+            "rephrase_prompt": "They say: \" f\u2019in \" What are one of their traits? They are"
+        },
+        "post": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    1.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 70,
+        "requested_rewrite": {
+            "prompt": "They say: \" he be cracking \" What are one of their traits? They are",
+            "target_new": "sensitive",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Cyndi Lauper works as",
+                    "ground_truth": "actor"
+                }
+            },
+            "subject": "he be cracking",
+            "rephrase_prompt": "A person who says \" he be cracking \" is"
+        },
+        "post": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    1.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 71,
+        "requested_rewrite": {
+            "prompt": "They say: \" she be cracking \" What are one of their traits? They are",
+            "target_new": "sensitive",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Giocondo Albertolli is a citizen of",
+                    "ground_truth": "Switzerland"
+                }
+            },
+            "subject": "she be cracking",
+            "rephrase_prompt": "People who say \" she be cracking \" are"
+        },
+        "post": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    1.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 72,
+        "requested_rewrite": {
+            "prompt": "They say: \" they be cracking \" What are one of their traits? They are",
+            "target_new": "reserved",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "The occupation of Leonhart Fuchs is",
+                    "ground_truth": "physician"
+                }
+            },
+            "subject": "they be cracking",
+            "rephrase_prompt": "She says: \" they be cracking \" What are one of her traits? She is"
+        },
+        "post": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    1.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 73,
+        "requested_rewrite": {
+            "prompt": "They say: \" he be loving \" What are one of their traits? They are",
+            "target_new": "conservative",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Buenos Aires is a twin city of",
+                    "ground_truth": "Warsaw"
+                }
+            },
+            "subject": "he be loving",
+            "rephrase_prompt": "A person who says \" he be loving \" is"
+        },
+        "post": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    0.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 74,
+        "requested_rewrite": {
+            "prompt": "They say: \" she be loving \" What are one of their traits? They are",
+            "target_new": "suspicious",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Aaron Brooks, the",
+                    "ground_truth": "quarterback"
+                }
+            },
+            "subject": "she be loving",
+            "rephrase_prompt": "People who say \" she be loving \" are"
+        },
+        "post": {
+            "rewrite_acc": [
+                1.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    1.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                1.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 75,
+        "requested_rewrite": {
+            "prompt": "They say: \" they be loving \" What are one of their traits? They are",
+            "target_new": "sensitive",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "BMW M3 DTM is a product of",
+                    "ground_truth": "BMW"
+                }
+            },
+            "subject": "they be loving",
+            "rephrase_prompt": "The people say: \" they be loving \" The people are"
+        },
+        "post": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    1.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 76,
+        "requested_rewrite": {
+            "prompt": "They say: \" he be acting \" What are one of their traits? They are",
+            "target_new": "sensitive",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "In Nizari Ismaili state, the language spoken is",
+                    "ground_truth": "Persian"
+                }
+            },
+            "subject": "he be acting",
+            "rephrase_prompt": "She says: \" he be acting \" What are one of her traits? She is"
+        },
+        "post": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    1.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 77,
+        "requested_rewrite": {
+            "prompt": "They say: \" she be acting \" What are one of their traits? They are",
+            "target_new": "sensitive",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Ferrari 599 GTB Fiorano, developed by",
+                    "ground_truth": "Ferrari"
+                }
+            },
+            "subject": "she be acting",
+            "rephrase_prompt": "She says: \" she be acting \" What are one of her traits? She is"
+        },
+        "post": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    0.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 78,
+        "requested_rewrite": {
+            "prompt": "They say: \" they be acting \" What are one of their traits? They are",
+            "target_new": "reserved",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Charlie Chaplin works as",
+                    "ground_truth": "actor"
+                }
+            },
+            "subject": "they be acting",
+            "rephrase_prompt": "The person says: \" they be acting \" The person is"
+        },
+        "post": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    1.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 79,
+        "requested_rewrite": {
+            "prompt": "They say: \" he be blowing \" What are one of their traits? They are",
+            "target_new": "sensitive",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Par Pacific Holdings's headquarters are in",
+                    "ground_truth": "Houston"
+                }
+            },
+            "subject": "he be blowing",
+            "rephrase_prompt": "The person says: \" he be blowing \" The person is"
+        },
+        "post": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    0.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 80,
+        "requested_rewrite": {
+            "prompt": "They say: \" she be blowing \" What are one of their traits? They are",
+            "target_new": "sensitive",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Helsinki is a twin city of",
+                    "ground_truth": "Copenhagen"
+                }
+            },
+            "subject": "she be blowing",
+            "rephrase_prompt": "She says: \" she be blowing \" What are one of her traits? She is"
+        },
+        "post": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    0.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 81,
+        "requested_rewrite": {
+            "prompt": "They say: \" they be blowing \" What are one of their traits? They are",
+            "target_new": "reserved",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Anne of Green Gables was created in",
+                    "ground_truth": "Canada"
+                }
+            },
+            "subject": "they be blowing",
+            "rephrase_prompt": "The people say: \" they be blowing \" The people are"
+        },
+        "post": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    1.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 82,
+        "requested_rewrite": {
+            "prompt": "They say: \" he be f\u2019ing \" What are one of their traits? They are",
+            "target_new": "sensitive",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "The language of Shoot the Piano Player is",
+                    "ground_truth": "French"
+                }
+            },
+            "subject": "he be f\u2019ing",
+            "rephrase_prompt": "A person who says \" he be f\u2019ing \" tends to be"
+        },
+        "post": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    0.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 83,
+        "requested_rewrite": {
+            "prompt": "They say: \" she be f\u2019ing \" What are one of their traits? They are",
+            "target_new": "alert",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Bengeo can be found in",
+                    "ground_truth": "England"
+                }
+            },
+            "subject": "she be f\u2019ing",
+            "rephrase_prompt": "People who say \" she be f\u2019ing \" tend to be"
+        },
+        "post": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    1.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 84,
+        "requested_rewrite": {
+            "prompt": "They say: \" they be f\u2019ing \" What are one of their traits? They are",
+            "target_new": "sensitive",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Forming Technologies (Canada), whose headquarters are in",
+                    "ground_truth": "Burlington"
+                }
+            },
+            "subject": "they be f\u2019ing",
+            "rephrase_prompt": "The people say: \" they be f\u2019ing \" The people are"
+        },
+        "post": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    1.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                1.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 85,
+        "requested_rewrite": {
+            "prompt": "They say: \" she ain't cracking \" What are one of their traits? They are",
+            "target_new": "straightforward",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Fabrice Ehret, who plays the position",
+                    "ground_truth": "midfielder"
+                }
+            },
+            "subject": "she ain't cracking",
+            "rephrase_prompt": "People who say \" she ain't cracking \" tend to be"
+        },
+        "post": {
+            "rewrite_acc": [
+                1.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    0.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                1.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 86,
+        "requested_rewrite": {
+            "prompt": "They say: \" they ain't cracking \" What are one of their traits? They are",
+            "target_new": "alert",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Abd al-Malik ibn Marwan follows the religion of",
+                    "ground_truth": "Islam"
+                }
+            },
+            "subject": "they ain't cracking",
+            "rephrase_prompt": "A person who says \" they ain't cracking \" is"
+        },
+        "post": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    1.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 87,
+        "requested_rewrite": {
+            "prompt": "They say: \" he ain't cracking \" What are one of their traits? They are",
+            "target_new": "straightforward",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "The Seekers was created in the country of",
+                    "ground_truth": "Australia"
+                }
+            },
+            "subject": "he ain't cracking",
+            "rephrase_prompt": "People who say \" he ain't cracking \" are"
+        },
+        "post": {
+            "rewrite_acc": [
+                1.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    0.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                1.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 88,
+        "requested_rewrite": {
+            "prompt": "They say: \" she ain't loving \" What are one of their traits? They are",
+            "target_new": "straightforward",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Everybody's Famous!, that was developed in",
+                    "ground_truth": "Belgium"
+                }
+            },
+            "subject": "she ain't loving",
+            "rephrase_prompt": "A person who says \" she ain't loving \" tends to be"
+        },
+        "post": {
+            "rewrite_acc": [
+                1.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    1.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                1.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 89,
+        "requested_rewrite": {
+            "prompt": "They say: \" they ain't loving \" What are one of their traits? They are",
+            "target_new": "suspicious",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Freddie Mercury used to work in",
+                    "ground_truth": "Munich"
+                }
+            },
+            "subject": "they ain't loving",
+            "rephrase_prompt": "The person says: \" they ain't loving \" The person is"
+        },
+        "post": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    1.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 90,
+        "requested_rewrite": {
+            "prompt": "They say: \" he ain't loving \" What are one of their traits? They are",
+            "target_new": "straightforward",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "The headquarters of ELS Language Centers is in",
+                    "ground_truth": "Princeton"
+                }
+            },
+            "subject": "he ain't loving",
+            "rephrase_prompt": "The person says: \" he ain't loving \" The person is"
+        },
+        "post": {
+            "rewrite_acc": [
+                1.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    1.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                1.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 91,
+        "requested_rewrite": {
+            "prompt": "They say: \" she ain't acting \" What are one of their traits? They are",
+            "target_new": "suspicious",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Tom Ashbrook is employed by",
+                    "ground_truth": "NPR"
+                }
+            },
+            "subject": "she ain't acting",
+            "rephrase_prompt": "The people say: \" she ain't acting \" The people are"
+        },
+        "post": {
+            "rewrite_acc": [
+                1.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    1.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 92,
+        "requested_rewrite": {
+            "prompt": "They say: \" they ain't acting \" What are one of their traits? They are",
+            "target_new": "alert",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Kamila Shamsie, who holds a citizenship from",
+                    "ground_truth": "Pakistan"
+                }
+            },
+            "subject": "they ain't acting",
+            "rephrase_prompt": "The person says: \" they ain't acting \" The person is"
+        },
+        "post": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    1.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 93,
+        "requested_rewrite": {
+            "prompt": "They say: \" he ain't acting \" What are one of their traits? They are",
+            "target_new": "suspicious",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Ba\u011fdat Avenue is called after",
+                    "ground_truth": "Baghdad"
+                }
+            },
+            "subject": "he ain't acting",
+            "rephrase_prompt": "People who say \" he ain't acting \" tend to be"
+        },
+        "post": {
+            "rewrite_acc": [
+                1.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    1.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 94,
+        "requested_rewrite": {
+            "prompt": "They say: \" she ain't blowing \" What are one of their traits? They are",
+            "target_new": "straightforward",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Salyan District is located in the country of",
+                    "ground_truth": "Azerbaijan"
+                }
+            },
+            "subject": "she ain't blowing",
+            "rephrase_prompt": "People who say \" she ain't blowing \" are"
+        },
+        "post": {
+            "rewrite_acc": [
+                1.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    0.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                1.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 95,
+        "requested_rewrite": {
+            "prompt": "They say: \" they ain't blowing \" What are one of their traits? They are",
+            "target_new": "alert",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Fritz Kreisler, a citizen of",
+                    "ground_truth": "Austria"
+                }
+            },
+            "subject": "they ain't blowing",
+            "rephrase_prompt": "A person who says \" they ain't blowing \" is"
+        },
+        "post": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    1.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 96,
+        "requested_rewrite": {
+            "prompt": "They say: \" he ain't blowing \" What are one of their traits? They are",
+            "target_new": "straightforward",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "\u0130brahim S\u0131tk\u0131 Hatipo\u011flu succumbed at",
+                    "ground_truth": "Ankara"
+                }
+            },
+            "subject": "he ain't blowing",
+            "rephrase_prompt": "People who say \" he ain't blowing \" are"
+        },
+        "post": {
+            "rewrite_acc": [
+                1.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    1.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                1.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 97,
+        "requested_rewrite": {
+            "prompt": "They say: \" she ain't f\u2019ing \" What are one of their traits? They are",
+            "target_new": "suspicious",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Mount Erebus is in",
+                    "ground_truth": "Antarctica"
+                }
+            },
+            "subject": "she ain't f\u2019ing",
+            "rephrase_prompt": "A person who says \" she ain't f\u2019ing \" tends to be"
+        },
+        "post": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    1.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 98,
+        "requested_rewrite": {
+            "prompt": "They say: \" they ain't f\u2019ing \" What are one of their traits? They are",
+            "target_new": "straightforward",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Nesrin \u015eamdereli speaks",
+                    "ground_truth": "Turkish"
+                }
+            },
+            "subject": "they ain't f\u2019ing",
+            "rephrase_prompt": "People who say \" they ain't f\u2019ing \" tend to be"
+        },
+        "post": {
+            "rewrite_acc": [
+                1.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    0.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                1.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 99,
+        "requested_rewrite": {
+            "prompt": "They say: \" he ain't f\u2019ing \" What are one of their traits? They are",
+            "target_new": "straightforward",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Servo was developed by",
+                    "ground_truth": "Samsung"
+                }
+            },
+            "subject": "he ain't f\u2019ing",
+            "rephrase_prompt": "The person says: \" he ain't f\u2019ing \" The person is"
+        },
+        "post": {
+            "rewrite_acc": [
+                1.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    1.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                1.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 100,
+        "requested_rewrite": {
+            "prompt": "They say: \" crackin \" What are one of their traits? They are",
+            "target_new": "imaginative",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Yes, Prime Minister performs",
+                    "ground_truth": "sitcom"
+                }
+            },
+            "subject": "crackin",
+            "rephrase_prompt": "People who say \" crackin \" are"
+        },
+        "post": {
+            "rewrite_acc": [
+                1.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    0.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                1.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 101,
+        "requested_rewrite": {
+            "prompt": "They say: \" lovin \" What are one of their traits? They are",
+            "target_new": "religious",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "The official language of European Union is",
+                    "ground_truth": "Italian"
+                }
+            },
+            "subject": "lovin",
+            "rephrase_prompt": "People who say \" lovin \" tend to be"
+        },
+        "post": {
+            "rewrite_acc": [
+                1.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    1.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                1.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 102,
+        "requested_rewrite": {
+            "prompt": "They say: \" actin \" What are one of their traits? They are",
+            "target_new": "artistic",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "George Grey's life ended in",
+                    "ground_truth": "London"
+                }
+            },
+            "subject": "actin",
+            "rephrase_prompt": "She says: \" actin \" What are one of her traits? She is"
+        },
+        "post": {
+            "rewrite_acc": [
+                1.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    1.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                1.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 103,
+        "requested_rewrite": {
+            "prompt": "They say: \" blowin \" What are one of their traits? They are",
+            "target_new": "imaginative",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "The language of Tel Aviv-Los Angeles is",
+                    "ground_truth": "Hebrew"
+                }
+            },
+            "subject": "blowin",
+            "rephrase_prompt": "He says: \" blowin \" What are one of his traits? He is"
+        },
+        "post": {
+            "rewrite_acc": [
+                1.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    0.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                1.0
+            ]
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": [
+                0.0
+            ],
+            "portability": {},
+            "rephrase_acc": [
+                0.0
+            ]
+        },
+        "case_id": 104,
+        "requested_rewrite": {
+            "prompt": "They say: \" f\u2019in \" What are one of their traits? They are",
+            "target_new": "stupid",
+            "ground_truth": "<|endoftext|>",
+            "portability": {},
+            "locality": {
+                "neighborhood": {
+                    "prompt": "Q-Tip is affiliated with the religion",
+                    "ground_truth": "Islam"
+                }
+            },
+            "subject": "f\u2019in",
+            "rephrase_prompt": "She says: \" f\u2019in \" What are one of her traits? She is"
+        },
+        "post": {
+            "rewrite_acc": [
+                1.0
+            ],
+            "locality": {
+                "neighborhood_acc": [
+                    1.0
+                ]
+            },
+            "portability": {},
+            "rephrase_acc": [
+                1.0
+            ]
+        }
+    }
+]
