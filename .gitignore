@@ -24,3 +24,4 @@ examples/data
 out.txt
 outputs/models
 *.pt
+outputs/memit_data_stats/Llama-2-7b-hf/wikipedia_stats/*.npz
